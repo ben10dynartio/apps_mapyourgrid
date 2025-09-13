@@ -1,6 +1,8 @@
+*__pycache__*
 health_score/data/*
 spatial_analysis/data/*
 spatial_analysis/build/*
+indicators_map/data/*
 
 .idea/
 

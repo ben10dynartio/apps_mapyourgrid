@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="">
+  <head>
+    <meta charset="utf-8">
+    <title>Grid-Graph MapYourGrid</title>
+    <style>
+          body {
+        margin: 0;
+        padding: 0;
+      }
+
+    iframe {
+      position: fixed;
+      background: #000;
+      border: none;
+      top: 0; right: 0;
+      bottom: 0; left: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    .map-overlay {
+	position: absolute;
+	/*overflow: auto;*/
+}
+
+.whitebox-overlay {
+  background: #fff;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  border-radius: 3px;
+    padding: 10px;
+}
+
+#legend-and-button {
+  bottom: 0;
+  right: 0;
+  width:fit-content;
+  height:fit-content;
+  display:flex;
+  flex-direction:column;
+  margin:0 15px 25px 0;
+}
+
+#legend {
+  line-height: 1.2rem;
+  height: 100px;
+  width: 115px;
+  font-size:0.9rem;
+
+}
+
+.legend-key {
+  display: inline-block;
+  border-radius: 20%;
+  width: 8px;
+  height: 8px;
+  margin-right: 5px;
+}
+
+.mapbox-improve-map {
+	display:none;
+}
+
+#map { position: absolute; top: 0; bottom: 0; width: 100%; }
+</style>
+<link href="https://api.mapbox.com/mapbox-gl-js/v3.13.0/mapbox-gl.css" rel="stylesheet">
+<script src="https://api.mapbox.com/mapbox-gl-js/v3.13.0/mapbox-gl.js"></script>
+	<script src="https://unpkg.com/@turf/turf@^7/turf.min.js"></script>
+  </head>
+  <body>
+    <header></header>
+    <main>
+
+    <div id="map"></div>
+
+    <div id="legend-and-button" class='map-overlay'>
+		<div id='legend' class='whitebox-overlay'><b>Power line status</b></div>
+	</div>
+
+<script>
+	mapboxgl.accessToken = 'pk.eyJ1IjoiZHluYXJ0aW8iLCJhIjoiY21kY3d2NHJqMDF3azJtcjE4MW9pbXFzcCJ9.1b8Dmqyfv_xq3Hre_90pPg';
+    const map = new mapboxgl.Map({
+        container: 'map',
+        // Choose from Mapbox's core styles, or make your own style with Mapbox Studio
+        style: 'mapbox://styles/dynartio/cmda8u3qu002001sae5ox34ud',
+        attributionControl: false,
+        //center: [-96, 37.8],
+        //zoom: 3
+    });
+
+    map.addControl(new mapboxgl.AttributionControl({customAttribution: "MapYourGrid | Dynartio"}));
+
+// ----------- Popup builder
+map.on('click', (event) => {
+  // If the user clicked on one of your markers, get its information.
+  const features = map.queryRenderedFeatures(event.point, {
+    layers: ["graph-lines-world-international", "graph-lines-world-disconnected", "graph-lines-world-connected"] //['detail_ville'] // replace with your layer name
+  });
+
+  if (!features.length) {
+    return;
+  }
+  const feature = features[0];
+
+  build_popup_detail(feature);
+  console.log("Showing popup =");
+  console.log(feature);
+});
+
+function build_popup_detail(feature) {
+	/*const code_dep = feature.properties.insee; //.substr(0, 2);
+	const pfd = 100;
+	const pfc = Math.round(feature.properties.SurfFCCert*100/feature.properties.SurfFCTot);
+	const pfp = Math.round(feature.properties.SurfFPCert*100/feature.properties.SurfFPTot);
+	let htmlcontent = "<h3>" + feature.properties.nom.toUpperCase() + " (" + code_dep + ")</h3>";
+	//var polygon = turf.polygon(feature.geometry.coordinates);
+	let centroid = get_centroid(feature);
+
+
+	if (Math.round(feature.properties.SurfFCTot) > 1) {
+		htmlcontent += "<p><b>Forêts de collectivités :</b> <a class='smalllink' onclick='only_fc_visible()'>(Voir)</a><br>&nbsp;&nbsp;&nbsp;> Surface forestière totale : " + Math.round(feature.properties.SurfFCTot).toString() + " ha"
+		htmlcontent += "<br><span style='color:#da623d;'>&nbsp;&nbsp;&nbsp;> " + pfc.toString() + " % certifiée PEFC</span></p>";
+	}
+	if (Math.round(feature.properties.SurfFPTot) > 1) {
+		htmlcontent += "<p><b>Forêts privées et autres :</b> <a class='smalllink' onclick='only_fp_visible()'>(Voir)</a><br>&nbsp;&nbsp;&nbsp;> Surface forestière totale : " + Math.round(feature.properties.SurfFPTot).toString() + " ha"
+		htmlcontent += "<br><span style='color:#da623d;'>&nbsp;&nbsp;&nbsp;> " + pfp.toString() + " % certifiée PEFC</span></p>";
+	}
+	if (Math.round(feature.properties.SurfFDTot) > 1) {
+		htmlcontent += "<p><b>Forêts domaniales :</b> <a class='smalllink' onclick='only_fd_visible()'>(Voir)</a><br>&nbsp;&nbsp;&nbsp;> Surface forestière  totale : " + Math.round(feature.properties.SurfFDTot).toString() + " ha"
+		htmlcontent += "<br><span style='color:#da623d;'>&nbsp;&nbsp;&nbsp;> " + pfd.toString() + " % certifiée PEFC</span></p>";
+	}
+	if (popup_detail) {
+		popup_detail.remove()
+	}
+	if (popup_hover) {
+		popup_hover.remove()
+	}*/
+
+	/*popup_detail = new mapboxgl.Popup({ offset: Math.pow(map.getZoom(), 3) *0.1, maxWidth: '600px' })
+	.setLngLat(centroid.geometry.coordinates)//event.lngLat.wrap())//feature.geometry.getCenter())
+	  .setHTML(htmlcontent)
+	  .addTo(map);*/
+
+    let htmlcontent = "<h3>Power line (or cable) - " + feature.properties.country + "</h3>";
+    let sousChaines = feature.properties.osmid.split(";");
+
+    htmlcontent += "<p><span>OSM id: ";
+    sousChaines.forEach(url => {
+      htmlcontent += "<a href='https://www.openstreetmap.org/" + url + "' target='_blank'>" + url + "</a> ; ";
+    });
+    htmlcontent += "</span>";
+    htmlcontent += "<br><span>Start node: <a href='https://www.openstreetmap.org/" + feature.properties.node0 + "' target='_blank'>" + feature.properties.node0 + "</a></span>";
+    htmlcontent += "<br><span>End node:<a href='https://www.openstreetmap.org/" + feature.properties.node1 + "' target='_blank'>" + feature.properties.node1 + "</a></span></p>";
+
+	let centroid = get_centroid(feature);
+    popup_detail = new mapboxgl.Popup({ maxWidth: '600px' })
+	.setLngLat(centroid.geometry.coordinates)//event.lngLat.wrap())//feature.geometry.getCenter())
+	  .setHTML(htmlcontent)
+	  .addTo(map);
+
+	/* if (current_select) {
+	// Unhover the current feature
+		map.setFeatureState(
+			{ sourceLayer: config.uilayer, source: 'composite', id: current_select.id },
+			{ hover: false }
+		);
+		map.setFeatureState(
+			{ sourceLayer: config.uilayer_lowdef, source: 'composite', id: current_select.id },
+			{ hover: false }
+		);
+	}
+	map.setFeatureState(
+		{ sourceLayer: config.uilayer, source: 'composite', id: feature.id },
+		{ hover: true }
+	);
+	map.setFeatureState(
+		{ sourceLayer: config.uilayer_lowdef, source: 'composite', id: feature.id },
+		{ hover: true }
+	);
+	current_select = feature */
+
+}
+
+function get_centroid(myfeature) {
+console.log("Coordonnées centroid =");
+console.log(myfeature.geometry.coordinates);
+	try {
+		var polygon = turf.lineString(myfeature.geometry.coordinates);
+		var centroid = turf.centroid(polygon);
+	} catch (error) {
+		var polygon = turf.lineString(myfeature.geometry.coordinates[0]);
+		var centroid = turf.centroid(polygon);
+	}
+	return centroid;
+}
+
+map.on('load', () => {
+
+	const legend_layers = [
+	  'Connected',
+	  'Disconnected',
+	  'International',
+	];
+	const legend_colors = [
+	  '#150689',
+	  '#ee8e44',
+	  '#f240a5',
+	];
+	legend_layers.forEach((layer, i) => {
+		const color = legend_colors[i];
+		const item = document.createElement('div');
+		const key = document.createElement('span');
+		key.className = 'legend-key';
+		key.style.backgroundColor = color;
+
+		const value = document.createElement('span');
+		value.innerHTML = `${layer}`;
+		item.appendChild(key);
+		item.appendChild(value);
+		legend.appendChild(item);
+	});
+});
+
+</script>
+
+
+   </main>
+    <footer></footer>
+  </body>
+</html>
