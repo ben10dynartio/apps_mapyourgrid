@@ -1,0 +1,11 @@
+health_score/data/*
+spatial_analysis/data/*
+spatial_analysis/build/*
+
+.idea/
+
+# Virtual environment
+venv/
+.venv/
+*/venv/
+*/.venv/

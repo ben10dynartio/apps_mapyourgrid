@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Colombia grid quality score</title>
+  <style>
+    body {
+      justify-content: center;
+      align-items: center;
+      color: #222;
+      font-family: sans-serif;
+      flex-direction: column;
+    }
+    canvas {
+
+    }
+    td {
+      text-align: center;
+    }
+
+    h1, h2 {
+      text-align: center;
+    }
+
+    .container {
+      display: flex;
+      flex-wrap: wrap; /* Retour à la ligne auto */
+      gap: 16px; /* Espace entre les blocs */
+      justify-content: center;
+    }
+    .card {
+      flex: 1 1 200px; /* Largeur min de 200px, ajustable */
+      max-width: 250px;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      padding: 10px;
+      padding-bottom: 0px;
+      text-align: center;
+      background: #f9f9f9;
+    }
+    .card img {
+      max-width: 100%;
+      height: auto;
+      margin-top: 8px;
+    }
+    .card b {
+      display: block;
+      font-size: 16px;
+      margin-bottom: 8px;
+      height: 45px;
+    }
+
+  </style>
+</head>
+<script>
+    const data = [{'name': 'Line connectivity', 'value': 76.5, 'explain': 'nb(Grid connected power line|cable) / nb(Grid power line|cable) || Grid line derivated (~=) from OSM power=line|cable after connectivity analysis'}, {'name': 'Grid overall connectivity (without circuits)', 'value': 83.6, 'explain': 'Grid analysis'}, {'name': 'Grid overall connectivity (with circuits)', 'value': 85.1, 'explain': 'Grid analysis'}, {'name': 'Voltage attribute completeness on power lines and cables', 'value': 82.2, 'explain': "nb(OSM power=line|cable & voltage!='') /nb(OSM power=line|cable)"}, {'name': 'Cables attribute completeness on power lines and cables', 'value': 79.2, 'explain': "nb(OSM power=line|cable & cables!='') /nb(OSM power=line|cable)"}, {'name': 'Voltage attribute completeness on substations', 'value': 55.4, 'explain': "nb(OSM power=substation & voltage!='')/nb(OSM power=substation)"}, {'name': 'Connected power tower (Osmose&nbsp;Class&nbsp;1)', 'value': 98.9, 'explain': '1 - nb(Osmose-Class1-power=tower) / nb(OSM power=tower)'}, {'name': 'Complete power line (Osmose&nbsp;Class&nbsp;2)', 'value': 89.2, 'explain': '1 - nb(Osmose-Class2) / 2*nb(OSM power=line)'}, {'name': 'Line voltage consistency (Osmose&nbsp;Class&nbsp;3)', 'value': 97.3, 'explain': '1 - nb(Osmose-Class3) / nb(connection nodes) | Connection nodes computed by grid analysis'}, {'name': 'Line-Substation voltage consistency (Osmose&nbsp;Class&nbsp;7)', 'value': 98.5, 'explain': '1 - nb(Osmose-Class7) / nb(line-sub connection) | Line-Sub connection computed by grid analysis'}]
+
+
+
+</script>
+
+<body>
+
+<h1 style="display: flex; align-items: center; justify-content: center;">
+<img src="http://commons.wikimedia.org/wiki/Special:FilePath/Flag%20of%20Colombia.svg" width="100px" style="margin-right: 20px;">
+<a href="https://wiki.openstreetmap.org/wiki/Power_networks/Colombia">Colombia</a>&nbsp;- Power grid quality score
+<img src="http://commons.wikimedia.org/wiki/Special:FilePath/Flag%20of%20Colombia.svg" width="100px" style="margin-left: 20px;">
+</h1>
+
+<div class="container" id="cards"></div>
+<br>
+
+<h2>Overall quality score</h2>
+<div style="text-align: center;width:100%;"><canvas id="ring_overall" width="250" height="250"></canvas></div>
+
+<h2 style="display: flex; align-items: center; justify-content: center;"><a href="https://mapyourgrid.org">Powered by MapYourGrid</a> <img src="https://mapyourgrid.org/images/logos/MapYourGrid-logo.webp" width="80px" style="margin-left: 20px;"></h2>
+<br>
+<h2>Computation methodology</h2>
+
+<script>
+const container = document.getElementById('cards');
+
+// Exemple : utiliser une image factice (placeholder)
+data.forEach(item => {
+  const div = document.createElement('div');
+  div.className = 'card';
+
+  // Titre
+  const title = document.createElement('b');
+  title.innerHTML = item.name;
+
+  // Image (ici un placeholder, tu peux remplacer l'URL)
+  const canvas = document.createElement('canvas');
+  canvas.id = "ring_" + item.name;
+  canvas.width = 220;
+  canvas.height = 180;
+
+  div.appendChild(title);
+  div.appendChild(canvas);
+  container.appendChild(div);
+});
+</script>
+
+  <script>
+
+    function percentToColor(p) {
+      // Interpolation entre rouge (0%) → jaune (65%) → vert (100%)
+      let r, g, b = 0;
+      if (p < 65) {
+        // rouge -> jaune (rouge=255, vert=0→255)
+        r = 255;
+        g = Math.round(255 * (p / 65));
+      } else {
+        // jaune -> vert (rouge=255→0, vert=255)
+        g = 255;
+        r = Math.round(255 * (1 - (p - 65) / 65));
+      }
+      return `rgb(${r},${g},${b})`;
+    }
+
+    function drawRing(ringname, percent, size) {
+    const canvas = document.getElementById(ringname);
+    const ctx = canvas.getContext("2d");
+    let element_size = {};
+    if (size=="S") {
+      element_size = {
+        radius:60,
+        lineWidth:20,
+      };
+    } else {
+      element_size = {
+        radius:90,
+        lineWidth:30,
+      };
+    }
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      const startAngle = -Math.PI / 2; // commence en haut
+      const endAngle = startAngle + (percent / 100) * 2 * Math.PI;
+
+      // Anneau de fond
+      ctx.beginPath();
+      ctx.arc(canvas.width / 2, canvas.height / 2, element_size["radius"], 0, 2 * Math.PI);
+      ctx.lineWidth = element_size["lineWidth"]-1;
+      ctx.strokeStyle = "#444";
+      ctx.stroke();
+
+      // Progression
+      ctx.beginPath();
+      ctx.arc(canvas.width / 2, canvas.height / 2, element_size["radius"], startAngle, endAngle);
+      ctx.strokeStyle = percentToColor(percent);
+      ctx.lineWidth = element_size["lineWidth"];
+      ctx.lineCap = "butt";
+      ctx.stroke();
+
+      // Texte au centre
+      ctx.fillStyle = "222";
+      ctx.font = "bold 24px sans-serif";
+      ctx.textAlign = "center";
+      ctx.textBaseline = "middle";
+      ctx.fillText(`${percent}%`, canvas.width / 2, canvas.height / 2);
+    }
+
+
+for (const indicator of data) {
+  drawRing("ring_" + indicator["name"], indicator["value"], "S");
+}
+
+let sum_pct = 0;
+for (const indicator of data) {
+  sum_pct += indicator["value"];
+}
+overall_pct = sum_pct / data.length;
+
+drawRing("ring_overall", overall_pct.toFixed(1), "L");
+
+
+// Show computation methodology
+const ul = document.createElement("ul");
+
+data.forEach(item => {
+  const li = document.createElement("li");
+  li.innerHTML = `<strong>${item.name}</strong>: ${item.explain}`;
+  ul.appendChild(li);
+});
+
+document.body.appendChild(ul);
+
+
+  </script>
+</body>
+</html>
