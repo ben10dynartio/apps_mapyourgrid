@@ -53,7 +53,7 @@
   </style>
 </head>
 <script>
-    const data = [{'name': 'Line connectivity', 'value': 76.5, 'explain': 'nb(Grid connected power line|cable) / nb(Grid power line|cable) || Grid line derivated (~=) from OSM power=line|cable after connectivity analysis'}, {'name': 'Grid overall connectivity (without circuits)', 'value': 83.6, 'explain': 'Grid analysis'}, {'name': 'Grid overall connectivity (with circuits)', 'value': 85.1, 'explain': 'Grid analysis'}, {'name': 'Voltage attribute completeness on power lines and cables', 'value': 82.2, 'explain': "nb(OSM power=line|cable & voltage!='') /nb(OSM power=line|cable)"}, {'name': 'Cables attribute completeness on power lines and cables', 'value': 79.2, 'explain': "nb(OSM power=line|cable & cables!='') /nb(OSM power=line|cable)"}, {'name': 'Voltage attribute completeness on substations', 'value': 55.4, 'explain': "nb(OSM power=substation & voltage!='')/nb(OSM power=substation)"}, {'name': 'Connected power tower (Osmose&nbsp;Class&nbsp;1)', 'value': 98.9, 'explain': '1 - nb(Osmose-Class1-power=tower) / nb(OSM power=tower)'}, {'name': 'Complete power line (Osmose&nbsp;Class&nbsp;2)', 'value': 89.2, 'explain': '1 - nb(Osmose-Class2) / 2*nb(OSM power=line)'}, {'name': 'Line voltage consistency (Osmose&nbsp;Class&nbsp;3)', 'value': 97.3, 'explain': '1 - nb(Osmose-Class3) / nb(connection nodes) | Connection nodes computed by grid analysis'}, {'name': 'Line-Substation voltage consistency (Osmose&nbsp;Class&nbsp;7)', 'value': 98.5, 'explain': '1 - nb(Osmose-Class7) / nb(line-sub connection) | Line-Sub connection computed by grid analysis'}]
+    const data = [{'name': 'Line connectivity', 'value': 76.5, 'explain': 'nb(Grid connected power line|cable) / nb(Grid power line|cable) || Grid line derivated (~=) from OSM power=line|cable after connectivity analysis'}, {'name': 'Grid overall connectivity (without circuits)', 'value': 83.6, 'explain': 'Grid analysis'}, {'name': 'Grid overall connectivity (with circuits)', 'value': 85.1, 'explain': 'Grid analysis'}, {'name': 'Voltage attribute completeness on power lines and cables', 'value': 82.2, 'explain': "nb(OSM power=line|cable & voltage!='') /nb(OSM power=line|cable)"}, {'name': 'Cables attribute completeness on power lines and cables', 'value': 79.2, 'explain': "nb(OSM power=line|cable & cables!='') /nb(OSM power=line|cable)"}, {'name': 'Voltage attribute completeness on substations', 'value': 55.4, 'explain': "nb(OSM power=substation & voltage!='')/nb(OSM power=substation)"}, {'name': 'Connected power tower (Osmose&nbsp;Class&nbsp;1)', 'value': 98.9, 'explain': '1 - nb(Osmose-Class1-power=tower) / nb(OSM power=tower)'}, {'name': 'Complete power line (Osmose&nbsp;Class&nbsp;2)', 'value': 89.2, 'explain': '1 - nb(Osmose-Class2) / 2*nb(OSM power=line)'}, {'name': 'Line voltage consistency (Osmose&nbsp;Class&nbsp;3)', 'value': 97.3, 'explain': '1 - nb(Osmose-Class3) / nb(connection nodes) | Connection nodes computed by grid analysis'}, {'name': 'Line-Substation voltage consistency (Osmose&nbsp;Class&nbsp;7)', 'value': 98.5, 'explain': '1 - nb(Osmose-Class7) / nb(line-sub connection) | Line-Sub connection computed by grid analysis'}];
 
 
 
@@ -104,16 +104,17 @@ data.forEach(item => {
   <script>
 
     function percentToColor(p) {
-      // Interpolation entre rouge (0%) → jaune (65%) → vert (100%)
+      // Interpolation entre rouge (0%) → jaune (seuil%) → vert (100%)
       let r, g, b = 0;
-      if (p < 65) {
+      let seuil=65;
+      if (p < seuil) {
         // rouge -> jaune (rouge=255, vert=0→255)
         r = 255;
-        g = Math.round(255 * (p / 65));
+        g = Math.round(255 * (p / seuil));
       } else {
         // jaune -> vert (rouge=255→0, vert=255)
         g = 255;
-        r = Math.round(255 * (1 - (p - 65) / 65));
+        r = Math.round(255 * (1 - (p - seuil) / seuil));
       }
       return `rgb(${r},${g},${b})`;
     }
@@ -162,29 +163,33 @@ data.forEach(item => {
     }
 
 
-for (const indicator of data) {
-  drawRing("ring_" + indicator["name"], indicator["value"], "S");
+    function show_indicator() {
+      for (const indicator of data) {
+        drawRing("ring_" + indicator["name"], indicator["value"], "S");
+      }
+
+      let sum_pct = 0;
+      for (const indicator of data) {
+        sum_pct += indicator["value"];
+      }
+      overall_pct = sum_pct / data.length;
+
+      drawRing("ring_overall", overall_pct.toFixed(1), "L");
+
+
+      // Show computation methodology
+      const ul = document.createElement("ul");
+
+      data.forEach(item => {
+        const li = document.createElement("li");
+        li.innerHTML = `<strong>${item.name}</strong>: ${item.explain}`;
+        ul.appendChild(li);
+      });
+
+      document.body.appendChild(ul);
 }
 
-let sum_pct = 0;
-for (const indicator of data) {
-  sum_pct += indicator["value"];
-}
-overall_pct = sum_pct / data.length;
-
-drawRing("ring_overall", overall_pct.toFixed(1), "L");
-
-
-// Show computation methodology
-const ul = document.createElement("ul");
-
-data.forEach(item => {
-  const li = document.createElement("li");
-  li.innerHTML = `<strong>${item.name}</strong>: ${item.explain}`;
-  ul.appendChild(li);
-});
-
-document.body.appendChild(ul);
+show_indicator();
 
 
   </script>

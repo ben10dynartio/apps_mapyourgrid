@@ -1,6 +1,0 @@
-https://osmose.openstreetmap.fr/fr/issues/open?source=411091&item=7040&class=3&useDevItem=all
-https://osmose.openstreetmap.fr/api/0.3/issues?source=411091&item=7040&class=3&useDevItem=true&full=true
-
-https://osmose.openstreetmap.fr/api/0.3/issues.geojson?source=411091&item=7040&class=3&useDevItem=all&full=true
-
-https://osmose.openstreetmap.fr/api/0.3/issues.geojson?country=colombia*&item=7040&class=3&useDevItem=all

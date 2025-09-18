@@ -31,31 +31,6 @@
     padding: 10px;
 }
 
-#legend-and-button {
-  bottom: 0;
-  right: 0;
-  width:fit-content;
-  height:fit-content;
-  display:flex;
-  flex-direction:column;
-  margin:0 15px 25px 0;
-}
-
-#legend {
-  line-height: 1.2rem;
-  height: 100px;
-  width: 115px;
-  font-size:0.9rem;
-
-}
-
-.legend-key {
-  display: inline-block;
-  border-radius: 20%;
-  width: 8px;
-  height: 8px;
-  margin-right: 5px;
-}
 
 .mapbox-improve-map {
 	display:none;
@@ -63,6 +38,107 @@
 
 #map { position: absolute; top: 0; bottom: 0; width: 100%; }
 </style>
+<style>
+    body {
+      justify-content: center;
+      align-items: center;
+      color: #222;
+      flex-direction: column;
+      font-family: Arial, sans-serif;
+      margin: 0;
+    }
+
+    h1, h2 {
+      text-align: center;
+    }
+
+    .container {
+      display: flex;
+      flex-wrap: wrap; /* Retour à la ligne auto */
+      gap: 16px; /* Espace entre les blocs */
+      justify-content: center;
+    }
+    .card {
+      flex: 1 1 200px; /* Largeur min de 200px, ajustable */
+      max-width: 125px;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      padding: 10px;
+      padding-bottom: 0px;
+      text-align: center;
+      background: #f9f9f9;
+    }
+    .card img {
+      max-width: 100%;
+      height: auto;
+      margin-top: 8px;
+    }
+    .card b {
+      display: block;
+      font-size: 14px;
+      margin-bottom: 8px;
+      height: 45px;
+      line-height:1.05;
+    }
+
+    /* Le volet latéral */
+    .sidepanel {
+      position: fixed;
+      right: -400px; /* caché par défaut */
+      top: 0;
+      width: 500px;
+      height: 100%;
+      background: #f4f4f4;
+      box-shadow: -2px 0 5px rgba(0,0,0,0.3);
+      transition: right 0.3s ease;
+      padding: 20px;
+      overflow-y: auto;
+      display: none;
+    }
+
+    /* quand il est ouvert */
+    .sidepanel.open {
+      right: 0;
+      display: inline-block;
+    }
+
+    /* bouton de fermeture */
+    .close-btn {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      font-size: 24px;
+      cursor: pointer;
+      color: #333;
+    }
+
+    .sidepanel img {
+      max-width: 100%;
+      border-radius: 10px;
+      margin-bottom: 15px;
+    }
+
+
+    .map-overlay {
+        font:
+            12px/20px 'Helvetica Neue',
+            Arial,
+            Helvetica,
+            sans-serif;
+        background-color: #fff;
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+        border-radius: 3px;
+        position: absolute;
+        width: 25%;
+        top: 10px;
+        left: 10px;
+        padding: 10px;
+        display: none;
+    }
+
+
+  </style>
+
 <link href="https://api.mapbox.com/mapbox-gl-js/v3.14.0/mapbox-gl.css" rel="stylesheet">
 <script src="https://api.mapbox.com/mapbox-gl-js/v3.14.0/mapbox-gl.js"></script>
 <script src="https://unpkg.com/@turf/turf@^7/turf.min.js"></script>
@@ -73,10 +149,49 @@
     <header>MapYourGrid Heath Score</header>
     <main>
 
+
     <div id="map"></div>
 
+  <div id="mySidepanel" class="sidepanel">
+    <!-- CONTENT SIDE PANEL !-->
+
+  </div>
 
 <script>
+    const panel = document.getElementById("mySidepanel");
+
+    function closePanel() {
+      panel.classList.remove("open");
+    }
+  </script>
+
+<script>
+
+const data = [{'name': 'Line connectivity', 'value': 76.5, 'explain': 'nb(Grid connected power line|cable) / nb(Grid power line|cable) || Grid line derivated (~=) from OSM power=line|cable after connectivity analysis'}, {'name': 'Grid overall connectivity (without circuits)', 'value': 83.6, 'explain': 'Grid analysis'}, {'name': 'Grid overall connectivity (with circuits)', 'value': 85.1, 'explain': 'Grid analysis'}, {'name': 'Voltage attribute completeness on power lines and cables', 'value': 82.2, 'explain': "nb(OSM power=line|cable & voltage!='') /nb(OSM power=line|cable)"}, {'name': 'Cables attribute completeness on power lines and cables', 'value': 79.2, 'explain': "nb(OSM power=line|cable & cables!='') /nb(OSM power=line|cable)"}, {'name': 'Voltage attribute completeness on substations', 'value': 55.4, 'explain': "nb(OSM power=substation & voltage!='')/nb(OSM power=substation)"}, {'name': 'Connected power tower (Osmose&nbsp;Class&nbsp;1)', 'value': 98.9, 'explain': '1 - nb(Osmose-Class1-power=tower) / nb(OSM power=tower)'}, {'name': 'Complete power line (Osmose&nbsp;Class&nbsp;2)', 'value': 89.2, 'explain': '1 - nb(Osmose-Class2) / 2*nb(OSM power=line)'}, {'name': 'Line voltage consistency (Osmose&nbsp;Class&nbsp;3)', 'value': 97.3, 'explain': '1 - nb(Osmose-Class3) / nb(connection nodes) | Connection nodes computed by grid analysis'}, {'name': 'Line-Substation voltage consistency (Osmose&nbsp;Class&nbsp;7)', 'value': 98.5, 'explain': '1 - nb(Osmose-Class7) / nb(line-sub connection) | Line-Sub connection computed by grid analysis'}];
+
+const health_indicators = ['health_power_line_connectivity',
+ 'health_grid_connectivity_without_circuit',
+ 'health_grid_connectivity_with_circuit',
+ 'health_line_voltage_completeness',
+ 'health_line_cables_completness',
+ 'health_substation_voltage_completness',
+ 'health_connected_power_tower',
+ 'health_complete_power_line',
+ 'health_consistent_line_voltage_connection',
+ 'health_consistent_linesub_voltage_connection'];
+
+ const indicator_title = {'health_power_line_connectivity':'Line connectivity',
+ 'health_grid_connectivity_without_circuit':'Grid connectivity (without circuit)',
+ 'health_grid_connectivity_with_circuit':'Grid connectivity (with circuit)',
+ 'health_line_voltage_completeness':'Line voltage attribute completeness',
+ 'health_line_cables_completness':'Line cables attribute completeness',
+ 'health_substation_voltage_completness':'Substation voltage completeness',
+ 'health_connected_power_tower':'Connected power tower',
+ 'health_complete_power_line':'Completed power lines',
+ 'health_consistent_line_voltage_connection':'Line-to-line voltage consistency',
+ 'health_consistent_linesub_voltage_connection':'Line-to-Substation voltage consistency'};
+
+
 	mapboxgl.accessToken = 'pk.eyJ1IjoiZHluYXJ0aW8iLCJhIjoiY2wzcGtvbTBzMHcyMzNjbG5yemh4bHBtbSJ9.GmngJ7VptXnA87TO7steMA';
     const map = new mapboxgl.Map({
         container: 'map',
@@ -87,7 +202,35 @@
         //zoom: 3
     });
 
+/*    map.on('load', () => {
+    map.addSource('worldmap-indicators', {
+            'type': 'vector',
+            'url': 'mapbox://dynartio.a216kfut'
+        });
+
+	map.addLayer({
+		id: 'highlight-country',
+		'slot': 'top',
+		type: 'line',
+		source: 'worldmap-indicators',
+		'source-layer': 'worldmap_indicators-bbcgmb',
+		paint: {
+		  'line-color': '#da623d',
+		  'line-width': 4,
+		  'line-opacity': [
+			'case',
+			['boolean', ['feature-state', 'hover'], false],
+			0.9,
+			0,
+		  ],
+		},
+
+	});
+}); */
+
     map.addControl(new mapboxgl.AttributionControl({customAttribution: "MapYourGrid | Dynartio"}));
+
+    //map.addControl(new mapboxgl.FullscreenControl({container: document.querySelector('body')}));
 
 // ----------- Popup builder
 map.on('click', (event) => {
@@ -102,93 +245,170 @@ map.on('click', (event) => {
   const feature = features[0];
 
   build_popup_detail(feature, event.lngLat);
-  console.log("Showing popup =");
-  console.log(feature);
+
 });
 
+let current_select = false;
+
 function build_popup_detail(feature, ll) {
-	/*const code_dep = feature.properties.insee; //.substr(0, 2);
-	const pfd = 100;
-	const pfc = Math.round(feature.properties.SurfFCCert*100/feature.properties.SurfFCTot);
-	const pfp = Math.round(feature.properties.SurfFPCert*100/feature.properties.SurfFPTot);
-	let htmlcontent = "<h3>" + feature.properties.nom.toUpperCase() + " (" + code_dep + ")</h3>";
-	//var polygon = turf.polygon(feature.geometry.coordinates);
-	let centroid = get_centroid(feature);
 
-
-	if (Math.round(feature.properties.SurfFCTot) > 1) {
-		htmlcontent += "<p><b>Forêts de collectivités :</b> <a class='smalllink' onclick='only_fc_visible()'>(Voir)</a><br>&nbsp;&nbsp;&nbsp;> Surface forestière totale : " + Math.round(feature.properties.SurfFCTot).toString() + " ha"
-		htmlcontent += "<br><span style='color:#da623d;'>&nbsp;&nbsp;&nbsp;> " + pfc.toString() + " % certifiée PEFC</span></p>";
-	}
-	if (Math.round(feature.properties.SurfFPTot) > 1) {
-		htmlcontent += "<p><b>Forêts privées et autres :</b> <a class='smalllink' onclick='only_fp_visible()'>(Voir)</a><br>&nbsp;&nbsp;&nbsp;> Surface forestière totale : " + Math.round(feature.properties.SurfFPTot).toString() + " ha"
-		htmlcontent += "<br><span style='color:#da623d;'>&nbsp;&nbsp;&nbsp;> " + pfp.toString() + " % certifiée PEFC</span></p>";
-	}
-	if (Math.round(feature.properties.SurfFDTot) > 1) {
-		htmlcontent += "<p><b>Forêts domaniales :</b> <a class='smalllink' onclick='only_fd_visible()'>(Voir)</a><br>&nbsp;&nbsp;&nbsp;> Surface forestière  totale : " + Math.round(feature.properties.SurfFDTot).toString() + " ha"
-		htmlcontent += "<br><span style='color:#da623d;'>&nbsp;&nbsp;&nbsp;> " + pfd.toString() + " % certifiée PEFC</span></p>";
-	}
-	if (popup_detail) {
-		popup_detail.remove()
-	}
-	if (popup_hover) {
-		popup_hover.remove()
-	}*/
-
-	/*popup_detail = new mapboxgl.Popup({ offset: Math.pow(map.getZoom(), 3) *0.1, maxWidth: '600px' })
-	.setLngLat(centroid.geometry.coordinates)//event.lngLat.wrap())//feature.geometry.getCenter())
-	  .setHTML(htmlcontent)
-	  .addTo(map);*/
-
-    let htmlcontent = "<h3>" + feature.properties["Country Name"] + " (" + feature.properties["Country Code"] + ")</h3>";
+    let htmlcontent = "";
+    htmlcontent += "<span class='close-btn' onclick='closePanel()'>&times;</span>";
+    htmlcontent += "<div style='height:fit-content'>";
+    htmlcontent += "<div style='float: right;'><img src='http://commons.wikimedia.org/wiki/Special:FilePath/" + feature.properties.flag_image + "'style='margin-left: 15px;width:150px;'></div>";
+    htmlcontent += "<div><h3>" + feature.properties.name + " (" + feature.properties.code_isoa2 + ")</h3>";
     //let sousChaines = feature.properties.osmid.split(";");
+    htmlcontent += "<p><ul>";
+    htmlcontent += "<li><b>Population :</b> " + feature.properties.population + "</li>";
+    htmlcontent += "<li><b>Area :</b> " + feature.properties.area_km2 + " km2</li>";
+    htmlcontent += "<li><b>GDP :</b> " + feature.properties.gdp_bd + " M$</li>";
+    htmlcontent += "<li><b>Number of power plants :</b> " + feature.properties.power_plant_count + "</li>";
+    htmlcontent += "<li><b>Power plant capacity :</b> " + feature.properties.power_plant_output_mw + " MW</li>";
+    htmlcontent += "<li><b>Number of substations :</b> " + feature.properties.stats_nb_substations + "</li>";
+    htmlcontent += "<li><b>Number of international connections :</b> " + feature.properties.stats_nb_international_connections + "</li>";
+    htmlcontent += "<li><b>Line voltages :</b> " + feature.properties.line_voltage + "</li>";
+    htmlcontent += "</ul></p></div></div>";
+    htmlcontent += "<p><a href='https://wiki.openstreetmap.org/wiki/Power_networks/" + feature.properties.name.replace(/ /g, "_")  + "' target='_blank'>OSM Wiki page</a></p>";
+    htmlcontent += "<h4>Quality Score</h4>";
+    htmlcontent += "<div style='text-align: center;width:100%;'><canvas id='ring_quality_score' width='250' height='120'></canvas></div>";
+     htmlcontent += "<div class='container' id='cards'></div><br><br><br><br>";
 
-    htmlcontent += "<p><img src='" + feature.properties["flag_image"] + "' width='100'></p>";
-    htmlcontent += "<p>Voltages = " + feature.properties["Line voltage"] + "</p>";
 
-	//let centroid = get_centroid(feature);
-    popup_detail = new mapboxgl.Popup({ maxWidth: '600px' })//event.lngLat.wrap())//feature.geometry.getCenter())
-	  .setLngLat(ll)
-	  .setHTML(htmlcontent)
-	  .addTo(map);
+  panel.classList.add("open");
+  panel.innerHTML = htmlcontent;
+	  build_container();
+    show_indicator(feature.properties);
 
-	/* if (current_select) {
+
+ /*  if (current_select) {
 	// Unhover the current feature
 		map.setFeatureState(
-			{ sourceLayer: config.uilayer, source: 'composite', id: current_select.id },
-			{ hover: false }
-		);
-		map.setFeatureState(
-			{ sourceLayer: config.uilayer_lowdef, source: 'composite', id: current_select.id },
+			{ sourceLayerId: 'highlight-country', source: 'worldmap-indicators', 'sourceLayer': 'worldmap_indicators-bbcgmb', id: current_select.id },
 			{ hover: false }
 		);
 	}
 	map.setFeatureState(
-		{ sourceLayer: config.uilayer, source: 'composite', id: feature.id },
+		{ sourceLayerId: 'highlight-country', source: 'worldmap-indicators', 'sourceLayer': 'worldmap_indicators-bbcgmb', id: feature.id },
 		{ hover: true }
 	);
-	map.setFeatureState(
-		{ sourceLayer: config.uilayer_lowdef, source: 'composite', id: feature.id },
-		{ hover: true }
-	);
-	current_select = feature */
+	current_select = feature; */
 
 }
 
-function get_centroid(myfeature) {
-console.log("Coordonnées centroid =");
-console.log(myfeature.geometry.coordinates);
-	try {
-		var polygon = turf.lineString(myfeature.geometry.coordinates);
-		var centroid = turf.centroid(polygon);
-	} catch (error) {
-		var polygon = turf.lineString(myfeature.geometry.coordinates[0]);
-		var centroid = turf.centroid(polygon);
-	}
-	return centroid;
+
+function build_container() {
+  const container = document.getElementById('cards');
+
+  // Exemple : utiliser une image factice (placeholder)
+  for (const indicator of health_indicators) {
+    const div = document.createElement('div');
+    div.className = 'card';
+
+    // Titre
+    const title = document.createElement('b');
+    title.innerHTML = indicator_title[indicator];
+
+    // Image (ici un placeholder, tu peux remplacer l'URL)
+    const canvas = document.createElement('canvas');
+    canvas.id = "ring_" + indicator;
+    canvas.width = 75;
+    canvas.height = 75;
+
+    div.appendChild(title);
+    div.appendChild(canvas);
+    container.appendChild(div);
+  };
 }
 
 </script>
+
+
+<script>
+
+    function percentToColor(p) {
+      // Interpolation entre rouge (0%) → jaune (seuil%) → vert (100%)
+      let r, g, b = 0;
+      let seuil=65;
+      if (p < seuil) {
+        // rouge -> jaune (rouge=255, vert=0→255)
+        r = 255;
+        g = Math.round(255 * (p / seuil));
+      } else {
+        // jaune -> vert (rouge=255→0, vert=255)
+        g = 255;
+        r = Math.round(255 * (1 - (p - seuil) / seuil));
+      }
+      return `rgb(${r},${g},${b})`;
+    }
+
+    function drawRing(ringname, percent, size) {
+    const canvas = document.getElementById(ringname);
+    const ctx = canvas.getContext("2d");
+    let element_size = {};
+    if (size=="XXS") {
+      element_size = {
+        radius:30,
+        lineWidth:10,
+        font:"bold 11px sans-serif",
+      };
+    } else if (size=="XS") {
+      element_size = {
+        radius:45,
+        lineWidth:14,
+        font:"bold 14px sans-serif",
+      };
+    } else if (size=="S") {
+      element_size = {
+        radius:60,
+        lineWidth:20,
+        font:"bold 24px sans-serif",
+      };
+    } else {
+      element_size = {
+        radius:90,
+        lineWidth:30,
+        font:"bold 24px sans-serif",
+      };
+    }
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      const startAngle = -Math.PI / 2; // commence en haut
+      const endAngle = startAngle + (percent / 100) * 2 * Math.PI;
+
+      // Anneau de fond
+      ctx.beginPath();
+      ctx.arc(canvas.width / 2, canvas.height / 2, element_size["radius"], 0, 2 * Math.PI);
+      ctx.lineWidth = element_size["lineWidth"]-1;
+      ctx.strokeStyle = "#444";
+      ctx.stroke();
+
+      // Progression
+      ctx.beginPath();
+      ctx.arc(canvas.width / 2, canvas.height / 2, element_size["radius"], startAngle, endAngle);
+      ctx.strokeStyle = percentToColor(percent);
+      ctx.lineWidth = element_size["lineWidth"];
+      ctx.lineCap = "butt";
+      ctx.stroke();
+
+      // Texte au centre
+      ctx.fillStyle = "222";
+      ctx.font = element_size["font"];
+      ctx.textAlign = "center";
+      ctx.textBaseline = "middle";
+      ctx.fillText(`${percent}%`, canvas.width / 2, canvas.height / 2);
+    }
+
+function show_indicator(feature_properties) {
+
+    for (const indicator of health_indicators) {
+      drawRing("ring_" + indicator, feature_properties[indicator].toFixed(1), "XXS");
+    }
+drawRing("ring_quality_score", (feature_properties["quality_score"]*100).toFixed(1), "XS");
+
+}
+
+
+  </script>
 
 
    </main>
