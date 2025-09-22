@@ -55,24 +55,28 @@ filepath_world = "data/country_worldmap/custom.geojson"
 filepath_voltage = "data/osm_country_data_power_line.xlsx"
 filepath_wikidata = "data/wikidata_countries_info_formatted.csv"
 filepath_openinframap = "data/openinframap_countries_info_brut.csv"
-filepath_score = "data/0_health_score.xlsx"
+filepath_health_score = "data/0_health_score.xlsx"
+filepath_coverage_score = "data/0_coverage_score.xlsx"
 
 gdf_world = gpd.read_file(filepath_world, na_filter=False)
 df_voltage = pd.read_excel(filepath_voltage, na_filter=False)
 df_wikidata = pd.read_csv(filepath_wikidata, na_filter=False)
 df_openinframap = pd.read_csv(filepath_openinframap, na_filter=False)
-df_score = pd.read_excel(filepath_score, na_filter=False)
+df_health_score = pd.read_excel(filepath_health_score, na_filter=False)
+df_coverage_score = pd.read_excel(filepath_coverage_score, na_filter=False)
 
 print(gdf_world.columns)
 print(df_voltage.columns)
 print(df_wikidata.columns)
 print(df_openinframap.columns)
-print(df_score.columns)
+print(df_health_score.columns)
+print(df_coverage_score.columns)
 
 gdf_world = gdf_world.merge(df_voltage, left_on='iso_a2_eh', right_on='Country Code', suffixes=(None, "_voltage"), how='left')
 gdf_world = gdf_world.merge(df_wikidata, left_on='iso_a2_eh', right_on='codeiso2', suffixes=(None, "_wikidata"), how='left')
 gdf_world = gdf_world.merge(df_openinframap, left_on='iso_a2_eh', right_on='codeiso2', suffixes=(None, "_openinframap"), how='left')
-gdf_world = gdf_world.merge(df_score, left_on='iso_a2_eh', right_on='codeiso2', suffixes=(None, "_score"), how='left')
+gdf_world = gdf_world.merge(df_health_score, left_on='iso_a2_eh', right_on='codeiso2', suffixes=(None, "_health_score"), how='left')
+gdf_world = gdf_world.merge(df_coverage_score, left_on='iso_a2_eh', right_on='codeiso2', suffixes=(None, "_coverage_score"), how='left')
 
 
 print("-------------------")
@@ -108,9 +112,11 @@ health_score_cols = ['health_power_line_connectivity',
 other_cols = [
  'stats_nb_international_connections',
  'stats_nb_substations',
- 'stats_line_voltages',]
+ 'stats_line_voltages',
+    'coverage_population']
 
 select_columns = ["code_isoa2", "name", "flag_image", "osm_rel_id", "population", "area_km2", "gdp_bd", "power_line_total_length",
+                  "wikidata_id",
                   "power_plant_count", "power_plant_output_mw", "line_voltage",
                   "quality_score", "quality_color",
                   'geometry'] + other_cols + health_score_cols

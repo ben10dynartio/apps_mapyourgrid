@@ -155,8 +155,6 @@ def main(country_code):
     explanations[key] = "1 - nb(Osmose-Class2) / 2*nb(OSM power=line)"
 
     if len(df_pregraph_power_nodes[df_pregraph_power_nodes["grid_role"].isin(["to_international", "lambda_node"])]) > 0:
-        print("LEN grid_role =", len(df_pregraph_power_lines))
-        print("data class 3 =", data["class"]["3"])
         key = "health_consistent_line_voltage_connection"
         names[key] = "Line voltage consistency (Osmose&nbsp;Class&nbsp;3)"
         indicators[key] = 1 - data["class"]["3"] / (len(df_pregraph_power_nodes[df_pregraph_power_nodes["grid_role"].isin(["to_international", "lambda_node"])]))
@@ -204,11 +202,11 @@ def main(country_code):
         json.dump(output_data, f, ensure_ascii=False, indent=4)
 
 if __name__ == "__main__":
-    main("NZ")
-    """for ccode in WORLD_COUNTRY_DICT.keys():
+    #main("NZ")
+    for ccode in WORLD_COUNTRY_DICT.keys():
         try:
             main(ccode)
             print(ccode)
         except Exception as e:
             print("Error with", ccode)
-            pass"""
+            pass

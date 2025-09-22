@@ -3,171 +3,197 @@
   <head>
     <meta charset="utf-8">
     <title>MapYourGrid Heath Score</title>
-    <style>
-          body {
-        margin: 0;
-        padding: 0;
-      }
 
-    iframe {
-      position: fixed;
-      background: #000;
-      border: none;
-      top: 0; right: 0;
-      bottom: 0; left: 0;
-      width: 100%;
-      height: 100%;
-    }
+<style>
 
-    .map-overlay {
-	position: absolute;
-	/*overflow: auto;*/
+:root {
+  --mapyourgrid-primary: #036d7a;
 }
 
-.whitebox-overlay {
-  background: #fff;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
-  border-radius: 3px;
-    padding: 10px;
+body {
+  justify-content: center;
+  align-items: center;
+  color: #222;
+  flex-direction: column;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
 }
 
+iframe {
+  position: fixed;
+  background: #000;
+  border: none;
+  top: 0; right: 0;
+  bottom: 0; left: 0;
+  width: 100%;
+  height: 100%;
+}
 
 .mapbox-improve-map {
-	display:none;
+    display:none;
 }
 
-#map { position: absolute; top: 0; bottom: 0; width: 100%; }
+#map {
+position: absolute; top: 0; bottom: 0; width: 100%;
+}
+
+
+h1 {
+  text-align: center;
+}
+
+h2 {
+  position: relative;
+  display: inline-block;
+  font-size: 2.25rem;
+  font-weight: 700;
+  color: #2A6D3C;
+  padding-bottom: 0.25rem;
+  margin: 0;
+  font-family: sans-serif;
+}
+
+h3 {
+  background-color: var(--mapyourgrid-primary);;
+    font-size: 1.3rem;
+    color: #f4f4f4;
+    padding: 2px 10px;
+     text-align: center;
+  }
+
+
+.mini-website-icon {
+  vertical-align: middle;
+  margin-left:15px;
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap; /* Retour à la ligne auto */
+  gap: 16px; /* Espace entre les blocs */
+  justify-content: center;
+}
+.card {
+  flex: 1 1 200px; /* Largeur min de 200px, ajustable */
+  max-width: 125px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  padding: 10px;
+  padding-bottom: 0px;
+  text-align: center;
+  background: #f9f9f9;
+}
+.card img {
+  max-width: 100%;
+  height: auto;
+  margin-top: 8px;
+}
+
+.card b {
+  display: block;
+  font-size: 14px;
+  margin-bottom: 8px;
+  height: 45px;
+  line-height:1.05;
+}
+
+/* Le volet latéral */
+.sidepanel {
+  position: fixed;
+  right: -400px; /* caché par défaut */
+  top: 0;
+  width: 500px;
+  height: 100%;
+  background: #f4f4f4;
+  box-shadow: -2px 0 5px rgba(0,0,0,0.3);
+  transition: right 0.3s ease;
+  padding: 20px;
+  overflow-y: auto;
+  display: none;
+}
+
+/* quand il est ouvert */
+.sidepanel.open {
+  right: 0;
+  display: inline-block;
+}
+
+/* bouton de fermeture */
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 24px;
+  cursor: pointer;
+  color: #333;
+}
+
+.sidepanel img {
+  max-width: 100%;
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+
 </style>
-<style>
-    body {
-      justify-content: center;
-      align-items: center;
-      color: #222;
-      flex-direction: column;
-      font-family: Arial, sans-serif;
-      margin: 0;
-    }
-
-    h1, h2 {
-      text-align: center;
-    }
-
-    .container {
-      display: flex;
-      flex-wrap: wrap; /* Retour à la ligne auto */
-      gap: 16px; /* Espace entre les blocs */
-      justify-content: center;
-    }
-    .card {
-      flex: 1 1 200px; /* Largeur min de 200px, ajustable */
-      max-width: 125px;
-      border: 1px solid #ccc;
-      border-radius: 10px;
-      padding: 10px;
-      padding-bottom: 0px;
-      text-align: center;
-      background: #f9f9f9;
-    }
-    .card img {
-      max-width: 100%;
-      height: auto;
-      margin-top: 8px;
-    }
-    .card b {
-      display: block;
-      font-size: 14px;
-      margin-bottom: 8px;
-      height: 45px;
-      line-height:1.05;
-    }
-
-    /* Le volet latéral */
-    .sidepanel {
-      position: fixed;
-      right: -400px; /* caché par défaut */
-      top: 0;
-      width: 500px;
-      height: 100%;
-      background: #f4f4f4;
-      box-shadow: -2px 0 5px rgba(0,0,0,0.3);
-      transition: right 0.3s ease;
-      padding: 20px;
-      overflow-y: auto;
-      display: none;
-    }
-
-    /* quand il est ouvert */
-    .sidepanel.open {
-      right: 0;
-      display: inline-block;
-    }
-
-    /* bouton de fermeture */
-    .close-btn {
-      position: absolute;
-      top: 10px;
-      right: 15px;
-      font-size: 24px;
-      cursor: pointer;
-      color: #333;
-    }
-
-    .sidepanel img {
-      max-width: 100%;
-      border-radius: 10px;
-      margin-bottom: 15px;
-    }
-
-
-    .map-overlay {
-        font:
-            12px/20px 'Helvetica Neue',
-            Arial,
-            Helvetica,
-            sans-serif;
-        background-color: #fff;
-        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
-        border-radius: 3px;
-        position: absolute;
-        width: 25%;
-        top: 10px;
-        left: 10px;
-        padding: 10px;
-        display: none;
-    }
-
-
-  </style>
 
 <link href="https://api.mapbox.com/mapbox-gl-js/v3.14.0/mapbox-gl.css" rel="stylesheet">
+
 <script src="https://api.mapbox.com/mapbox-gl-js/v3.14.0/mapbox-gl.js"></script>
 <script src="https://unpkg.com/@turf/turf@^7/turf.min.js"></script>
 
 </head>
 
 <body>
-    <header>MapYourGrid Heath Score</header>
-    <main>
+<div id="map"></div>
 
 
-    <div id="map"></div>
 
-  <div id="mySidepanel" class="sidepanel">
-    <!-- CONTENT SIDE PANEL !-->
+<div id="mySidepanel" class="sidepanel">
+    <span class='close-btn' onclick='closePanel()'>&times;</span>
+    <div style='height:fit-content'>
+      <div style='float: right;'>
+        <img id="country-property-flag_image" src='http://x' style='margin-left: 15px;width:150px;'>
+      </div>
+      <div>
+        <h2><span id="country-property-name">$country_name</span> (<span id="country-property-code_isoa2">$country_code</span>)</h2>
+        <p><ul>
+          <li><b>Population: </b><span id="country-property-population">$population</span></li>
+          <li><b>Area: </b><span id="country-property-area_km2">$area_km2</span> km2</li>
+          <li><b>GDP: </b><span id="country-property-gdp_bd">$gdp_bd</span> M$</li>
+          <li><b>Number of power plants: </b><span id="country-property-power_plant_count">$power_plant_count</span></li>
+          <li><b>Power plant capacity: </b><span id="country-property-power_plant_output_mw">$power_plant_output_mw</span> MW</li>
+          <li><b>Power line length: </b><span id="country-property-power_line_total_length">$power_line_total_length</span> km</li>
+          <li><b>Number of substations: </b><span id="country-property-stats_nb_substations">$stats_nb_substations</span></li>
+          <li><b>Number of international connections: </b><span id="country-property-stats_nb_international_connections">$stats_nb_international_connections</span></li>
+          <li><b>Line voltages: </b><span id="country-property-line_voltage">$line_voltage</span></li>
+        </ul></p>
+      </div>
+    </div>
+    <div id="internalSidePanel">
+    <!-- AUTO GENERATED -->
+    </div>
 
-  </div>
+
+    <h3>Quality Score</h3>
+    <div style='text-align: center;width:100%;'>
+      <canvas id='ring_quality_score' width='250' height='120'></canvas>
+    </div>
+    <div class='container' id='cards'></div>
+
+
+    <h3>Coverage Score</h3>
+    <div style='text-align: center;width:100%;'>
+      <canvas id='ring_coverage_score' width='250' height='120'></canvas>
+    </div>
+
+    <br><br><br><br>
+
+</div>
+
+
 
 <script>
-    const panel = document.getElementById("mySidepanel");
-
-    function closePanel() {
-      panel.classList.remove("open");
-    }
-  </script>
-
-<script>
-
-const data = [{'name': 'Line connectivity', 'value': 76.5, 'explain': 'nb(Grid connected power line|cable) / nb(Grid power line|cable) || Grid line derivated (~=) from OSM power=line|cable after connectivity analysis'}, {'name': 'Grid overall connectivity (without circuits)', 'value': 83.6, 'explain': 'Grid analysis'}, {'name': 'Grid overall connectivity (with circuits)', 'value': 85.1, 'explain': 'Grid analysis'}, {'name': 'Voltage attribute completeness on power lines and cables', 'value': 82.2, 'explain': "nb(OSM power=line|cable & voltage!='') /nb(OSM power=line|cable)"}, {'name': 'Cables attribute completeness on power lines and cables', 'value': 79.2, 'explain': "nb(OSM power=line|cable & cables!='') /nb(OSM power=line|cable)"}, {'name': 'Voltage attribute completeness on substations', 'value': 55.4, 'explain': "nb(OSM power=substation & voltage!='')/nb(OSM power=substation)"}, {'name': 'Connected power tower (Osmose&nbsp;Class&nbsp;1)', 'value': 98.9, 'explain': '1 - nb(Osmose-Class1-power=tower) / nb(OSM power=tower)'}, {'name': 'Complete power line (Osmose&nbsp;Class&nbsp;2)', 'value': 89.2, 'explain': '1 - nb(Osmose-Class2) / 2*nb(OSM power=line)'}, {'name': 'Line voltage consistency (Osmose&nbsp;Class&nbsp;3)', 'value': 97.3, 'explain': '1 - nb(Osmose-Class3) / nb(connection nodes) | Connection nodes computed by grid analysis'}, {'name': 'Line-Substation voltage consistency (Osmose&nbsp;Class&nbsp;7)', 'value': 98.5, 'explain': '1 - nb(Osmose-Class7) / nb(line-sub connection) | Line-Sub connection computed by grid analysis'}];
 
 const health_indicators = ['health_power_line_connectivity',
  'health_grid_connectivity_without_circuit',
@@ -202,7 +228,7 @@ const health_indicators = ['health_power_line_connectivity',
         //zoom: 3
     });
 
-/*    map.on('load', () => {
+  map.on('load', () => {
     map.addSource('worldmap-indicators', {
             'type': 'vector',
             'url': 'mapbox://dynartio.a216kfut'
@@ -226,7 +252,7 @@ const health_indicators = ['health_power_line_connectivity',
 		},
 
 	});
-}); */
+});
 
     map.addControl(new mapboxgl.AttributionControl({customAttribution: "MapYourGrid | Dynartio"}));
 
@@ -250,38 +276,47 @@ map.on('click', (event) => {
 
 let current_select = false;
 
+const panel = document.getElementById("mySidepanel");
+const subpanel = document.getElementById("internalSidePanel");
+
+function closePanel() {
+    panel.classList.remove("open");
+}
+
 function build_popup_detail(feature, ll) {
 
+    let key="";
+
+    const country_property_list = ["name", "code_isoa2", "population", "area_km2", "gdp_bd", "power_plant_count", "power_plant_output_mw", "power_line_total_length", "stats_nb_substations", "stats_nb_international_connections", "line_voltage"];
+    for (const prop of country_property_list) {
+
+      const myspan = document.getElementById("country-property-" + prop);
+      myspan.innerHTML = feature.properties[prop];
+    }
+
+    key = "flag_image";
+    const myelement = document.getElementById("country-property-" + key);
+    myelement.src = "http://commons.wikimedia.org/wiki/Special:FilePath/" + feature.properties[key];
+
     let htmlcontent = "";
-    htmlcontent += "<span class='close-btn' onclick='closePanel()'>&times;</span>";
-    htmlcontent += "<div style='height:fit-content'>";
-    htmlcontent += "<div style='float: right;'><img src='http://commons.wikimedia.org/wiki/Special:FilePath/" + feature.properties.flag_image + "'style='margin-left: 15px;width:150px;'></div>";
-    htmlcontent += "<div><h3>" + feature.properties.name + " (" + feature.properties.code_isoa2 + ")</h3>";
-    //let sousChaines = feature.properties.osmid.split(";");
-    htmlcontent += "<p><ul>";
-    htmlcontent += "<li><b>Population :</b> " + feature.properties.population + "</li>";
-    htmlcontent += "<li><b>Area :</b> " + feature.properties.area_km2 + " km2</li>";
-    htmlcontent += "<li><b>GDP :</b> " + feature.properties.gdp_bd + " M$</li>";
-    htmlcontent += "<li><b>Number of power plants :</b> " + feature.properties.power_plant_count + "</li>";
-    htmlcontent += "<li><b>Power plant capacity :</b> " + feature.properties.power_plant_output_mw + " MW</li>";
-    htmlcontent += "<li><b>Number of substations :</b> " + feature.properties.stats_nb_substations + "</li>";
-    htmlcontent += "<li><b>Number of international connections :</b> " + feature.properties.stats_nb_international_connections + "</li>";
-    htmlcontent += "<li><b>Line voltages :</b> " + feature.properties.line_voltage + "</li>";
-    htmlcontent += "</ul></p></div></div>";
-    htmlcontent += "<p><a href='https://wiki.openstreetmap.org/wiki/Power_networks/" + feature.properties.name.replace(/ /g, "_")  + "' target='_blank'>OSM Wiki page</a></p>";
-    htmlcontent += "<h4>Quality Score</h4>";
-    htmlcontent += "<div style='text-align: center;width:100%;'><canvas id='ring_quality_score' width='250' height='120'></canvas></div>";
-     htmlcontent += "<div class='container' id='cards'></div><br><br><br><br>";
+    htmlcontent += "<p align='center'>";
+    htmlcontent += "<a href='https://wiki.openstreetmap.org/wiki/Power_networks/" + feature.properties.name.replace(/ /g, "_")  + "' target='_blank'><img src='https://wiki.openstreetmap.org/osm_logo_wiki.png' width='50' class='mini-website-icon'></a>";
+    htmlcontent += "<a href='https://www.wikidata.org/wiki/" + feature.properties.wikidata_id + "' target='_blank'><img src='https://upload.wikimedia.org/wikipedia/commons/f/ff/Wikidata-logo.svg' class='mini-website-icon' width='60'></a>";
+    htmlcontent += "<a href='https://openinframap.org/stats/area/" + feature.properties.name + "' target='_blank'><img src='logo_openinframap.png' width='50' class='mini-website-icon'></a>";
+    htmlcontent += "<a href='https://www.openstreetmap.org/relation/" + feature.properties.osm_rel_id + "' target='_blank'><img src='https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/Openstreetmap_logo.svg/80px-Openstreetmap_logo.svg.png' width='50' class='mini-website-icon'></a>";
+    htmlcontent += "</p>";
+
 
 
   panel.classList.add("open");
-  panel.innerHTML = htmlcontent;
+  subpanel.innerHTML = htmlcontent;
 	  build_container();
     show_indicator(feature.properties);
 
 
- /*  if (current_select) {
+  /* if (current_select) {
 	// Unhover the current feature
+     console.log(feature);
 		map.setFeatureState(
 			{ sourceLayerId: 'highlight-country', source: 'worldmap-indicators', 'sourceLayer': 'worldmap_indicators-bbcgmb', id: current_select.id },
 			{ hover: false }
@@ -291,13 +326,14 @@ function build_popup_detail(feature, ll) {
 		{ sourceLayerId: 'highlight-country', source: 'worldmap-indicators', 'sourceLayer': 'worldmap_indicators-bbcgmb', id: feature.id },
 		{ hover: true }
 	);
-	current_select = feature; */
+	current_select = feature;*/
 
 }
 
 
 function build_container() {
   const container = document.getElementById('cards');
+  container.innerHTML = "";
 
   // Exemple : utiliser une image factice (placeholder)
   for (const indicator of health_indicators) {
@@ -404,14 +440,13 @@ function show_indicator(feature_properties) {
       drawRing("ring_" + indicator, feature_properties[indicator].toFixed(1), "XXS");
     }
 drawRing("ring_quality_score", (feature_properties["quality_score"]*100).toFixed(1), "XS");
-
+drawRing("ring_coverage_score", feature_properties["coverage_population"], "XS");
+//drawRing("ring_coverage_score", 75.3, "XS");
 }
 
 
   </script>
 
 
-   </main>
-    <footer></footer>
   </body>
 </html>
