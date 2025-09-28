@@ -8,6 +8,7 @@
 
 :root {
   --mapyourgrid-primary: #036d7a;
+  --left-panel-width:500px;
 }
 
 body {
@@ -103,7 +104,7 @@ h3 {
   position: fixed;
   right: -400px; /* caché par défaut */
   top: 0;
-  width: 500px;
+  width: var(--left-panel-width);
   height: 100%;
   background: #f4f4f4;
   box-shadow: -2px 0 5px rgba(0,0,0,0.3);
@@ -134,6 +135,7 @@ h3 {
   border-radius: 10px;
   margin-bottom: 15px;
 }
+
 
 </style>
 
@@ -170,22 +172,25 @@ h3 {
         </ul></p>
       </div>
     </div>
+
     <div id="internalSidePanel">
     <!-- AUTO GENERATED -->
     </div>
 
+<br>
 
     <h3>Quality Score</h3>
     <div style='text-align: center;width:100%;'>
       <canvas id='ring_quality_score' width='250' height='120'></canvas>
     </div>
-    <div class='container' id='cards'></div>
+    <div class='container' id='cards'></div><br>
+    <div style="text-align:center"><a href="indicatorsmethodo.html" target="_blank">See indicator computing methodology</a></div>
 
-
-    <h3>Coverage Score</h3>
+    <h3>Estimated spatial coverage of substations</h3>
     <div style='text-align: center;width:100%;'>
       <canvas id='ring_coverage_score' width='250' height='120'></canvas>
     </div>
+
 
     <br><br><br><br>
 
@@ -209,9 +214,9 @@ const health_indicators = ['health_power_line_connectivity',
  const indicator_title = {'health_power_line_connectivity':'Line connectivity',
  'health_grid_connectivity_without_circuit':'Grid connectivity (without circuit)',
  'health_grid_connectivity_with_circuit':'Grid connectivity (with circuit)',
- 'health_line_voltage_completeness':'Line voltage attribute completeness',
- 'health_line_cables_completness':'Line cables attribute completeness',
- 'health_substation_voltage_completness':'Substation voltage completeness',
+ 'health_line_voltage_completeness':'"Voltage"-tag completeness on lines and cables',
+ 'health_line_cables_completness':'"Cables"-tag completeness on lines and cables',
+ 'health_substation_voltage_completness':'"Voltage"-tag completeness on substations',
  'health_connected_power_tower':'Connected power tower',
  'health_complete_power_line':'Completed power lines',
  'health_consistent_line_voltage_connection':'Line-to-line voltage consistency',
@@ -276,11 +281,13 @@ map.on('click', (event) => {
 
 let current_select = false;
 
+const ctmap = document.getElementById("map");
 const panel = document.getElementById("mySidepanel");
 const subpanel = document.getElementById("internalSidePanel");
 
 function closePanel() {
     panel.classList.remove("open");
+    //ctmap.style.left = 0;
 }
 
 function build_popup_detail(feature, ll) {
@@ -313,6 +320,8 @@ function build_popup_detail(feature, ll) {
 	  build_container();
     show_indicator(feature.properties);
 
+
+  // ctmap.style.left = "calc(-1*var(--left-panel-width)/2)";
 
   /* if (current_select) {
 	// Unhover the current feature

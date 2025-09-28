@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="">
+  <head>
+    <meta charset="utf-8">
+    <title>MapYourGrid - Methodology for computing indicators</title>
+    <style>
+:root{--accent:#2b6cb0;--muted:#6b7280;--card:#fff;--bg:#f7fafc}
+html,body{height:100%;font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;background:var(--bg);color:#0f172a;margin:0}
+header{display:flex;gap:16px;align-items:center}
+h1{
+  margin:10px;
+  font-size:2rem;
+  text-align:center;
+}
+
+p.lead{
+  color:var(--muted);
+  margin:6px 0 18px;
+}
+
+.grid{
+  /*display:grid;
+  grid-template-columns:1fr 320px;*/
+  gap:20px;
+  margin: auto;
+  width: 50%;
+}
+.card{
+  background:var(--card);
+  margin-top: 10px;
+  padding-top:6px;
+  padding-bottom:6px;
+  padding-left:18px;
+  padding-right:18px;
+  border-radius:12px;
+  box-shadow:0 6px 18px rgba(15,23,42,0.06);
+}
+
+.indicator{
+  border-left:4px solid var(--accent);
+  padding:12px;
+  margin-bottom:14px;
+  border-radius:8px;
+}
+
+.meta{
+color:var(--muted);font-size:0.92rem;margin-bottom:8px
+}
+code.formula{display:block;background:#0f172a;color:#fff;padding:10px;border-radius:6px;font-family:SFMono-Regular,Menlo,monospace;margin:10px 0}
+details{margin-bottom:10px}
+summary{cursor:pointer;font-weight:600}
+table{width:100%;border-collapse:collapse;margin-top:8px}
+td,th{padding:8px;border-bottom:1px solid #eee;text-align:left}
+.example{background:#f1f5f9;padding:10px;border-radius:6px;margin-top:8px}
+.small{font-size:0.86rem;color:var(--muted)}
+footer{margin-top:20px;color:var(--muted);font-size:0.85rem}
+
+</style>
+  </head>
+  <body>
+
+          <!--<div class="small">Données requises : Valeur à la période t et valeur à la période t−1.</div> !-->
+        <!--<div class="example">
+          <strong>Exemple :</strong> si CA_{2024} = 120 000 € et CA_{2023} = 100 000 € → ((120000 - 100000)/100000)*100 = 20 %.
+        </div>
+        <p class="small">Précautions : éviter la division par zéro ; pour les séries volatiles, préférer une moyenne mobile ou taux annualisé.</p>!-->
+
+    <header>
+      <div style="text-align: center;  width:100%;">
+        <h1>MapYourGrid - Methodology for computing indicators</h1>
+      </div>
+    </header>
+
+    <main>
+    <div class="grid">
+
+    <section class="card">
+      <h2 id="taux-croissance">Line connectivity</h2>
+      <div class="indicator">
+        <div class="meta">
+        A line is connected if it serves to link two substations. If it is connected on only one side, or not at all, it is not connected. Line connectivity is therefore the number of connected lines out of the total number.
+        <ul>
+            <li>nb_power_line_cable_connected = Number of connected power line or cable according grid analysis*.</li>
+            <li>nb_power_line_cable = Number of power line or cable according grid analysis*.</li>
+          </ul>
+        </div>
+        <code class="formula">
+          value(%) = 100 * nb_power_line_cable_connected / nb_power_line_cable
+        </code>
+        <p class="small"><b>How to improve this score: </b>Connect lines to substation or to appropriated line_management nodes.</p>
+      </div>
+    </section>
+
+        <section class="card">
+      <h2 id="taux-croissance">Grid overall connectivity (without circuits)</h2>
+      <div class="indicator">
+        <div class="meta">
+          Indicates whether the entire network of connected substations is connexe or not. The indicators reflects the number of substations connected in the different components of the graph. It is computed through grid analysis*. This indicator does not take circuit relations into account.
+        </div>
+      <p class="small"><b>How to improve this score: </b>Connect subparts of the national grid together with power lines.</p>
+
+      </div>
+    </section>
+
+        <section class="card">
+      <h2 id="taux-croissance">Grid overall connectivity (with circuits)</h2>
+      <div class="indicator">
+        <div class="meta">
+          Indicates whether the entire network of connected substations is connexe or not. The indicators reflects the number of substations connected in the different components of the graph. It is computed through grid analysis*. This indicator does take circuit relations into account.
+        </div>
+        <p class="small"><b>How to improve this score: </b>Connect subparts of the national grid together with power lines or power circuits.</p>
+      </div>
+    </section>
+
+        <section class="card">
+      <h2 id="taux-croissance">"Cables"-tag completeness on lines</h2>
+      <div class="indicator">
+        <div class="meta">Indicates the proportion of power lines for which the "cables"-tag has been completed.
+          <ul>
+            <li>nb_osm_power_line_cable = Number of items that are tagged "power=line" or "power=cable" in OpenStreetMap.</li>
+            <li>nb_osm_power_line_cable_without_cables = Number of items that are tagged "power=line" or "power=cable" in OpenStreetMap and have no "cables"-tag.</li>
+          </ul>
+        </div>
+        <code class="formula">value(%) = 100 * nb_osm_power_line_cable_without_cables / nb_osm_power_line_cable
+</code>
+<p class="small"><b>How to improve this score: </b>Complete "cables" tag on power lines.</p>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2 id="taux-croissance">"Circuits"-tag completeness on lines</h2>
+      <div class="indicator">
+        <div class="meta">Indicates the proportion of power lines for which the "circuits"-tag has been completed.
+          <ul>
+            <li>nb_osm_power_line_cable = Number of items that are tagged "power=line" or "power=cable" in OpenStreetMap.</li>
+            <li>nb_osm_power_line_cable_without_circuits = Number of items that are tagged "power=line" or "power=cable" in OpenStreetMap and have no "circuits"-tag.</li>
+          </ul>
+        </div>
+        <code class="formula">value(%) = 100 * nb_osm_power_line_cable_without_circuits / nb_osm_power_line_cable
+</code>
+<p class="small"><b>How to improve this score: </b>Complete "circuits" tag on power lines.</p>
+      </div>
+    </section>
+
+            <section class="card">
+      <h2 id="taux-croissance">"Voltage"-tag completeness on lines</h2>
+      <div class="indicator">
+        <div class="meta">
+          Indicates the proportion of power line for which the "voltage"-tag has been completed.
+          <ul>
+            <li>nb_osm_power_substations = Number of items that are tagged "power=substation" in OpenStreetMap.</li>
+            <li>nb_osm_power_substations_without_voltage = Number of items that are tagged "power=substation" in OpenStreetMap and have no "voltage"-tag.</li>
+          </ul>
+        </div>
+        <code class="formula">value(%) = 100 * nb_osm_power_substations_without_voltage / nb_osm_power_substations
+</code>
+<p class="small"><b>How to improve this score: </b>Complete "voltage" tag on power lines.</p>
+
+      </div>
+    </section>
+
+    <section class="card">
+      <h2 id="taux-croissance">"Voltage"-tag completeness on substations</h2>
+      <div class="indicator">
+        <div class="meta">
+          Indicates the proportion of power substations for which the "voltage"-tag has been completed.
+          <ul>
+            <li>nb_osm_power_substations = Number of items that are tagged "power=substation" in OpenStreetMap.</li>
+          </ul>
+        </div>
+        <code class="formula">value(%) = 100 * nb(OSM power=substation & voltage!='')/ nb_osm_power_substations)
+</code>
+<p class="small"><b>How to improve this score: </b>Complete "voltage" tag on power substations.</p>
+
+      </div>
+    </section>
+
+     <section class="card">
+      <h2 id="taux-croissance">Connected power tower</h2>
+      <div class="indicator">
+        <div class="meta">
+          Indicates the proportion of power towers that are well connected to a power line or minor_line.
+          <ul>
+            <li>nb_oc1_t = number of Osmose-Class1 issues (i.e. Lone power tower or pole) where the concerned node is a power tower.</li>
+            <li>nb_osm_power_tower = Number of nodes that are tagged "power=tower" in OpenStreetMap.</li>
+          </ul>
+        </div>
+        <code class="formula">
+          value(%) = 100 * (1 - nb_oc1_t / nb_osm_power_tower)
+        </code>
+        <p class="small"><b>How to improve this score: </b>Connect power tower on power line. This is solving some of Osmose-Class1 issues (i.e. Lone power tower or pole).</p>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2 id="taux-croissance">Completed power lines</h2>
+      <div class="indicator">
+        <div class="meta">
+        A power line is not completed if one of its ends is not an other line, a portal, or an appropriated line_management node.
+          <ul>
+            <li>nb_oc2 = number of Osmose-Class2 issues (i.e. Unfinished power transmission line)</li>
+            <li>nb_osm_power_line = Number of ways that are tagged "power=line" in OpenStreetMap.</li>
+          </ul>
+        </div>
+        <code class="formula">
+          value(%) = 100 * (1 - nb_oc2 / 2*nb_osm_power_line)
+        </code>
+        <p class="small"><b>How to improve this score: </b>Connect power line to an other line, to a portal, or to an appropriated line_management node. This is solving Osmose-Class2 issues (i.e. Unfinished power transmission line).</p>
+
+      </div>
+    </section>
+
+    <section class="card">
+      <h2 id="taux-croissance">Line-to-line voltage consistency</h2>
+      <div class="indicator">
+        <div class="meta">
+        Connected lines must have coherent voltage.
+          <ul>
+            <li>nb_oc3 = number of Osmose-Class3 issues (i.e. Connection between different voltages)</li>
+          </ul>
+        </div>
+        <code class="formula">value(%) = 100 * (1 - nb_oc3 / nb(connection nodes) )
+        </code>
+        <p class="small">Connection nodes computed by grid analysis.</p>
+        <p class="small"><b>Warning: </b>The Osmose-Class3 issue is refering to line connections AND to minor_line connections. It is not possible yet to distinguish line and minor_line in the issue. Thus the indicator is not really consistent yet.</p>
+        <p class="small"><b>How to improve this score: </b>Connect power line to other line, to portal, or to line_management node. This is solving Osmose-Class3 issues (i.e. Connection between different voltages).</p>
+
+      </div>
+    </section>
+
+    <section class="card">
+      <h2 id="taux-croissance">Line-to-substation voltage consistency</h2>
+      <div class="indicator">
+
+        <div class="meta">Line voltage should be corresponding to its linked substation voltage.<br>
+          <ul>
+            <li>nb_oc7 = number of Osmose-Class7 issues (i.e. Unmatched voltage of line near of substation)</li>
+            <li>nb_line_substation_connection = number of tuple (substation ; connected line) computed by grid analysis*.</li>
+          </ul>
+        </div>
+        <code class="formula">
+          value(%) = 100 * (1 - (nb_oc7 / nb_line_substation_connection))
+      </code>
+      <p class="small"><b>How to improve this score: </b>Verify voltage between line and connected substation. This is solving Osmose-Class7 issues (i.e. Unmatched voltage of line near of substation).</p>
+
+      </div>
+    </section>
+
+  <section class="card">
+      <h2 id="taux-croissance">Coverage score</h2>
+      <p>Represents the proportion of the surface area of densely populated areas that is covered by a substation.</p>
+      <div class="indicator">
+        <div class="meta">
+          d = area of densely populated areas<br>
+          c = area of densely populated areas not covered by substation (Hypothesis: coverage radius of a substation = 40 km)
+        </div>
+        <code class="formula">
+          value(%) = 100 * c / d
+        </code>
+        <p class="small">Population density source = <a href="https://data.humdata.org/dataset/kontur-population-dataset-3km">https://data.humdata.org/dataset/kontur-population-dataset-3km</a></p>
+      </div>
+    </section>
+
+
+    <section class="card">
+      <h2 id="taux-croissance">* Grid analysis</h2>
+      <div class="indicator">
+        <div class="meta">
+          In order to examine the quality of OpenStreetMap data and its topology, we are developing a graph construction algorithm. Some of the values used to calculate indicators come from this algorithm.
+          <br><br>
+          You can find the source code for the algorithm on Github: <a href="https://github.com/ben10dynartio/osm-power-grid-map-analysis">https://github.com/ben10dynartio/osm-power-grid-map-analysis</a>
+        </div>
+      </div>
+    </section>
+
+</div>
+
+    </main>
+    <footer></footer>
+  </body>
+</html>
