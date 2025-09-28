@@ -4,6 +4,7 @@ health_score/build/*
 spatial_analysis/data/*
 spatial_analysis/build/*
 indicators_map/data/*
+crosscheck_data_sources/cache/*
 
 .idea/
 

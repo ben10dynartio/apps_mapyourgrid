@@ -1,0 +1,393 @@
+==== Burundi (BI) ====
+  >> No source
+
+==== Botswana (BW) ====
+  >> No source
+
+==== Democratic Republic of the Congo (CD) ====
+  >> No source
+
+==== Central African Republic (CF) ====
+  >> No source
+
+==== Ivory Coast (CI) ====
+  >> No source
+
+==== Cape Verde (CV) ====
+  >> No source
+
+==== Djibouti (DJ) ====
+  >> No source
+
+==== Algeria (DZ) ====
+  >> No source
+
+==== Egypt (EG) ====
+  >> No source
+
+==== Eritrea (ER) ====
+  >> No source
+
+==== Gabon (GA) ====
+  >> No source
+
+==== The Gambia (GM) ====
+  >> No source
+
+==== Equatorial Guinea (GQ) ====
+  >> No source
+
+==== Guinea-Bissau (GW) ====
+  >> 0 data sources in wiki - https://wiki.openstreetmap.org/wiki/Power_networks/Guinea-Bissau
+  >> 1 data sources in awesomelist
+    * West African Power Pool (WAPP) - 2017 : https://www.ecowapp.org/sites/default/files/wapp_map_general_optimized.gif
+  >> Conflation (0 sources in common)
+    * ------ Missing OSM Wiki :
+{{PowerNetworksDatasourceRow|source=[https://www.ecowapp.org/sites/default/files/wapp_map_general_optimized.gif West African Power Pool (WAPP) - 2017]|license=?|date=?|osm_suitable=?|comments=-}}
+
+
+==== Comoros (KM) ====
+  >> No source
+
+==== Liberia (LR) ====
+  >> No source
+
+==== Lesotho (LS) ====
+  >> No source
+
+==== Libya (LY) ====
+  >> No source
+
+==== Morocco (MA) ====
+  >> No source
+
+==== Madagascar (MG) ====
+  >> No source
+
+==== Mali (ML) ====
+  >> No source
+
+==== Mauritania (MR) ====
+  >> No source
+
+==== Mauritius (MU) ====
+  >> No source
+
+==== Malawi (MW) ====
+  >> No source
+
+==== Niger (NE) ====
+  >> No source
+
+==== Seychelles (SC) ====
+  >> No source
+
+==== Sudan (SD) ====
+  >> No source
+
+==== Sierra Leone (SL) ====
+  >> No source
+
+==== Senegal (SN) ====
+  >> No source
+
+==== South Sudan (SS) ====
+  >> No source
+
+==== São Tomé and Príncipe (ST) ====
+  >> No source
+
+==== Chad (TD) ====
+  >> No source
+
+==== Togo (TG) ====
+
+==== Argentina (AR) ====
+  >> No source
+
+==== Brazil (BR) ====
+  >> No source
+
+==== Chile (CL) ====
+  >> No source
+
+==== Colombia (CO) ====
+  >> No source
+
+==== Ecuador (EC) ====
+  >> No source
+
+==== Guyana (GY) ====
+  >> No source
+
+==== Panama (PA) ====
+  >> No source
+
+==== Peru (PE) ====
+  >> No source
+
+==== Paraguay (PY) ====
+  >> No source
+
+==== Suriname (SR) ====
+  >> No source
+
+==== Uruguay (UY) ====
+  >> No source
+
+==== Venezuela (VE) ====
+  >> No source
+
+==== United Arab Emirates (AE) ====
+  >> No source
+
+==== Armenia (AM) ====
+  >> No source
+
+==== Azerbaijan (AZ) ====
+  >> No source
+
+==== Bahrain (BH) ====
+  >> No source
+
+==== Brunei (BN) ====
+  >> No source
+
+==== Bhutan (BT) ====
+  >> No source
+
+==== People's Republic of China (CN) ====
+  >> No source
+
+==== Indonesia (ID) ==== diferent page
+
+==== Israel (IL) ====
+  >> No source
+
+==== North Korea (KP) ====
+  >> No source
+
+==== Kuwait (KW) ====
+  >> No source
+
+==== Lebanon (LB) ====
+  >> No source
+
+==== Maldives (MV) ====
+  >> No source
+
+==== Malaysia (MY) ==== different page
+
+==== Philippines (PH) ==== different page
+
+==== State of Palestine (PS) ====
+  >> No source
+
+==== Qatar (QA) ====
+  >> No source
+
+==== Singapore (SG) ====
+  >> No source
+
+==== Timor-Leste (TL) ====
+  >> No source
+
+==== Turkmenistan (TM) ====
+  >> No source
+
+==== Yemen (YE) ====
+  >> No source
+
+==== Fiji (FJ) ====
+  >> No source
+
+==== Federated States of Micronesia (FM) ====
+  >> No source
+
+==== Kiribati (KI) ====
+  >> No source
+
+==== Marshall Islands (MH) ====
+  >> No source
+
+==== Nauru (NR) ====
+  >> No source
+
+==== New Zealand (NZ) ====
+  >> No source
+
+==== Palau (PW) ====
+  >> No source
+
+==== Solomon Islands (SB) ====
+  >> No source
+
+==== Tonga (TO) ====
+  >> No source
+
+==== Tuvalu (TV) ====
+  >> No source
+
+==== Vanuatu (VU) ====
+  >> No source
+
+==== Samoa (WS) ====
+  >> No source
+
+==== Antigua and Barbuda (AG) ====
+  >> No source
+
+==== Barbados (BB) ====
+  >> No source
+
+==== The Bahamas (BS) ====
+  >> No source
+
+==== Belize (BZ) ====
+  >> No source
+
+==== Canada (CA) ==== different page
+  >> No source
+
+==== Costa Rica (CR) ====
+  >> No source
+
+==== Cuba (CU) ====
+  >> No source
+
+==== Dominica (DM) ====
+  >> No source
+
+==== Dominican Republic (DO) ====
+  >> No source
+
+==== Grenada (GD) ====
+  >> No source
+
+==== Guatemala (GT) ====
+  >> No source
+
+==== Honduras (HN) ====
+  >> No source
+
+==== Haiti (HT) ====
+  >> No source
+
+==== Jamaica (JM) ====
+  >> No source
+
+==== Saint Kitts and Nevis (KN) ====
+  >> No source
+
+==== Saint Lucia (LC) ====
+  >> No source
+
+==== Mexico (MX) ====
+  >> No source
+
+==== Nicaragua (NI) ====
+  >> No source
+
+==== El Salvador (SV) ====
+  >> No source
+
+==== Trinidad and Tobago (TT) ====
+  >> No source
+
+==== United States (US) ====
+  >> No source
+
+==== Saint Vincent and the Grenadines (VC) ====
+  >> No source
+
+==== Andorra (AD) ====
+  >> No source
+
+==== Austria (AT) ==== different page
+
+==== Bosnia and Herzegovina (BA) ====
+  >> No source
+
+==== Belarus (BY) ====
+  >> No source
+
+==== Cyprus (CY) ====
+  >> No source
+
+==== Czech Republic (CZ) ====
+  >> No source
+
+==== Germany (DE) ==== different page
+    * ------ Missing OSM Wiki :
+{{PowerNetworksDatasourceRow|source=[https://www.uebertragungsnetz.de/ Uebertragungsnetz.de - **Germany** Grid Live Data]|license=?|date=?|osm_suitable=?|comments=-}}
+
+==== Kingdom of Denmark (DK) ====
+  >> No source
+
+==== France (FR) ==== different page
+    * ------ Missing OSM Wiki :
+{{PowerNetworksDatasourceRow|source=[https://github.com/rte-france/structural-french-grid-data-with-detailed-topology-time-series Structural french grid data with detailed topology time series]|license=?|date=?|osm_suitable=?|comments=-}}
+
+==== United Kingdom (GB) ==== different page
+  >> 8 data sources in wiki - https://wiki.openstreetmap.org/wiki/Power_networks/United_Kingdom
+    * National Grid Electricity Transmission : https://www.nationalgrid.com/electricity-transmission/network-and-infrastructure/network-route-maps  || date=No | license=Custom, very restrictive license | suitable_for_OSM=Vast majority mapped from other sources. | notes=
+    * SSEN Transmission : https://ssentransmission.opendatasoft.com  || date=No | license=CC-BY 4.0 | suitable_for_OSM=License waiver required. Majority should be mapped from other sources. | notes=
+    * National Grid Electricity Distribution : https://connecteddata.nationalgrid.co.uk  || date=No. | license="NGED Shared Data Licence" | suitable_for_OSM=Data published before July 2024 was available as an OGLv3 clone, however has now reverted to a non-open license. | notes=
+    * UK Power Networks : https://ukpowernetworks.opendatasoft.com  || date=No | license=CC-BY 4.0 | suitable_for_OSM=License waiver required. They refuse to provide one despite significant attempts. | notes=
+    * Electricity North West : https://electricitynorthwest.opendatasoft.com  || date=No | license=CC-BY 4.0 | suitable_for_OSM=License waiver required, requested byRussss(talk) (11/2023), reply not received. | notes=
+    * Northern Powergrid : https://northernpowergrid.opendatasoft.com  || date=No | license=Northern Powergrid Open Data Licence v1.0 | suitable_for_OSM=License is an OGLv3 clone. Attribution clarification required, requested byRussss(talk) (11/2023), reply not received. | notes=
+    * Scottish & Southern Electricity Networks : https://data.ssen.co.uk  || date=No | license=CC-BY 4.0 | suitable_for_OSM=License waiver required, requested byRussss(talk) (11/2023), reply not received. | notes=
+    * SP Energy Networks : https://spenergynetworks.opendatasoft.com  || date=No | license=CC-BY 4.0 | suitable_for_OSM=License waiver required. Data was previously briefly available under a different license. | notes=
+  >> 0 data sources in awesomelist
+  * (United Kingdom) [National Grid UK](https://www.nationalgrid.com/electricity-transmission/network-and-infrastructure/network-route-maps)
+ * (United Kingdom) [Substations UK](https://zenodo.org/records/10866260)
+
+  >> Conflation (0 sources in common)
+
+==== Croatia (HR) ====
+  >> No source
+
+==== Liechtenstein (LI) ====
+  >> No source
+
+==== Luxembourg (LU) ====
+  >> No source
+
+==== Monaco (MC) ====
+  >> No source
+
+==== Moldova (MD) ====
+  >> No source
+
+==== Montenegro (ME) ====
+  >> No source
+
+==== Malta (MT) ====
+  >> No source
+
+==== Kingdom of the Netherlands (NL) ====
+  >> No source
+
+==== Norway (NO) ====
+  >> No source
+
+==== Poland (PL) ==== different page
+    * ------ Missing OSM Wiki :
+{{PowerNetworksDatasourceRow|source=[https://www.pse.pl/obszary-dzialalnosci/krajowy-system-elektroenergetyczny/informacja-o-dostepnosci-mocy-przylaczeniowej Grid Capacity]|license=?|date=?|osm_suitable=?|comments=-}}
+{{PowerNetworksDatasourceRow|source=[https://www.pse.pl/obszary-dzialalnosci/krajowy-system-elektroenergetyczny/informacja-o-dostepnosci-mocy-przylaczeniowej Grid Capacity]|license=?|date=?|osm_suitable=?|comments=-}}
+
+==== Sweden (SE) ====
+  >> No source
+
+==== Slovenia (SI) ====
+  >> No source
+
+==== San Marino (SM) ====
+  >> No source
+
+==== Ukraine (UA) ====
+  >> No source
+
+==== Vatican City (VA) ====
+  >> No source
+
