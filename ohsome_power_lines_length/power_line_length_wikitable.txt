@@ -1,873 +1,697 @@
 {| class='wikitable sortable' 
 |-
-!  !!  
-! colspan=2 | Evolution since 2025-01-01
-|-
-! Country !! Power line length<br>in km, on 2025-07-01 !! km !! %
-|-|-
-| [[Power networks/Andorra|Andorra]] 
-|align='center'| 53
-| align='right' |0
-|align='right' style='background:#c8c8c8'| 0.0 %
-|-
-| [[Power networks/United Arab Emirates|United Arab Emirates]] 
-|align='center'| 8148
-| align='right' |+5
-|align='right' style='background:#aaff00'| +0.1 %
-|-
-| [[Power networks/Afghanistan|Afghanistan]] 
-|align='center'| 3748
-| align='right' |+281
-|align='right' style='background:#73e700'| +8.1 %
-|-
-| [[Power networks/Antigua and Barbuda|Antigua and Barbuda]] 
-|align='center'| 42
-| align='right' |0
-|align='right' style='background:#c8c8c8'| 0.0 %
-|-
-| [[Power networks/Albania|Albania]] 
-|align='center'| 2878
-| align='right' |+87
-|align='right' style='background:#95f600'| +3.1 %
-|-
-| [[Power networks/Armenia|Armenia]] 
-|align='center'| 5227
-| align='right' |+14
-|align='right' style='background:#a8fe00'| +0.3 %
-|-
-| [[Power networks/Angola|Angola]] 
-|align='center'| 6433
-| align='right' |+63
-|align='right' style='background:#a3fc00'| +1.0 %
-|-
-| [[Power networks/Argentina|Argentina]] 
-|align='center'| 56722
-| align='right' |+20
-|align='right' style='background:#aaff00'| +0.0 %
-|-
-| [[Power networks/Austria|Austria]] 
-|align='center'| 11523
-| align='right' |-118
-|align='right' style='background:#c8c8c8'| -1.0 %
-|-
-| [[Power networks/Australia|Australia]] 
-|align='center'| 81847
-| align='right' |+567
-|align='right' style='background:#a5fd00'| +0.7 %
-|-
-| [[Power networks/Azerbaijan|Azerbaijan]] 
-|align='center'| 10042
-| align='right' |+81
-|align='right' style='background:#a4fd00'| +0.8 %
-|-
-| [[Power networks/Bosnia and Herzegovina|Bosnia and Herzegovina]] 
-|align='center'| 6207
-| align='right' |+1591
-|align='right' style='background:#00b400'| +34.5 %
-|-
-| [[Power networks/Bangladesh|Bangladesh]] 
-|align='center'| 8843
-| align='right' |+804
-|align='right' style='background:#66e100'| +10.0 %
-|-
-| [[Power networks/Belgium|Belgium]] 
-|align='center'| 5984
-| align='right' |-6
-|align='right' style='background:#c8c8c8'| -0.1 %
-|-
-| [[Power networks/Burkina Faso|Burkina Faso]] 
-|align='center'| 1495
-| align='right' |+131
-|align='right' style='background:#69e200'| +9.6 %
-|-
-| [[Power networks/Bulgaria|Bulgaria]] 
-|align='center'| 13789
-| align='right' |+426
-|align='right' style='background:#94f500'| +3.2 %
-|-
-| [[Power networks/Bahrain|Bahrain]] 
-|align='center'| 18
-| align='right' |0
-|align='right' style='background:#c8c8c8'| 0.0 %
-|-
-| [[Power networks/Burundi|Burundi]] 
-|align='center'| 394
-| align='right' |0
-|align='right' style='background:#c8c8c8'| 0.0 %
-|-
-| [[Power networks/Benin|Benin]] 
-|align='center'| 1344
-| align='right' |+153
-|align='right' style='background:#53d800'| +12.8 %
-|-
-| [[Power networks/Brunei|Brunei]] 
-|align='center'| 309
-| align='right' |0
-|align='right' style='background:#c8c8c8'| 0.0 %
-|-
-| [[Power networks/Bolivia|Bolivia]] 
-|align='center'| 7904
-| align='right' |+817
-|align='right' style='background:#5cdc00'| +11.5 %
-|-
-| [[Power networks/Brazil|Brazil]] 
-|align='center'| 298413
-| align='right' |+3654
-|align='right' style='background:#a2fb00'| +1.2 %
-|-
-| [[Power networks/The Bahamas|The Bahamas]] 
-|align='center'| 92
-| align='right' |+3
-|align='right' style='background:#93f500'| +3.4 %
-|-
-| [[Power networks/Bhutan|Bhutan]] 
-|align='center'| 1042
-| align='right' |+5
-|align='right' style='background:#a7fe00'| +0.5 %
-|-
-| [[Power networks/Botswana|Botswana]] 
-|align='center'| 5472
-| align='right' |0
-|align='right' style='background:#c8c8c8'| 0.0 %
-|-
-| [[Power networks/Belarus|Belarus]] 
-|align='center'| 34540
-| align='right' |+35
-|align='right' style='background:#a9ff00'| +0.1 %
-|-
-| [[Power networks/Belize|Belize]] 
-|align='center'| 660
-| align='right' |+6
-|align='right' style='background:#a4fc00'| +0.9 %
-|-
-| [[Power networks/Canada|Canada]] 
-|align='center'| 150346
-| align='right' |+649
-|align='right' style='background:#a7fe00'| +0.4 %
-|-
-| [[Power networks/Democratic Republic of the Congo|Democratic Republic of the Congo]] 
-|align='center'| 7998
-| align='right' |+112
-|align='right' style='background:#a0fb00'| +1.4 %
-|-
-| [[Power networks/Central African Republic|Central African Republic]] 
-|align='center'| 139
-| align='right' |0
-|align='right' style='background:#c8c8c8'| 0.0 %
-|-
-| [[Power networks/Republic of the Congo|Republic of the Congo]] 
-|align='center'| 1616
-| align='right' |+17
-|align='right' style='background:#a3fc00'| +1.1 %
-|-
-| [[Power networks/Switzerland|Switzerland]] 
-|align='center'| 9600
-| align='right' |-22
-|align='right' style='background:#c8c8c8'| -0.2 %
-|-
-| [[Power networks/Ivory Coast|Ivory Coast]] 
-|align='center'| 11170
-| align='right' |+439
-|align='right' style='background:#8ef300'| +4.1 %
-|-
-| [[Power networks/Chile|Chile]] 
-|align='center'| 25586
-| align='right' |+110
-|align='right' style='background:#a7fe00'| +0.4 %
-|-
-| [[Power networks/Cameroon|Cameroon]] 
-|align='center'| 2193
-| align='right' |0
-|align='right' style='background:#c8c8c8'| 0.0 %
-|-
-| [[Power networks/People's Republic of China|People's Republic of China]] 
-|align='center'| 1023245
-| align='right' |+46474
-|align='right' style='background:#8af100'| +4.8 %
-|-
-| [[Power networks/Colombia|Colombia]] 
-|align='center'| 17435
-| align='right' |+1420
-|align='right' style='background:#6ee400'| +8.9 %
-|-
-| [[Power networks/Costa Rica|Costa Rica]] 
-|align='center'| 2453
-| align='right' |+2
-|align='right' style='background:#a9ff00'| +0.1 %
-|-
-| [[Power networks/Cuba|Cuba]] 
-|align='center'| 6340
-| align='right' |0
-|align='right' style='background:#c8c8c8'| 0.0 %
-|-
-| [[Power networks/Cape Verde|Cape Verde]] 
-|align='center'| 43
-| align='right' |0
-|align='right' style='background:#c8c8c8'| 0.0 %
-|-
-| [[Power networks/Cyprus|Cyprus]] 
-|align='center'| 1060
-| align='right' |0
-|align='right' style='background:#c8c8c8'| 0.0 %
-|-
-| [[Power networks/Czech Republic|Czech Republic]] 
-|align='center'| 15705
-| align='right' |+48
-|align='right' style='background:#a8fe00'| +0.3 %
-|-
-| [[Power networks/Germany|Germany]] 
-|align='center'| 63024
-| align='right' |-125
-|align='right' style='background:#c8c8c8'| -0.2 %
-|-
-| [[Power networks/Djibouti|Djibouti]] 
-|align='center'| 283
-| align='right' |+1
-|align='right' style='background:#a8fe00'| +0.4 %
-|-
-| [[Power networks/Dominican Republic|Dominican Republic]] 
-|align='center'| 2460
-| align='right' |+8
-|align='right' style='background:#a8fe00'| +0.3 %
-|-
-| [[Power networks/Algeria|Algeria]] 
-|align='center'| 36969
-| align='right' |+877
-|align='right' style='background:#99f800'| +2.4 %
-|-
-| [[Power networks/Ecuador|Ecuador]] 
-|align='center'| 8295
-| align='right' |+160
-|align='right' style='background:#9df900'| +2.0 %
-|-
-| [[Power networks/Estonia|Estonia]] 
-|align='center'| 6981
-| align='right' |+85
-|align='right' style='background:#a2fb00'| +1.2 %
-|-
-| [[Power networks/Egypt|Egypt]] 
-|align='center'| 28066
-| align='right' |+61
-|align='right' style='background:#a9fe00'| +0.2 %
-|-
-| [[Power networks/Eritrea|Eritrea]] 
-|align='center'| 125
-| align='right' |0
-|align='right' style='background:#c8c8c8'| 0.0 %
-|-
-| [[Power networks/Spain|Spain]] 
-|align='center'| 82883
-| align='right' |+706
-|align='right' style='background:#a4fc00'| +0.9 %
-|-
-| [[Power networks/Ethiopia|Ethiopia]] 
-|align='center'| 16822
-| align='right' |+27
-|align='right' style='background:#a9ff00'| +0.2 %
-|-
-| [[Power networks/Finland|Finland]] 
-|align='center'| 24662
-| align='right' |+123
-|align='right' style='background:#a7fd00'| +0.5 %
-|-
-| [[Power networks/Federated States of Micronesia|Federated States of Micronesia]] 
-|align='center'| 8
-| align='right' |0
-|align='right' style='background:#c8c8c8'| 0.0 %
-|-
-| [[Power networks/France|France]] 
-|align='center'| 83672
-| align='right' |-210
-|align='right' style='background:#c8c8c8'| -0.3 %
-|-
-| [[Power networks/Gabon|Gabon]] 
-|align='center'| 450
-| align='right' |+8
-|align='right' style='background:#9efa00'| +1.8 %
-|-
-| [[Power networks/United Kingdom|United Kingdom]] 
-|align='center'| 28646
-| align='right' |-333
-|align='right' style='background:#c8c8c8'| -1.1 %
-|-
-| [[Power networks/Georgia|Georgia]] 
-|align='center'| 6663
-| align='right' |+1021
-|align='right' style='background:#2fc900'| +18.1 %
-|-
-| [[Power networks/Ghana|Ghana]] 
-|align='center'| 5656
-| align='right' |+84
-|align='right' style='background:#a0fa00'| +1.5 %
-|-
-| [[Power networks/The Gambia|The Gambia]] 
-|align='center'| 160
-| align='right' |0
-|align='right' style='background:#c8c8c8'| 0.0 %
-|-
-| [[Power networks/Guinea|Guinea]] 
-|align='center'| 1238
-| align='right' |+1
-|align='right' style='background:#a9ff00'| +0.1 %
-|-
-| [[Power networks/Equatorial Guinea|Equatorial Guinea]] 
-|align='center'| 1171
-| align='right' |+58
-|align='right' style='background:#87ef00'| +5.2 %
-|-
-| [[Power networks/Greece|Greece]] 
-|align='center'| 12044
-| align='right' |+46
-|align='right' style='background:#a7fe00'| +0.4 %
-|-
-| [[Power networks/Guatemala|Guatemala]] 
-|align='center'| 2685
-| align='right' |+39
-|align='right' style='background:#a0fb00'| +1.5 %
-|-
-| [[Power networks/Guinea-Bissau|Guinea-Bissau]] 
-|align='center'| 220
-| align='right' |0
-|align='right' style='background:#c8c8c8'| 0.0 %
-|-
-| [[Power networks/Guyana|Guyana]] 
-|align='center'| 2
-| align='right' |0
-|align='right' style='background:#c8c8c8'| 0.0 %
-|-
-| [[Power networks/Honduras|Honduras]] 
-|align='center'| 1808
-| align='right' |0
-|align='right' style='background:#c8c8c8'| 0.0 %
-|-
-| [[Power networks/Croatia|Croatia]] 
-|align='center'| 9787
-| align='right' |+145
-|align='right' style='background:#a0fa00'| +1.5 %
-|-
-| [[Power networks/Haiti|Haiti]] 
-|align='center'| 153
-| align='right' |0
-|align='right' style='background:#c8c8c8'| 0.0 %
-|-
-| [[Power networks/Hungary|Hungary]] 
-|align='center'| 10355
-| align='right' |+2
-|align='right' style='background:#aaff00'| +0.0 %
-|-
-| [[Power networks/Indonesia|Indonesia]] 
-|align='center'| 36305
-| align='right' |+141
-|align='right' style='background:#a7fe00'| +0.4 %
-|-
-| [[Power networks/Ireland|Ireland]] 
-|align='center'| 6726
-| align='right' |-2
-|align='right' style='background:#c8c8c8'| -0.0 %
-|-
-| [[Power networks/Israel|Israel]] 
-|align='center'| 3544
-| align='right' |+2
-|align='right' style='background:#aaff00'| +0.1 %
-|-
-| [[Power networks/India|India]] 
-|align='center'| 457041
-| align='right' |+9522
-|align='right' style='background:#9cf900'| +2.1 %
-|-
-| [[Power networks/Iraq|Iraq]] 
-|align='center'| 19614
-| align='right' |+391
-|align='right' style='background:#9cf900'| +2.0 %
-|-
-| [[Power networks/Iran|Iran]] 
-|align='center'| 77063
-| align='right' |+248
-|align='right' style='background:#a8fe00'| +0.3 %
-|-
-| [[Power networks/Iceland|Iceland]] 
-|align='center'| 3506
-| align='right' |-20
-|align='right' style='background:#c8c8c8'| -0.6 %
-|-
-| [[Power networks/Italy|Italy]] 
-|align='center'| 71134
-| align='right' |+264
-|align='right' style='background:#a7fe00'| +0.4 %
-|-
-| [[Power networks/Jamaica|Jamaica]] 
-|align='center'| 613
-| align='right' |0
-|align='right' style='background:#c8c8c8'| 0.0 %
-|-
-| [[Power networks/Jordan|Jordan]] 
-|align='center'| 2689
-| align='right' |+21
-|align='right' style='background:#a5fd00'| +0.8 %
-|-
-| [[Power networks/Japan|Japan]] 
-|align='center'| 72744
-| align='right' |+382
-|align='right' style='background:#a6fd00'| +0.5 %
-|-
-| [[Power networks/Kenya|Kenya]] 
-|align='center'| 7564
-| align='right' |+523
-|align='right' style='background:#77e900'| +7.4 %
-|-
-| [[Power networks/Kyrgyzstan|Kyrgyzstan]] 
-|align='center'| 6985
-| align='right' |+618
-|align='right' style='background:#68e200'| +9.7 %
-|-
-| [[Power networks/Cambodia|Cambodia]] 
-|align='center'| 2767
-| align='right' |+104
-|align='right' style='background:#8ff300'| +3.9 %
-|-
-| [[Power networks/North Korea|North Korea]] 
-|align='center'| 5728
-| align='right' |+173
-|align='right' style='background:#95f600'| +3.1 %
-|-
-| [[Power networks/South Korea|South Korea]] 
-|align='center'| 13746
-| align='right' |-7
-|align='right' style='background:#c8c8c8'| -0.1 %
-|-
-| [[Power networks/Kuwait|Kuwait]] 
-|align='center'| 4795
-| align='right' |+2
-|align='right' style='background:#aaff00'| +0.0 %
-|-
-| [[Power networks/Kazakhstan|Kazakhstan]] 
-|align='center'| 70518
-| align='right' |+16093
-|align='right' style='background:#00b400'| +29.6 %
-|-
-| [[Power networks/Laos|Laos]] 
-|align='center'| 7790
-| align='right' |+16
-|align='right' style='background:#a9fe00'| +0.2 %
-|-
-| [[Power networks/Lebanon|Lebanon]] 
-|align='center'| 896
-| align='right' |+146
-|align='right' style='background:#26c500'| +19.5 %
-|-
-| [[Power networks/Liechtenstein|Liechtenstein]] 
-|align='center'| 30
-| align='right' |0
-|align='right' style='background:#c8c8c8'| 0.0 %
-|-
-| [[Power networks/Sri Lanka|Sri Lanka]] 
-|align='center'| 3739
-| align='right' |+520
-|align='right' style='background:#3ccf00'| +16.2 %
-|-
-| [[Power networks/Liberia|Liberia]] 
-|align='center'| 587
-| align='right' |0
-|align='right' style='background:#c8c8c8'| 0.0 %
-|-
-| [[Power networks/Lesotho|Lesotho]] 
-|align='center'| 638
-| align='right' |-129
-|align='right' style='background:#c8c8c8'| -16.8 %
-|-
-| [[Power networks/Lithuania|Lithuania]] 
-|align='center'| 9712
-| align='right' |+108
-|align='right' style='background:#a2fc00'| +1.1 %
-|-
-| [[Power networks/Luxembourg|Luxembourg]] 
-|align='center'| 649
-| align='right' |-4
-|align='right' style='background:#c8c8c8'| -0.6 %
-|-
-| [[Power networks/Latvia|Latvia]] 
-|align='center'| 11847
-| align='right' |-590
-|align='right' style='background:#c8c8c8'| -4.7 %
-|-
-| [[Power networks/Libya|Libya]] 
-|align='center'| 25727
-| align='right' |-52
-|align='right' style='background:#c8c8c8'| -0.2 %
-|-
-| [[Power networks/Morocco|Morocco]] 
-|align='center'| 23427
-| align='right' |+299
-|align='right' style='background:#a1fb00'| +1.3 %
-|-
-| [[Power networks/Monaco|Monaco]] 
-|align='center'| 4
-| align='right' |0
-|align='right' style='background:#c8c8c8'| 0.0 %
-|-
-| [[Power networks/Moldova|Moldova]] 
-|align='center'| 11615
-| align='right' |+2
-|align='right' style='background:#aaff00'| +0.0 %
-|-
-| [[Power networks/Montenegro|Montenegro]] 
-|align='center'| 2076
-| align='right' |+67
-|align='right' style='background:#93f500'| +3.3 %
-|-
-| [[Power networks/Madagascar|Madagascar]] 
-|align='center'| 287
-| align='right' |+49
-|align='right' style='background:#1ec100'| +20.6 %
-|-
-| [[Power networks/North Macedonia|North Macedonia]] 
-|align='center'| 1920
-| align='right' |+151
-|align='right' style='background:#70e500'| +8.5 %
-|-
-| [[Power networks/Mali|Mali]] 
-|align='center'| 1584
-| align='right' |0
-|align='right' style='background:#c8c8c8'| 0.0 %
-|-
-| [[Power networks/Myanmar|Myanmar]] 
-|align='center'| 14041
-| align='right' |+119
-|align='right' style='background:#a4fc00'| +0.9 %
-|-
-| [[Power networks/Mongolia|Mongolia]] 
-|align='center'| 14072
-| align='right' |+1321
-|align='right' style='background:#64e000'| +10.4 %
-|-
-| [[Power networks/Mauritania|Mauritania]] 
-|align='center'| 1447
-| align='right' |0
-|align='right' style='background:#c8c8c8'| 0.0 %
-|-
-| [[Power networks/Malta|Malta]] 
-|align='center'| 12
-| align='right' |0
-|align='right' style='background:#c8c8c8'| 0.0 %
-|-
-| [[Power networks/Mauritius|Mauritius]] 
-|align='center'| 152
-| align='right' |0
-|align='right' style='background:#c8c8c8'| 0.0 %
-|-
-| [[Power networks/Malawi|Malawi]] 
-|align='center'| 2491
-| align='right' |+21
-|align='right' style='background:#a4fc00'| +0.9 %
-|-
-| [[Power networks/Mexico|Mexico]] 
-|align='center'| 85458
-| align='right' |+480
-|align='right' style='background:#a6fd00'| +0.6 %
-|-
-| [[Power networks/Malaysia|Malaysia]] 
-|align='center'| 15085
-| align='right' |+79
-|align='right' style='background:#a6fd00'| +0.5 %
-|-
-| [[Power networks/Mozambique|Mozambique]] 
-|align='center'| 9267
-| align='right' |+497
-|align='right' style='background:#83ee00'| +5.7 %
-|-
-| [[Power networks/Niger|Niger]] 
-|align='center'| 1222
-| align='right' |+7
-|align='right' style='background:#a6fd00'| +0.6 %
-|-
-| [[Power networks/Nigeria|Nigeria]] 
-|align='center'| 13646
-| align='right' |+703
-|align='right' style='background:#85ef00'| +5.4 %
-|-
-| [[Power networks/Nicaragua|Nicaragua]] 
-|align='center'| 2599
-| align='right' |+44
-|align='right' style='background:#9efa00'| +1.7 %
-|-
-| [[Power networks/Kingdom of the Netherlands|Kingdom of the Netherlands]] 
-|align='center'| 4180
-| align='right' |-6
-|align='right' style='background:#c8c8c8'| -0.1 %
-|-
-| [[Power networks/Norway|Norway]] 
-|align='center'| 32016
-| align='right' |+71
-|align='right' style='background:#a8fe00'| +0.2 %
-|-
-| [[Power networks/Nepal|Nepal]] 
-|align='center'| 3771
-| align='right' |+1211
-|align='right' style='background:#00b400'| +47.3 %
-|-
-| [[Power networks/New Zealand|New Zealand]] 
-|align='center'| 12490
-| align='right' |-58
-|align='right' style='background:#c8c8c8'| -0.5 %
-|-
-| [[Power networks/Oman|Oman]] 
-|align='center'| 10175
-| align='right' |-4
-|align='right' style='background:#c8c8c8'| -0.0 %
-|-
-| [[Power networks/Panama|Panama]] 
-|align='center'| 2125
-| align='right' |0
-|align='right' style='background:#c8c8c8'| 0.0 %
-|-
-| [[Power networks/Peru|Peru]] 
-|align='center'| 20569
-| align='right' |+18
-|align='right' style='background:#a9ff00'| +0.1 %
-|-
-| [[Power networks/Papua New Guinea|Papua New Guinea]] 
-|align='center'| 948
-| align='right' |0
-|align='right' style='background:#c8c8c8'| 0.0 %
-|-
-| [[Power networks/Philippines|Philippines]] 
-|align='center'| 14549
-| align='right' |+611
-|align='right' style='background:#8cf200'| +4.4 %
-|-
-| [[Power networks/Pakistan|Pakistan]] 
-|align='center'| 40978
-| align='right' |+1958
-|align='right' style='background:#88f000'| +5.0 %
-|-
-| [[Power networks/Poland|Poland]] 
-|align='center'| 48389
-| align='right' |-416
-|align='right' style='background:#c8c8c8'| -0.9 %
-|-
-| [[Power networks/State of Palestine|State of Palestine]] 
-|align='center'| 276
-| align='right' |+4
-|align='right' style='background:#a0fb00'| +1.5 %
-|-
-| [[Power networks/Portugal|Portugal]] 
-|align='center'| 17377
-| align='right' |-1
-|align='right' style='background:#c8c8c8'| -0.0 %
-|-
-| [[Power networks/Paraguay|Paraguay]] 
-|align='center'| 4712
-| align='right' |+61
-|align='right' style='background:#a1fb00'| +1.3 %
-|-
-| [[Power networks/Qatar|Qatar]] 
-|align='center'| 1176
-| align='right' |0
-|align='right' style='background:#c8c8c8'| 0.0 %
-|-
-| [[Power networks/Romania|Romania]] 
-|align='center'| 25457
-| align='right' |+51
-|align='right' style='background:#a9fe00'| +0.2 %
-|-
-| [[Power networks/Serbia|Serbia]] 
-|align='center'| 10175
-| align='right' |+67
-|align='right' style='background:#a5fd00'| +0.7 %
-|-
-| [[Power networks/Rwanda|Rwanda]] 
-|align='center'| 1210
-| align='right' |+17
-|align='right' style='background:#a0fb00'| +1.4 %
-|-
-| [[Power networks/Saudi Arabia|Saudi Arabia]] 
-|align='center'| 48988
-| align='right' |+316
-|align='right' style='background:#a6fd00'| +0.6 %
-|-
-| [[Power networks/Seychelles|Seychelles]] 
-|align='center'| 4
-| align='right' |0
-|align='right' style='background:#c8c8c8'| 0.0 %
-|-
-| [[Power networks/Sudan|Sudan]] 
-|align='center'| 6516
-| align='right' |0
-|align='right' style='background:#c8c8c8'| 0.0 %
-|-
-| [[Power networks/Sweden|Sweden]] 
-|align='center'| 45324
-| align='right' |+86
-|align='right' style='background:#a9fe00'| +0.2 %
-|-
-| [[Power networks/Slovenia|Slovenia]] 
-|align='center'| 3306
-| align='right' |+27
-|align='right' style='background:#a4fd00'| +0.8 %
-|-
-| [[Power networks/Slovakia|Slovakia]] 
-|align='center'| 7178
-| align='right' |-15
-|align='right' style='background:#c8c8c8'| -0.2 %
-|-
-| [[Power networks/Sierra Leone|Sierra Leone]] 
-|align='center'| 753
-| align='right' |+1
-|align='right' style='background:#a9ff00'| +0.1 %
-|-
-| [[Power networks/San Marino|San Marino]] 
-|align='center'| 5
-| align='right' |0
-|align='right' style='background:#c8c8c8'| 0.0 %
-|-
-| [[Power networks/Senegal|Senegal]] 
-|align='center'| 2681
-| align='right' |+4
-|align='right' style='background:#a9ff00'| +0.1 %
-|-
-| [[Power networks/Somalia|Somalia]] 
-|align='center'| 1
-| align='right' |0
-|align='right' style='background:#c8c8c8'| 0.0 %
-|-
-| [[Power networks/Suriname|Suriname]] 
-|align='center'| 133
-| align='right' |0
-|align='right' style='background:#c8c8c8'| 0.0 %
-|-
-| [[Power networks/South Sudan|South Sudan]] 
-|align='center'| 218
-| align='right' |0
-|align='right' style='background:#c8c8c8'| 0.0 %
-|-
-| [[Power networks/São Tomé and Príncipe|São Tomé and Príncipe]] 
-|align='center'| 6
-| align='right' |0
-|align='right' style='background:#c8c8c8'| 0.0 %
-|-
-| [[Power networks/El Salvador|El Salvador]] 
-|align='center'| 1405
-| align='right' |0
-|align='right' style='background:#c8c8c8'| 0.0 %
-|-
-| [[Power networks/Syria|Syria]] 
-|align='center'| 18820
-| align='right' |-1194
-|align='right' style='background:#c8c8c8'| -6.0 %
-|-
-| [[Power networks/Eswatini|Eswatini]] 
-|align='center'| 703
-| align='right' |0
-|align='right' style='background:#c8c8c8'| 0.0 %
-|-
-| [[Power networks/Chad|Chad]] 
-|align='center'| 127
-| align='right' |0
-|align='right' style='background:#c8c8c8'| 0.0 %
-|-
-| [[Power networks/Togo|Togo]] 
-|align='center'| 955
-| align='right' |+210
-|align='right' style='background:#00b400'| +28.2 %
-|-
-| [[Power networks/Thailand|Thailand]] 
-|align='center'| 22502
-| align='right' |+556
-|align='right' style='background:#99f700'| +2.5 %
-|-
-| [[Power networks/Tajikistan|Tajikistan]] 
-|align='center'| 5876
-| align='right' |+378
-|align='right' style='background:#7bea00'| +6.9 %
-|-
-| [[Power networks/Timor-Leste|Timor-Leste]] 
-|align='center'| 589
-| align='right' |0
-|align='right' style='background:#c8c8c8'| 0.0 %
-|-
-| [[Power networks/Turkmenistan|Turkmenistan]] 
-|align='center'| 14575
-| align='right' |+3020
-|align='right' style='background:#00b400'| +26.1 %
-|-
-| [[Power networks/Tunisia|Tunisia]] 
-|align='center'| 5839
-| align='right' |+43
-|align='right' style='background:#a5fd00'| +0.7 %
-|-
-| [[Power networks/Tonga|Tonga]] 
-|align='center'| 3
-| align='right' |0
-|align='right' style='background:#c8c8c8'| 0.0 %
-|-
-| [[Power networks/Turkey|Turkey]] 
-|align='center'| 65030
-| align='right' |+594
-|align='right' style='background:#a4fc00'| +0.9 %
-|-
-| [[Power networks/Trinidad and Tobago|Trinidad and Tobago]] 
-|align='center'| 273
-| align='right' |0
-|align='right' style='background:#c8c8c8'| 0.0 %
-|-
-| [[Power networks/Tanzania|Tanzania]] 
-|align='center'| 8211
-| align='right' |+202
-|align='right' style='background:#99f700'| +2.5 %
-|-
-| [[Power networks/Ukraine|Ukraine]] 
-|align='center'| 126155
-| align='right' |+33
-|align='right' style='background:#aaff00'| +0.0 %
-|-
-| [[Power networks/Uganda|Uganda]] 
-|align='center'| 3058
-| align='right' |+407
-|align='right' style='background:#42d100'| +15.4 %
-|-
-| [[Power networks/United States|United States]] 
-|align='center'| 862413
-| align='right' |+16574
-|align='right' style='background:#9df900'| +2.0 %
-|-
-| [[Power networks/Uruguay|Uruguay]] 
-|align='center'| 7175
-| align='right' |+271
-|align='right' style='background:#8ff300'| +3.9 %
-|-
-| [[Power networks/Uzbekistan|Uzbekistan]] 
-|align='center'| 22947
-| align='right' |+2030
-|align='right' style='background:#68e200'| +9.7 %
-|-
-| [[Power networks/Venezuela|Venezuela]] 
-|align='center'| 21892
-| align='right' |+37
-|align='right' style='background:#a9fe00'| +0.2 %
-|-
-| [[Power networks/Vietnam|Vietnam]] 
-|align='center'| 30383
-| align='right' |+1244
-|align='right' style='background:#8df200'| +4.3 %
-|-
-| [[Power networks/Yemen|Yemen]] 
-|align='center'| 1547
-| align='right' |0
-|align='right' style='background:#c8c8c8'| 0.0 %
-|-
-| [[Power networks/South Africa|South Africa]] 
-|align='center'| 81095
-| align='right' |+87
-|align='right' style='background:#a9ff00'| +0.1 %
-|-
-| [[Power networks/Zambia|Zambia]] 
-|align='center'| 12929
-| align='right' |+114
-|align='right' style='background:#a4fc00'| +0.9 %
-|-
-| [[Power networks/Zimbabwe|Zimbabwe]] 
-|align='center'| 7412
-| align='right' |+10
-|align='right' style='background:#a9ff00'| +0.1 %
+! Country !! Power line length (in km)<br>on 2025-01-01 !! Power line length (in km)<br>on 2025-04-06 !! Growth since<br>2025-01-01 !! Power line length (in km)<br>on 2025-08-20 !! Growth since<br>2025-01-01 
+|-
+| Andorra || 53 || 53 
+|style='background:#c8c8c8'| 0.0 % || 53 
+|style='background:#c8c8c8'| 0.0 %
+|-
+| United Arab Emirates || 8143 || 8145 
+|style='background:#aaff00'| 0.0 % || 8148 
+|style='background:#aaff00'| 0.1 %
+|-
+| Afghanistan || 3467 || 3467 
+|style='background:#c8c8c8'| 0.0 % || 3749 
+|style='background:#73e700'| 8.1 %
+|-
+| Antigua and Barbuda || 42 || 42 
+|style='background:#c8c8c8'| 0.0 % || 42 
+|style='background:#c8c8c8'| 0.0 %
+|-
+| Albania || 2791 || 2878 
+|style='background:#95f600'| 3.1 % || 2879 
+|style='background:#95f600'| 3.2 %
+|-
+| Armenia || 5213 || 5214 
+|style='background:#aaff00'| 0.0 % || 5231 
+|style='background:#a8fe00'| 0.3 %
+|-
+| Angola || 6370 || 6429 
+|style='background:#a4fc00'| 0.9 % || 6434 
+|style='background:#a3fc00'| 1.0 %
+|-
+| Argentina || 56702 || 56441 
+|style='background:#c8c8c8'| -0.5 % || 56931 
+|style='background:#a7fe00'| 0.4 %
+|-
+| Austria || 11641 || 11531 
+|style='background:#c8c8c8'| -0.9 % || 11532 
+|style='background:#c8c8c8'| -0.9 %
+|-
+| Australia || 81280 || 81692 
+|style='background:#a7fd00'| 0.5 % || 81856 
+|style='background:#a5fd00'| 0.7 %
+|-
+| Azerbaijan || 9961 || 10008 
+|style='background:#a7fe00'| 0.5 % || 10043 
+|style='background:#a4fd00'| 0.8 %
+|-
+| Bosnia and Herzegovina || 4616 || 4618 
+|style='background:#aaff00'| 0.0 % || 6207 
+|style='background:#00b400'| 34.5 %
+|-
+| Bangladesh || 8039 || 8080 
+|style='background:#a7fd00'| 0.5 % || 8846 
+|style='background:#66e100'| 10.0 %
+|-
+| Belgium || 5990 || 5985 
+|style='background:#c8c8c8'| -0.1 % || 5986 
+|style='background:#c8c8c8'| -0.1 %
+|-
+| Burkina Faso || 1364 || 1373 
+|style='background:#a6fd00'| 0.7 % || 1495 
+|style='background:#69e200'| 9.6 %
+|-
+| Bulgaria || 13363 || 13424 
+|style='background:#a7fe00'| 0.5 % || 13882 
+|style='background:#90f300'| 3.9 %
+|-
+| Bahrain || 18 || 18 
+|style='background:#c8c8c8'| 0.0 % || 19 
+|style='background:#84ee00'| 5.6 %
+|-
+| Burundi || 394 || 394 
+|style='background:#c8c8c8'| 0.0 % || 394 
+|style='background:#c8c8c8'| 0.0 %
+|-
+| Benin || 1191 || 1191 
+|style='background:#c8c8c8'| 0.0 % || 1345 
+|style='background:#52d800'| 12.9 %
+|-
+| Brunei || 309 || 309 
+|style='background:#c8c8c8'| 0.0 % || 309 
+|style='background:#c8c8c8'| 0.0 %
+|-
+| Bolivia || 7087 || 7897 
+|style='background:#5cdd00'| 11.4 % || 7987 
+|style='background:#54d900'| 12.7 %
+|-
+| Brazil || 294759 || 295234 
+|style='background:#a9ff00'| 0.2 % || 299265 
+|style='background:#a0fa00'| 1.5 %
+|-
+| The Bahamas || 89 || 89 
+|style='background:#c8c8c8'| 0.0 % || 92 
+|style='background:#93f500'| 3.4 %
+|-
+| Bhutan || 1037 || 1037 
+|style='background:#c8c8c8'| 0.0 % || 1042 
+|style='background:#a7fe00'| 0.5 %
+|-
+| Botswana || 5472 || 5472 
+|style='background:#c8c8c8'| 0.0 % || 5472 
+|style='background:#c8c8c8'| 0.0 %
+|-
+| Belarus || 34505 || 34509 
+|style='background:#aaff00'| 0.0 % || 34509 
+|style='background:#aaff00'| 0.0 %
+|-
+| Belize || 654 || 661 
+|style='background:#a3fc00'| 1.1 % || 660 
+|style='background:#a4fc00'| 0.9 %
+|-
+| Canada || 149697 || 150177 
+|style='background:#a8fe00'| 0.3 % || 152258 
+|style='background:#9efa00'| 1.7 %
+|-
+| Democratic Republic of the Congo || 7886 || 7932 
+|style='background:#a6fd00'| 0.6 % || 8118 
+|style='background:#96f600'| 2.9 %
+|-
+| Central African Republic || 139 || 139 
+|style='background:#c8c8c8'| 0.0 % || 139 
+|style='background:#c8c8c8'| 0.0 %
+|-
+| Republic of the Congo || 1599 || 1598 
+|style='background:#c8c8c8'| -0.1 % || 1616 
+|style='background:#a3fc00'| 1.1 %
+|-
+| Switzerland || 9622 || 9598 
+|style='background:#c8c8c8'| -0.2 % || 9596 
+|style='background:#c8c8c8'| -0.3 %
+|-
+| Ivory Coast || 10731 || 11166 
+|style='background:#8ef300'| 4.1 % || 11170 
+|style='background:#8ef300'| 4.1 %
+|-
+| Chile || 25476 || 25563 
+|style='background:#a8fe00'| 0.3 % || 25632 
+|style='background:#a6fd00'| 0.6 %
+|-
+| Cameroon || 2193 || 2193 
+|style='background:#c8c8c8'| 0.0 % || 2193 
+|style='background:#c8c8c8'| 0.0 %
+|-
+| People's Republic of China || 976771 || 999147 
+|style='background:#9af800'| 2.3 % || 1040225 
+|style='background:#7eec00'| 6.5 %
+|-
+| Colombia || 16015 || 16247 
+|style='background:#a0fb00'| 1.4 % || 18144 
+|style='background:#50d700'| 13.3 %
+|-
+| Costa Rica || 2451 || 2453 
+|style='background:#a9ff00'| 0.1 % || 2453 
+|style='background:#a9ff00'| 0.1 %
+|-
+| Cuba || 6340 || 6340 
+|style='background:#c8c8c8'| 0.0 % || 6340 
+|style='background:#c8c8c8'| 0.0 %
+|-
+| Cape Verde || 43 || 43 
+|style='background:#c8c8c8'| 0.0 % || 43 
+|style='background:#c8c8c8'| 0.0 %
+|-
+| Cyprus || 1060 || 1060 
+|style='background:#c8c8c8'| 0.0 % || 1060 
+|style='background:#c8c8c8'| 0.0 %
+|-
+| Czech Republic || 15657 || 15709 
+|style='background:#a8fe00'| 0.3 % || 15716 
+|style='background:#a7fe00'| 0.4 %
+|-
+| Germany || 63149 || 63032 
+|style='background:#c8c8c8'| -0.2 % || 63034 
+|style='background:#c8c8c8'| -0.2 %
+|-
+| Djibouti || 282 || 283 
+|style='background:#a8fe00'| 0.4 % || 283 
+|style='background:#a8fe00'| 0.4 %
+|-
+| Dominican Republic || 2452 || 2454 
+|style='background:#a9ff00'| 0.1 % || 2461 
+|style='background:#a8fe00'| 0.4 %
+|-
+| Algeria || 36092 || 36567 
+|style='background:#a1fb00'| 1.3 % || 36969 
+|style='background:#99f800'| 2.4 %
+|-
+| Ecuador || 8135 || 8232 
+|style='background:#a2fb00'| 1.2 % || 8374 
+|style='background:#96f600'| 2.9 %
+|-
+| Estonia || 6896 || 6946 
+|style='background:#a5fd00'| 0.7 % || 6985 
+|style='background:#a1fb00'| 1.3 %
+|-
+| Egypt || 28005 || 28045 
+|style='background:#a9ff00'| 0.1 % || 28067 
+|style='background:#a8fe00'| 0.2 %
+|-
+| Eritrea || 125 || 125 
+|style='background:#c8c8c8'| 0.0 % || 133 
+|style='background:#7eec00'| 6.4 %
+|-
+| Spain || 82177 || 82761 
+|style='background:#a5fd00'| 0.7 % || 82982 
+|style='background:#a3fc00'| 1.0 %
+|-
+| Ethiopia || 16795 || 16818 
+|style='background:#a9ff00'| 0.1 % || 16822 
+|style='background:#a9ff00'| 0.2 %
+|-
+| Finland || 24539 || 24626 
+|style='background:#a8fe00'| 0.4 % || 24677 
+|style='background:#a6fd00'| 0.6 %
+|-
+| Federated States of Micronesia || 8 || 8 
+|style='background:#c8c8c8'| 0.0 % || 8 
+|style='background:#c8c8c8'| 0.0 %
+|-
+| France || 83882 || 83826 
+|style='background:#c8c8c8'| -0.1 % || 83526 
+|style='background:#c8c8c8'| -0.4 %
+|-
+| Gabon || 442 || 442 
+|style='background:#c8c8c8'| 0.0 % || 467 
+|style='background:#84ee00'| 5.7 %
+|-
+| United Kingdom || 28979 || 28715 
+|style='background:#c8c8c8'| -0.9 % || 28377 
+|style='background:#c8c8c8'| -2.1 %
+|-
+| Georgia || 5642 || 5712 
+|style='background:#a2fb00'| 1.2 % || 6671 
+|style='background:#2ec800'| 18.2 %
+|-
+| Ghana || 5572 || 5572 
+|style='background:#c8c8c8'| 0.0 % || 5704 
+|style='background:#9af800'| 2.4 %
+|-
+| The Gambia || 160 || 160 
+|style='background:#c8c8c8'| 0.0 % || 160 
+|style='background:#c8c8c8'| 0.0 %
+|-
+| Guinea || 1237 || 1238 
+|style='background:#a9ff00'| 0.1 % || 1238 
+|style='background:#a9ff00'| 0.1 %
+|-
+| Equatorial Guinea || 1113 || 1171 
+|style='background:#87ef00'| 5.2 % || 1171 
+|style='background:#87ef00'| 5.2 %
+|-
+| Greece || 11998 || 12044 
+|style='background:#a7fe00'| 0.4 % || 12050 
+|style='background:#a7fe00'| 0.4 %
+|-
+| Guatemala || 2646 || 2685 
+|style='background:#a0fb00'| 1.5 % || 2685 
+|style='background:#a0fb00'| 1.5 %
+|-
+| Guinea-Bissau || 220 || 220 
+|style='background:#c8c8c8'| 0.0 % || 220 
+|style='background:#c8c8c8'| 0.0 %
+|-
+| Guyana || 2 || 2 
+|style='background:#c8c8c8'| 0.0 % || 2 
+|style='background:#c8c8c8'| 0.0 %
+|-
+| Honduras || 1808 || 1808 
+|style='background:#c8c8c8'| 0.0 % || 1808 
+|style='background:#c8c8c8'| 0.0 %
+|-
+| Croatia || 9642 || 9797 
+|style='background:#9ffa00'| 1.6 % || 9791 
+|style='background:#9ffa00'| 1.5 %
+|-
+| Haiti || 153 || 153 
+|style='background:#c8c8c8'| 0.0 % || 153 
+|style='background:#c8c8c8'| 0.0 %
+|-
+| Hungary || 10353 || 10349 
+|style='background:#c8c8c8'| -0.0 % || 10401 
+|style='background:#a7fe00'| 0.5 %
+|-
+| Indonesia || 36164 || 36537 
+|style='background:#a3fc00'| 1.0 % || 36564 
+|style='background:#a2fc00'| 1.1 %
+|-
+| Ireland || 6728 || 6727 
+|style='background:#c8c8c8'| -0.0 % || 6752 
+|style='background:#a8fe00'| 0.4 %
+|-
+| Israel || 3542 || 3539 
+|style='background:#c8c8c8'| -0.1 % || 3563 
+|style='background:#a6fd00'| 0.6 %
+|-
+| India || 447519 || 455710 
+|style='background:#9efa00'| 1.8 % || 460581 
+|style='background:#96f600'| 2.9 %
+|-
+| Iraq || 19223 || 19354 
+|style='background:#a5fd00'| 0.7 % || 19775 
+|style='background:#96f600'| 2.9 %
+|-
+| Iran || 76815 || 76885 
+|style='background:#a9ff00'| 0.1 % || 77097 
+|style='background:#a8fe00'| 0.4 %
+|-
+| Iceland || 3526 || 3507 
+|style='background:#c8c8c8'| -0.5 % || 3487 
+|style='background:#c8c8c8'| -1.1 %
+|-
+| Italy || 70870 || 71024 
+|style='background:#a9fe00'| 0.2 % || 71145 
+|style='background:#a7fe00'| 0.4 %
+|-
+| Jamaica || 613 || 613 
+|style='background:#c8c8c8'| 0.0 % || 613 
+|style='background:#c8c8c8'| 0.0 %
+|-
+| Jordan || 2668 || 2668 
+|style='background:#c8c8c8'| 0.0 % || 2691 
+|style='background:#a4fc00'| 0.9 %
+|-
+| Japan || 72362 || 72498 
+|style='background:#a9fe00'| 0.2 % || 72779 
+|style='background:#a6fd00'| 0.6 %
+|-
+| Kenya || 7041 || 7918 
+|style='background:#55da00'| 12.5 % || 7580 
+|style='background:#76e800'| 7.7 %
+|-
+| Kyrgyzstan || 6367 || 6458 
+|style='background:#a0fb00'| 1.4 % || 6949 
+|style='background:#6ce400'| 9.1 %
+|-
+| Cambodia || 2663 || 2686 
+|style='background:#a4fc00'| 0.9 % || 3103 
+|style='background:#3acd00'| 16.5 %
+|-
+| North Korea || 5555 || 5616 
+|style='background:#a3fc00'| 1.1 % || 6010 
+|style='background:#72e600'| 8.2 %
+|-
+| South Korea || 13753 || 13746 
+|style='background:#c8c8c8'| -0.1 % || 13744 
+|style='background:#c8c8c8'| -0.1 %
+|-
+| Kuwait || 4793 || 4795 
+|style='background:#aaff00'| 0.0 % || 4795 
+|style='background:#aaff00'| 0.0 %
+|-
+| Kazakhstan || 54425 || 58858 
+|style='background:#73e700'| 8.1 % || 72164 
+|style='background:#00b400'| 32.6 %
+|-
+| Laos || 7774 || 7774 
+|style='background:#c8c8c8'| 0.0 % || 7801 
+|style='background:#a8fe00'| 0.3 %
+|-
+| Lebanon || 750 || 750 
+|style='background:#c8c8c8'| 0.0 % || 896 
+|style='background:#26c500'| 19.5 %
+|-
+| Liechtenstein || 30 || 30 
+|style='background:#c8c8c8'| 0.0 % || 30 
+|style='background:#c8c8c8'| 0.0 %
+|-
+| Sri Lanka || 3219 || 3572 
+|style='background:#5fde00'| 11.0 % || 3739 
+|style='background:#3ccf00'| 16.2 %
+|-
+| Liberia || 587 || 587 
+|style='background:#c8c8c8'| 0.0 % || 587 
+|style='background:#c8c8c8'| 0.0 %
+|-
+| Lesotho || 767 || 770 
+|style='background:#a7fe00'| 0.4 % || 638 
+|style='background:#c8c8c8'| -16.8 %
+|-
+| Lithuania || 9604 || 9665 
+|style='background:#a6fd00'| 0.6 % || 9712 
+|style='background:#a2fc00'| 1.1 %
+|-
+| Luxembourg || 653 || 645 
+|style='background:#c8c8c8'| -1.2 % || 645 
+|style='background:#c8c8c8'| -1.2 %
+|-
+| Latvia || 12437 || 11410 
+|style='background:#c8c8c8'| -8.3 % || 12236 
+|style='background:#c8c8c8'| -1.6 %
+|-
+| Libya || 25779 || 25651 
+|style='background:#c8c8c8'| -0.5 % || 25729 
+|style='background:#c8c8c8'| -0.2 %
+|-
+| Morocco || 23128 || 23372 
+|style='background:#a3fc00'| 1.1 % || 23425 
+|style='background:#a1fb00'| 1.3 %
+|-
+| Monaco || 4 || 4 
+|style='background:#c8c8c8'| 0.0 % || 4 
+|style='background:#c8c8c8'| 0.0 %
+|-
+| Moldova || 11613 || 11616 
+|style='background:#aaff00'| 0.0 % || 11768 
+|style='background:#a1fb00'| 1.3 %
+|-
+| Montenegro || 2009 || 2064 
+|style='background:#97f700'| 2.7 % || 2080 
+|style='background:#92f400'| 3.5 %
+|-
+| Madagascar || 238 || 238 
+|style='background:#c8c8c8'| 0.0 % || 287 
+|style='background:#1ec100'| 20.6 %
+|-
+| North Macedonia || 1769 || 1783 
+|style='background:#a5fd00'| 0.8 % || 1924 
+|style='background:#6ee500'| 8.8 %
+|-
+| Mali || 1584 || 1584 
+|style='background:#c8c8c8'| 0.0 % || 1584 
+|style='background:#c8c8c8'| 0.0 %
+|-
+| Myanmar || 13922 || 13917 
+|style='background:#c8c8c8'| -0.0 % || 14565 
+|style='background:#8bf100'| 4.6 %
+|-
+| Mongolia || 12751 || 12821 
+|style='background:#a6fd00'| 0.5 % || 15960 
+|style='background:#00b400'| 25.2 %
+|-
+| Mauritania || 1447 || 1447 
+|style='background:#c8c8c8'| 0.0 % || 1447 
+|style='background:#c8c8c8'| 0.0 %
+|-
+| Malta || 12 || 12 
+|style='background:#c8c8c8'| 0.0 % || 12 
+|style='background:#c8c8c8'| 0.0 %
+|-
+| Mauritius || 152 || 152 
+|style='background:#c8c8c8'| 0.0 % || 152 
+|style='background:#c8c8c8'| 0.0 %
+|-
+| Malawi || 2470 || 2470 
+|style='background:#c8c8c8'| 0.0 % || 2495 
+|style='background:#a3fc00'| 1.0 %
+|-
+| Mexico || 84978 || 85070 
+|style='background:#a9ff00'| 0.1 % || 85459 
+|style='background:#a6fd00'| 0.6 %
+|-
+| Malaysia || 15006 || 15085 
+|style='background:#a6fd00'| 0.5 % || 15143 
+|style='background:#a4fc00'| 0.9 %
+|-
+| Mozambique || 8770 || 9264 
+|style='background:#84ee00'| 5.6 % || 9467 
+|style='background:#74e700'| 7.9 %
+|-
+| Niger || 1215 || 1215 
+|style='background:#c8c8c8'| 0.0 % || 1222 
+|style='background:#a6fd00'| 0.6 %
+|-
+| Nigeria || 12943 || 13578 
+|style='background:#89f000'| 4.9 % || 13932 
+|style='background:#76e800'| 7.6 %
+|-
+| Nicaragua || 2555 || 2599 
+|style='background:#9efa00'| 1.7 % || 2599 
+|style='background:#9efa00'| 1.7 %
+|-
+| Kingdom of the Netherlands || 4186 || 4183 
+|style='background:#c8c8c8'| -0.1 % || 4181 
+|style='background:#c8c8c8'| -0.1 %
+|-
+| Norway || 31945 || 31953 
+|style='background:#aaff00'| 0.0 % || 31941 
+|style='background:#c8c8c8'| -0.0 %
+|-
+| Nepal || 2560 || 3740 
+|style='background:#00b400'| 46.1 % || 3824 
+|style='background:#00b400'| 49.4 %
+|-
+| New Zealand || 12548 || 12400 
+|style='background:#c8c8c8'| -1.2 % || 12512 
+|style='background:#c8c8c8'| -0.3 %
+|-
+| Oman || 10179 || 10176 
+|style='background:#c8c8c8'| -0.0 % || 10175 
+|style='background:#c8c8c8'| -0.0 %
+|-
+| Panama || 2125 || 2125 
+|style='background:#c8c8c8'| 0.0 % || 2125 
+|style='background:#c8c8c8'| 0.0 %
+|-
+| Peru || 20551 || 20569 
+|style='background:#a9ff00'| 0.1 % || 21218 
+|style='background:#94f500'| 3.2 %
+|-
+| Papua New Guinea || 948 || 948 
+|style='background:#c8c8c8'| 0.0 % || 948 
+|style='background:#c8c8c8'| 0.0 %
+|-
+| Philippines || 13938 || 14401 
+|style='background:#93f500'| 3.3 % || 14633 
+|style='background:#88f000'| 5.0 %
+|-
+| Pakistan || 39020 || 40848 
+|style='background:#8af100'| 4.7 % || 41030 
+|style='background:#87f000'| 5.2 %
+|-
+| Poland || 48805 || 48859 
+|style='background:#a9ff00'| 0.1 % || 45982 
+|style='background:#c8c8c8'| -5.8 %
+|-
+| State of Palestine || 272 || 272 
+|style='background:#c8c8c8'| 0.0 % || 279 
+|style='background:#98f700'| 2.6 %
+|-
+| Portugal || 17378 || 17275 
+|style='background:#c8c8c8'| -0.6 % || 17366 
+|style='background:#c8c8c8'| -0.1 %
+|-
+| Paraguay || 4651 || 4651 
+|style='background:#c8c8c8'| 0.0 % || 4707 
+|style='background:#a2fb00'| 1.2 %
+|-
+| Qatar || 1176 || 1176 
+|style='background:#c8c8c8'| 0.0 % || 1236 
+|style='background:#87f000'| 5.1 %
+|-
+| Romania || 25406 || 25407 
+|style='background:#aaff00'| 0.0 % || 25556 
+|style='background:#a6fd00'| 0.6 %
+|-
+| Serbia || 10108 || 10158 
+|style='background:#a7fe00'| 0.5 % || 10234 
+|style='background:#a2fb00'| 1.2 %
+|-
+| Rwanda || 1193 || 1210 
+|style='background:#a0fb00'| 1.4 % || 1210 
+|style='background:#a0fb00'| 1.4 %
+|-
+| Saudi Arabia || 48672 || 48907 
+|style='background:#a7fe00'| 0.5 % || 48986 
+|style='background:#a6fd00'| 0.6 %
+|-
+| Seychelles || 4 || 4 
+|style='background:#c8c8c8'| 0.0 % || 4 
+|style='background:#c8c8c8'| 0.0 %
+|-
+| Sudan || 6516 || 6516 
+|style='background:#c8c8c8'| 0.0 % || 6516 
+|style='background:#c8c8c8'| 0.0 %
+|-
+| Sweden || 45238 || 45325 
+|style='background:#a9fe00'| 0.2 % || 45417 
+|style='background:#a7fe00'| 0.4 %
+|-
+| Slovenia || 3279 || 3303 
+|style='background:#a5fd00'| 0.7 % || 3308 
+|style='background:#a4fc00'| 0.9 %
+|-
+| Slovakia || 7193 || 7201 
+|style='background:#a9ff00'| 0.1 % || 7201 
+|style='background:#a9ff00'| 0.1 %
+|-
+| Sierra Leone || 752 || 753 
+|style='background:#a9ff00'| 0.1 % || 753 
+|style='background:#a9ff00'| 0.1 %
+|-
+| San Marino || 5 || 5 
+|style='background:#c8c8c8'| 0.0 % || 5 
+|style='background:#c8c8c8'| 0.0 %
+|-
+| Senegal || 2677 || 2681 
+|style='background:#a9ff00'| 0.1 % || 2681 
+|style='background:#a9ff00'| 0.1 %
+|-
+| Somalia || 1 || 1 
+|style='background:#c8c8c8'| 0.0 % || 1 
+|style='background:#c8c8c8'| 0.0 %
+|-
+| Suriname || 133 || 133 
+|style='background:#c8c8c8'| 0.0 % || 133 
+|style='background:#c8c8c8'| 0.0 %
+|-
+| South Sudan || 218 || 218 
+|style='background:#c8c8c8'| 0.0 % || 218 
+|style='background:#c8c8c8'| 0.0 %
+|-
+| São Tomé and Príncipe || 6 || 6 
+|style='background:#c8c8c8'| 0.0 % || 6 
+|style='background:#c8c8c8'| 0.0 %
+|-
+| El Salvador || 1405 || 1405 
+|style='background:#c8c8c8'| 0.0 % || 1405 
+|style='background:#c8c8c8'| 0.0 %
+|-
+| Syria || 20014 || 18820 
+|style='background:#c8c8c8'| -6.0 % || 18820 
+|style='background:#c8c8c8'| -6.0 %
+|-
+| Eswatini || 703 || 703 
+|style='background:#c8c8c8'| 0.0 % || 703 
+|style='background:#c8c8c8'| 0.0 %
+|-
+| Chad || 127 || 127 
+|style='background:#c8c8c8'| 0.0 % || 128 
+|style='background:#a5fd00'| 0.8 %
+|-
+| Togo || 745 || 745 
+|style='background:#c8c8c8'| 0.0 % || 955 
+|style='background:#00b400'| 28.2 %
+|-
+| Thailand || 21946 || 22505 
+|style='background:#99f700'| 2.5 % || 22542 
+|style='background:#98f700'| 2.7 %
+|-
+| Tajikistan || 5498 || 5626 
+|style='background:#9af800'| 2.3 % || 5895 
+|style='background:#79e900'| 7.2 %
+|-
+| Timor-Leste || 589 || 589 
+|style='background:#c8c8c8'| 0.0 % || 589 
+|style='background:#c8c8c8'| 0.0 %
+|-
+| Turkmenistan || 11555 || 12025 
+|style='background:#8ef300'| 4.1 % || 14691 
+|style='background:#00b400'| 27.1 %
+|-
+| Tunisia || 5796 || 5828 
+|style='background:#a6fd00'| 0.6 % || 5839 
+|style='background:#a5fd00'| 0.7 %
+|-
+| Tonga || 3 || 3 
+|style='background:#c8c8c8'| 0.0 % || 3 
+|style='background:#c8c8c8'| 0.0 %
+|-
+| Turkey || 64436 || 64494 
+|style='background:#a9ff00'| 0.1 % || 65292 
+|style='background:#a1fb00'| 1.3 %
+|-
+| Trinidad and Tobago || 273 || 273 
+|style='background:#c8c8c8'| 0.0 % || 273 
+|style='background:#c8c8c8'| 0.0 %
+|-
+| Tanzania || 8009 || 8521 
+|style='background:#7fec00'| 6.4 % || 8211 
+|style='background:#99f700'| 2.5 %
+|-
+| Ukraine || 126122 || 126147 
+|style='background:#aaff00'| 0.0 % || 126163 
+|style='background:#aaff00'| 0.0 %
+|-
+| Uganda || 2651 || 3058 
+|style='background:#42d100'| 15.4 % || 3276 
+|style='background:#0ab800'| 23.6 %
+|-
+| United States || 845839 || 852840 
+|style='background:#a4fd00'| 0.8 % || 867988 
+|style='background:#98f700'| 2.6 %
+|-
+| Uruguay || 6904 || 6946 
+|style='background:#a6fd00'| 0.6 % || 7175 
+|style='background:#8ff300'| 3.9 %
+|-
+| Uzbekistan || 20917 || 21607 
+|style='background:#94f500'| 3.3 % || 23064 
+|style='background:#64e000'| 10.3 %
+|-
+| Venezuela || 21855 || 21892 
+|style='background:#a9fe00'| 0.2 % || 21917 
+|style='background:#a8fe00'| 0.3 %
+|-
+| Vietnam || 29139 || 29396 
+|style='background:#a4fc00'| 0.9 % || 30424 
+|style='background:#8cf200'| 4.4 %
+|-
+| Yemen || 1547 || 1547 
+|style='background:#c8c8c8'| 0.0 % || 1606 
+|style='background:#90f400'| 3.8 %
+|-
+| South Africa || 81008 || 81100 
+|style='background:#a9ff00'| 0.1 % || 81109 
+|style='background:#a9ff00'| 0.1 %
+|-
+| Zambia || 12815 || 12904 
+|style='background:#a5fd00'| 0.7 % || 13182 
+|style='background:#97f600'| 2.9 %
+|-
+| Zimbabwe || 7402 || 7411 
+|style='background:#a9ff00'| 0.1 % || 7412 
+|style='background:#a9ff00'| 0.1 %
 
 |}

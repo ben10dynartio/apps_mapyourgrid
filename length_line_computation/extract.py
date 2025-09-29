@@ -3,10 +3,10 @@ import pandas as pd
 import numpy as np
 import math
 
-data_path = "/home/ben/DevProjets/osm-power-grid-map-analysis/data/AR/"
+data_path = "../../osm-power-grid-map-analysis/data/NP/"
 
-# Colombia : 6273 ; Nepal : 6207
-gdf = gpd.read_file(data_path + "osm_brut_power_line.gpkg")
+# Colombia : 6273 ; Nepal : 2411
+gdf = gpd.read_file(data_path + "osm_brut_power_line.gpkg").to_crs(epsg=2411)
 
 
 def haversine_distance(coord1, coord2):
@@ -33,8 +33,8 @@ def length_way(geometry) :
 print(gdf.crs)
 print(gdf)
 
-#gdf["line_length"] = gdf["geometry"].length / 1000
-gdf["line_length"] = gdf["geometry"].apply(lambda x: length_way(x))
+gdf["line_length"] = gdf["geometry"].length / 1000
+#gdf["line_length"] = gdf["geometry"].apply(lambda x: length_way(x))
 gdf["circuits"] = np.where(gdf["circuits"].isna(), '1', gdf["circuits"]).astype(int)
 gdf["voltage"] = np.where(gdf["voltage"].isna(), "", gdf["voltage"])
 gdf["nb_voltage"] = gdf["voltage"].apply(lambda x: x.count(";") + 1)
@@ -87,7 +87,7 @@ lsv.sort()
 results = {}
 for v in lsv:
     tdf = gdf[gdf["voltage"]==v]
-    results[v] = round(float(tdf["circuit_length"].sum()), 2)
+    results[int(v/1000)] = round(float(tdf["circuit_length"].sum()), 2)
 
-import pprint
-pprint.pp(results)
+
+print(results)

@@ -20,7 +20,7 @@ def get_color_evolution(evolution_value):
 def intify(value):
     try:
         return round(float(value))
-    except ValueError:
+    except (ValueError, TypeError):
         return "-"
 
 def compute_evolution(value, base, returntype):

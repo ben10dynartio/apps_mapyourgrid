@@ -183,13 +183,21 @@ h3 {
     <div style='text-align: center;width:100%;'>
       <canvas id='ring_quality_score' width='250' height='120'></canvas>
     </div>
-    <div class='container' id='cards'></div><br>
+    <div class='container' id='quality_score_div'></div><br>
     <div style="text-align:center"><a href="indicatorsmethodo.html" target="_blank">See indicator computing methodology</a></div>
+
+    <div id="voltage_section">
+    <h3 id="voltage_headsection">Comparison of circuit lengths with official data</h3>
+    <div id="voltage_comparaison_div" class="container" style='text-align: center;width:100%;'></div>
+    <div style="text-align:center;margin-top:10px;"><a id="voltage_source_link" href="xxx" target="_blank">See official sources on OSM Wiki</a></div>
+    </div>
 
     <h3>Estimated spatial coverage of substations</h3>
     <div style='text-align: center;width:100%;'>
       <canvas id='ring_coverage_score' width='250' height='120'></canvas>
     </div>
+
+
 
     <br><br><br><br>
 
@@ -280,6 +288,19 @@ let current_select = false;
 const ctmap = document.getElementById("map");
 const panel = document.getElementById("mySidepanel");
 const subpanel = document.getElementById("internalSidePanel");
+const voltage_headsection = document.getElementById("voltage_headsection");
+const voltage_comparaison_div = document.getElementById('voltage_comparaison_div');
+
+const data_voltage_length_official = {
+  "CO":{66:221, 110:3863, 115:8515, 220:2598, 230:11000, 500:7488},
+  "NP":{66:515, 132:3968, 220:1105, 400:384},
+}
+
+const data_voltage_length_osm = {
+  "CO":{66: 25.9, 110: 2424.11, 115: 4858.52, 138: 15.45, 220: 2487.97, 230: 11666.35, 500: 3885.42},
+  "NP":{66: 216.85, 132: 2670.33, 220: 890.27, 400: 598.52},
+
+}
 
 function closePanel() {
     panel.classList.remove("open");
@@ -287,7 +308,6 @@ function closePanel() {
 }
 
 function build_popup_detail(feature, ll) {
-
     let key="";
 
     const country_property_list = ["name", "code_isoa2", "population", "area_km2", "gdp_bd", "power_plant_count", "power_plant_output_mw", "power_line_total_length", "stats_nb_substations", "stats_nb_international_connections", "line_voltage"];
@@ -316,6 +336,13 @@ function build_popup_detail(feature, ll) {
 	  build_container();
     show_indicator(feature.properties);
 
+      // VOLTAGE DIV, only for country with official data
+    voltage_section.style.display="none";
+    voltage_comparaison_div.innerHTML = "";
+    if (feature.properties["code_isoa2"] in data_voltage_length_official) {
+      build_voltage_div(feature.properties["code_isoa2"], feature.properties["name"]);
+    }
+
 
   // ctmap.style.left = "calc(-1*var(--left-panel-width)/2)";
 
@@ -337,7 +364,7 @@ function build_popup_detail(feature, ll) {
 
 
 function build_container() {
-  const container = document.getElementById('cards');
+  const container = document.getElementById('quality_score_div');
   container.innerHTML = "";
 
   // Exemple : utiliser une image factice (placeholder)
@@ -359,6 +386,40 @@ function build_container() {
     div.appendChild(canvas);
     container.appendChild(div);
   };
+}
+
+
+function build_voltage_div(country_code, country_name) {
+  voltage_section.style.display="block";
+
+  for (const [ myvoltage, mylength ] of Object.entries(data_voltage_length_official[country_code])) {
+    // do something with `key` and `value`
+
+    const div = document.createElement('div');
+    div.className = 'card';
+
+    // Titre
+    const title = document.createElement('b');
+    title.innerHTML = myvoltage.toString() + " kV<br><i>(" + mylength.toString() + " km)</i>";
+
+    // Image (ici un placeholder, tu peux remplacer l'URL)
+    const canvas = document.createElement('canvas');
+    canvas.id = "ring_" + myvoltage;
+    canvas.width = 75;
+    canvas.height = 75;
+
+    div.appendChild(title);
+    div.appendChild(canvas);
+    voltage_comparaison_div.appendChild(div);
+
+    value_pct = (100*data_voltage_length_osm[country_code][myvoltage] / mylength).toFixed(1);
+    drawRing("ring_" + myvoltage, value_pct, "XXS");
+  }
+
+
+  const awikipage = document.getElementById("voltage_source_link");
+  awikipage.href = "https://wiki.openstreetmap.org/wiki/Power_networks/" + country_name.replace(/ /g, "_") + "#Network_statistics";
+
 }
 
 </script>

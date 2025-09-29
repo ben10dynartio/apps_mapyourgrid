@@ -261,7 +261,7 @@ def save_raster(path, array, transform, crs, dtype=rasterio.float32, nodata=None
 
 
 if __name__ == '__main__':
-    #main("FI")
-    for key, val in config.WORLD_COUNTRY_DICT.items():
+    main("IN")
+    """for key, val in config.WORLD_COUNTRY_DICT.items():
         print(f"-------- {val} ({key}) -------")
-        main(key)
+        main(key)"""

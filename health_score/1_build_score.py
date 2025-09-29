@@ -166,7 +166,7 @@ def main(country_code):
         indicators[key] = 1 - data["class"]["7"] / nb_conn_line_sub
         explanations[key] = "1 - nb(Osmose-Class7) / nb(line-sub connection) | Line-Sub connection computed by grid analysis"
 
-    indicators_p = {key: round(100*val,1) for key, val in indicators.items()}
+    indicators_p = {key: max(min(round(100*val,1), 100), 0) for key, val in indicators.items()}
 
     output_data = []
     for key in indicators.keys():
@@ -202,7 +202,6 @@ def main(country_code):
         json.dump(output_data, f, ensure_ascii=False, indent=4)
 
 if __name__ == "__main__":
-    #main("NZ")
     for ccode in WORLD_COUNTRY_DICT.keys():
         try:
             main(ccode)

@@ -47,7 +47,7 @@ def fetch_osmose_issues(country="colombia*", item=7040, cls=3, use_dev_item="all
 
 if __name__ == "__main__":
 
-    for countrycode, countryname in CONTINENTAL_COUNTRY_DICT["Europe"].items(): #WORLD_COUNTRY_DICT.items(): #{"NZ":"new_zealand"}: #
+    for countrycode, countryname in {"IN":"India"}.items(): #CONTINENTAL_COUNTRY_DICT["Europe"].items(): #WORLD_COUNTRY_DICT.items(): #
 
         countryref = countryname.lower().replace(" ", "_") + "*"
         myresult = {"country":countrycode, "class":{}, "class-extend":{}}
@@ -65,7 +65,7 @@ if __name__ == "__main__":
             if i == 1:
                 elems = [f["properties"]["elems"][0]["tags"]["power"] for f in features]
                 myresult["class-extend"]["nb_lone_power_tower"] = elems.count("tower")
-            if i==5:
+            if i == 5:
                 elems = [f["properties"]["elems"][0]["tags"]["power"] for f in features]
                 myresult["class-extend"]["nb_missing_power_tower"] = elems.count("tower")
             if i == 7:
