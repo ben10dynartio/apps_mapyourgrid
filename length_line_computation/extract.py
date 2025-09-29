@@ -3,10 +3,11 @@ import pandas as pd
 import numpy as np
 import math
 
-data_path = "../../osm-power-grid-map-analysis/data/NP/"
+data_path = "../../osm-power-grid-map-analysis/data/BO/"
 
-# Colombia : 6273 ; Nepal : 2411
-gdf = gpd.read_file(data_path + "osm_brut_power_line.gpkg").to_crs(epsg=2411)
+# Colombia : 6273 ; Nepal : 2411 ; GT = 32615 ; CR = 5457 ; PA = 5469 ; EC = 24817
+# Peru : 24891 ; BR : 5530 ; BD : 9678, KH : 3857 ; BO : 5356
+gdf = gpd.read_file(data_path + "osm_brut_power_line.gpkg").to_crs(epsg=5356)
 
 
 def haversine_distance(coord1, coord2):
@@ -35,7 +36,10 @@ print(gdf)
 
 gdf["line_length"] = gdf["geometry"].length / 1000
 #gdf["line_length"] = gdf["geometry"].apply(lambda x: length_way(x))
+
+gdf["circuits"] = gdf["circuits"].str.replace("!",'1')
 gdf["circuits"] = np.where(gdf["circuits"].isna(), '1', gdf["circuits"]).astype(int)
+
 gdf["voltage"] = np.where(gdf["voltage"].isna(), "", gdf["voltage"])
 gdf["nb_voltage"] = gdf["voltage"].apply(lambda x: x.count(";") + 1)
 gdf["nb_voltage"] = np.where(gdf["voltage"] == "", 0, gdf["nb_voltage"])
@@ -69,6 +73,7 @@ gdf["voltage"] = np.where(gdf["nb_voltage"] == 2, gdf["voltage"].apply(lambda x:
 if len(append_rows) > 0:
     gdf = pd.concat([gdf, gpd.GeoDataFrame(append_rows, geometry="geometry", crs=gdf.crs)])
 
+gdf["voltage"] = np.where(gdf["voltage"].apply(lambda x: "." in x), "0", gdf["voltage"])
 gdf["voltage"] = np.where(gdf["voltage"] == "", 0, gdf["voltage"]).astype(int)
 
 print(gdf)

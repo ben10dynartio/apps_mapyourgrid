@@ -291,15 +291,33 @@ const subpanel = document.getElementById("internalSidePanel");
 const voltage_headsection = document.getElementById("voltage_headsection");
 const voltage_comparaison_div = document.getElementById('voltage_comparaison_div');
 
+// Zambia, Vietnam, Chile
 const data_voltage_length_official = {
   "CO":{66:221, 110:3863, 115:8515, 220:2598, 230:11000, 500:7488},
   "NP":{66:515, 132:3968, 220:1105, 400:384},
+  "BO":{66:214, 115:1964, 230:4612, 500:236},
+  "KH":{115:2527, 230:3787, 500:354},
+  "BD":{132:9346, 230:4751, 400:3114},
+  "BR":{230:70296, 345:11095, 440:3114, 500:72345, 600:12816, 750:2683, 800:9204},
+  "PE":{50:636, 60:5162, 66:1157, 138:4977, 220:13484, 500:3295},
+  "EC":{138:2433, 230:3626, 500:613},
+  "PA":{115:584, 230:5524},
+  "CR":{138:613, 230:2383},
+  "GT":{69:3016, 138:398, 230:1650, 400:71},
 }
 
 const data_voltage_length_osm = {
   "CO":{66: 25.9, 110: 2424.11, 115: 4858.52, 138: 15.45, 220: 2487.97, 230: 11666.35, 500: 3885.42},
   "NP":{66: 216.85, 132: 2670.33, 220: 890.27, 400: 598.52},
-
+  "EC":{69: 2836.49, 138: 3109.74, 230: 4988.13, 500: 479.29},
+  "BO":{66: 28.23, 69: 791.76, 115: 2810.7, 132: 241.06, 230: 4648.81, 500: 235.41},
+  "KH":{115: 1082.26, 230: 3353.91},
+  "BD":{132: 4972.07, 230: 2754.73, 400: 2327.81},
+  "BR":{66: 9.32, 69: 67998.55, 88: 5909.53, 110: 0.0, 132: 16.25, 138: 93159.65, 230: 73861.8, 345: 11140.19, 440: 7094.73, 500: 73460.35, 525: 2390.41, 600: 6414.84, 765: 2702.15, 800: 9272.65},
+  "PE":{60: 199.59, 66: 408.0, 138: 3165.38, 220: 10670.38, 230: 104.11, 500: 2896.51},
+  "PA":{115: 461.55, 230: 3052.07},
+  "CR":{138: 549.01, 230: 2335.46},
+  "GT":{69: 703.68, 115: 37.49, 132: 7.33, 138: 103.54, 230: 1994.45, 400: 98.11}
 }
 
 function closePanel() {
@@ -339,7 +357,7 @@ function build_popup_detail(feature, ll) {
       // VOLTAGE DIV, only for country with official data
     voltage_section.style.display="none";
     voltage_comparaison_div.innerHTML = "";
-    if (feature.properties["code_isoa2"] in data_voltage_length_official) {
+    if (feature.properties["code_isoa2"] in data_voltage_length_osm) {
       build_voltage_div(feature.properties["code_isoa2"], feature.properties["name"]);
     }
 
@@ -412,7 +430,12 @@ function build_voltage_div(country_code, country_name) {
     div.appendChild(canvas);
     voltage_comparaison_div.appendChild(div);
 
+    let value_pct;
+      if (myvoltage in data_voltage_length_osm[country_code]) {
     value_pct = (100*data_voltage_length_osm[country_code][myvoltage] / mylength).toFixed(1);
+      } else {
+        value_pct = 0;
+      }
     drawRing("ring_" + myvoltage, value_pct, "XXS");
   }
 
