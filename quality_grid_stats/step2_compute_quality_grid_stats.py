@@ -152,7 +152,9 @@ def main(country_code):
     names[key] = "Voltage attribute completeness on substations"
     indicators[key] = 0
     if len(df_power_substation) > 0:
-        indicators[key] = len(df_power_substation[df_power_substation["voltage"].notnull()]) / len(df_power_substation)
+        indicators[key] = (len(df_power_substation[df_power_substation["voltage"].notnull() &
+                                                  (df_power_substation["substation"]!="minor_distribution")])
+                           / len(df_power_substation[df_power_substation["substation"]!="minor_distribution"]))
 
     key = "health_connected_power_tower"
     names[key] = "Connected power tower (Osmose&nbsp;Class&nbsp;1)"
@@ -196,14 +198,11 @@ def main(country_code):
     names[key] = "Lines voltages"
     indicators[key] = df_power_line["voltage"].unique().tolist()"""
 
-
     for key in indicators.keys():
         output_data.append({"key":key, "name":names.get(key, ""), "value":indicators.get(key, "")})
 
     #import pprint
     #pprint.pp(output_data)
-
-
 
     list_graph_subsets = list(nx.connected_components(G))
     print(list_graph_subsets)
