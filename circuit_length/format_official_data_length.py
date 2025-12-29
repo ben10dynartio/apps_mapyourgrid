@@ -47,15 +47,17 @@ for row in df.to_dict(orient="records"):
 
     try:
         myval = int(row["Total"])
-        dictdata[row['ISO-2 Code']]["total"] = myval
+        if myval:
+            dictdata[row['ISO-2 Code']]["total"] = myval
     except Exception:
         try:
             myrangedict = {}
             myval = int(row["Total (220kv+)"])
-            myrangedict["lowv"] = 220
-            myrangedict["highv"] = 1499
-            myrangedict["km"] = myval
-            dictdata[row['ISO-2 Code']]["ranges"].append(myrangedict)
+            if myval:
+                myrangedict["lowv"] = 220
+                myrangedict["highv"] = 1499
+                myrangedict["km"] = myval
+                dictdata[row['ISO-2 Code']]["ranges"].append(myrangedict)
         except Exception:
             pass
 
