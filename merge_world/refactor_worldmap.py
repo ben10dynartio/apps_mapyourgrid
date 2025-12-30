@@ -67,6 +67,13 @@ def clean_table(folder_path):
     gdf["geometry"] = np.where(gdf["ADM0_A3"] == "NZL",
                                gdft.iloc[0]["geometry"], gdf["geometry"])
 
+    # Manage Finland
+    gdft = gdf[gdf["SOV_A3"] == "FI1"].copy()
+    gdft = gdft.dissolve()
+    gdf = gdf[(gdf["SOV_A3"] != "FI1") | (gdf["ADM0_A3"] == "FIN")].copy()
+    gdf["geometry"] = np.where(gdf["ADM0_A3"] == "FIN",
+                               gdft.iloc[0]["geometry"], gdf["geometry"])
+
     # Manage Brazil
     gdft = gdf[gdf["SOV_A3"].isin(["BRI", "BRA"])].copy()
     gdft = gdft.dissolve()
@@ -97,7 +104,7 @@ def clean_table(folder_path):
     del gdf["ISO_A3_EH"]
 
     filepath_wikidata = configapps.OUTPUT_WORLD_FOLDER_PATH / "wikidata_countries_info_formatted.csv"
-    df_wikidata = pd.read_csv(filepath_wikidata, na_filter=False)
+    df_wikidata = pd.read_csv(filepath_wikidata, na_filter=False, dtype={"osm_rel_id":int})
 
     gdf = gdf.merge(df_wikidata, left_on="ISO_A2", right_on="codeiso2", how="left")
     gdf = gdf.fillna("")
