@@ -9,7 +9,7 @@ import json
 from pathlib import Path
 import re
 
-print("> Formatting official circuit length data")
+print(">> Formatting official circuit length data")
 official_source_file : Path = Path(__file__).parent / "Global Transmission Length Index - Official Grid Lengths.csv"
 df : pd.DataFrame = pd.read_csv(official_source_file, header=1, na_filter=False)
 df = df.fillna("")
