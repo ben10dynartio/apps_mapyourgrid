@@ -28,7 +28,10 @@ for countrycode in configapps.LIST_COUNTRY_CODES:
             if element.is_file():
                 if element.name.endswith(".json"):
                     with open(element, "r") as jsonfile:
-                        errors.extend(json.load(jsonfile))
+                        try:
+                            errors.extend(json.load(jsonfile))
+                        except Exception:
+                            print("Error opening errorfile :", jsonfile)
 
     if len(errors)>0:
         df = pd.DataFrame(errors)

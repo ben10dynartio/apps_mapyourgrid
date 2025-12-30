@@ -205,7 +205,7 @@ def main(country_code):
     #pprint.pp(output_data)
 
     list_graph_subsets = list(nx.connected_components(G))
-    print(list_graph_subsets)
+    #print(list_graph_subsets)
     graph_stats = []
     
     for l in list_graph_subsets:
