@@ -29,7 +29,7 @@ with open(export_json_file, 'r') as f:
     official_data = json.load(f)
 
 export_osm_file = configapps.OUTPUT_WORLD_FOLDER_PATH / f"worldwide_circuit_length.csv"
-df = pd.read_csv(export_osm_file).set_index("codeiso2")
+df = pd.read_csv(export_osm_file, na_filter=False).set_index("codeiso2")
 
 
 
