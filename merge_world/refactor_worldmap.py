@@ -98,6 +98,21 @@ def clean_table(folder_path):
                                gdft.iloc[0]["geometry"], gdf["geometry"])
 
 
+    # Manage Cuba
+    gdft = gdf[gdf["SOV_A3"] == "CU1"].copy()
+    gdft = gdft.dissolve()
+    gdf = gdf[(gdf["SOV_A3"] != "CU1") | (gdf["ADM0_A3"] == "CUB")].copy()
+    gdf["geometry"] = np.where(gdf["ADM0_A3"] == "CUB",
+                               gdft.iloc[0]["geometry"], gdf["geometry"])
+
+    # Manage China
+    gdft = gdf[gdf["SOV_A3"] == "CH1"].copy()
+    gdft = gdft.dissolve()
+    gdf = gdf[(gdf["SOV_A3"] != "CH1") | (gdf["ADM0_A3"] == "CHN")].copy()
+    gdf["geometry"] = np.where(gdf["ADM0_A3"] == "CHN",
+                               gdft.iloc[0]["geometry"], gdf["geometry"])
+
+
     gdf["ISO_A2"] = gdf["ISO_A2_EH"]
     del gdf["ISO_A2_EH"]
     gdf["ISO_A3"] = gdf["ISO_A3_EH"]
