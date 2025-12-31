@@ -112,9 +112,9 @@ def clean_table(folder_path):
                                gdft.iloc[0]["geometry"], gdf["geometry"])
 
     # Manage Cyprus
-    gdft = gdf[gdf["SOV_A3"].isin(["CYN", "CYP"])].copy()
+    gdft = gdf[gdf["SOV_A3"].isin(["CYN", "CYP", "CNM"])].copy()
     gdft = gdft.dissolve()
-    gdf = gdf[(gdf["SOV_A3"] != "CYN")].copy()
+    gdf = gdf[~gdf["SOV_A3"].isin(["CYN", "CNM"])].copy()
     gdf["geometry"] = np.where(gdf["SOV_A3"] == "CYP",
                                gdft.iloc[0]["geometry"], gdf["geometry"])
 
