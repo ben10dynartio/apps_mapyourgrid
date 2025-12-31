@@ -7,14 +7,13 @@ from pathlib import Path
 sys.path.append(str(Path(__file__).parent.parent / "common"))
 
 import configapps
+from utils_data import convert_int
 
 import pandas as pd
 import geopandas as gpd
 import zipfile
-import tempfile
 import numpy as np
 import shutil
-import os
 
 original_layer_zipfile = Path(__file__).parent / "ne_10m_admin_0_countries.zip"
 extracted_layer_folder = Path(__file__).parent / "ne_10m_admin_0_countries"
@@ -112,6 +111,12 @@ def clean_table(folder_path):
     gdf["geometry"] = np.where(gdf["ADM0_A3"] == "CHN",
                                gdft.iloc[0]["geometry"], gdf["geometry"])
 
+    # Manage Cyprus
+    gdft = gdf[gdf["SOV_A3"].isin(["CYN", "CYP"])].copy()
+    gdft = gdft.dissolve()
+    gdf = gdf[(gdf["SOV_A3"] != "CYN")].copy()
+    gdf["geometry"] = np.where(gdf["SOV_A3"] == "CYP",
+                               gdft.iloc[0]["geometry"], gdf["geometry"])
 
     gdf["ISO_A2"] = gdf["ISO_A2_EH"]
     del gdf["ISO_A2_EH"]
@@ -119,13 +124,14 @@ def clean_table(folder_path):
     del gdf["ISO_A3_EH"]
 
     filepath_wikidata = configapps.OUTPUT_WORLD_FOLDER_PATH / "wikidata_countries_info_formatted.csv"
-    df_wikidata = pd.read_csv(filepath_wikidata, na_filter=False, dtype={"osm_rel_id":int})
+    df_wikidata = pd.read_csv(filepath_wikidata, na_filter=False)
 
     gdf = gdf.merge(df_wikidata, left_on="ISO_A2", right_on="codeiso2", how="left")
     gdf = gdf.fillna("")
     # Correct Netherland & Palestine
     gdf["WIKIDATAID"] = np.where(gdf["ADM0_A3"].isin(["NLD", "PSX", "SHN"]),
                                  gdf["wikidata_id"], gdf["WIKIDATAID"])
+    gdf["osm_rel_id"] = gdf["osm_rel_id"].apply(lambda x: convert_int(x, default=None, error=None)).astype('Int64')
 
     # For Wikidata debug
     gdft = gdf[gdf["WIKIDATAID"] != gdf["wikidata_id"]]
