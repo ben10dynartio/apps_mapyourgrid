@@ -60,7 +60,7 @@ def main(country_code):
         Grid structure (nb of substations x nb of connections) : {{POWER_GRID_CONNECTIVITY}}
 
         <center>
-        <img src="https://raw.githubusercontent.com/ben10dynartio/ohmygrid-website-files/refs/heads/main/docs/images/maps_countries/{{COUNTRY_CODE}}/grid-connectivity.jpg" width="60%">
+        <img src="https://raw.githubusercontent.com/ben10dynartio/mapyourgrid-website-files/refs/heads/main/docs/images/maps_countries/{{COUNTRY_CODE}}/grid-connectivity.jpg" width="60%">
         <img src="../../images/maps_countries_legend_grid.jpg" width="50%">
         </center>
         """.replace("        ", "")

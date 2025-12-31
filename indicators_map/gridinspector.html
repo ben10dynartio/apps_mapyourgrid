@@ -406,8 +406,9 @@ input:checked + .slider {
       //zoom: 3
   });
 
-  map.addControl(new mapboxgl.FullscreenControl({container: document.querySelector('body')}));
+
   map.addControl(new mapboxgl.AttributionControl({customAttribution: "<a href='https://mapyourgrid.org/' target='_blank'>MapYourGrid</a> | <a href='https://dynartio.com/' target='_blank'>Dynartio</a>"}));
+  map.addControl(new mapboxgl.FullscreenControl({container: document.querySelector('body')}));
 
   map.on('load', () => {
       const params = new URLSearchParams(window.location.search);
