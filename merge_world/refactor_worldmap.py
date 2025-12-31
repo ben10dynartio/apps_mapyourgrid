@@ -125,8 +125,6 @@ def clean_table(folder_path):
     gdf["WIKIDATAID"] = np.where(gdf["ADM0_A3"].isin(["NLD", "PSX", "SHN"]),
                                  gdf["wikidata_id"], gdf["WIKIDATAID"])
     gdf["osm_rel_id"] = gdf["osm_rel_id"].apply(lambda x: convert_int(x, default=None, error=None)).astype('Int64')
-    gdf["osm_rel_id"] = np.where(gdf["SOV_A3"] == "CYP",
-                                 307787, gdf["osm_rel_id"])
 
     # For Wikidata debug
     gdft = gdf[gdf["WIKIDATAID"] != gdf["wikidata_id"]]
@@ -139,7 +137,14 @@ def clean_table(folder_path):
         del gdf[col]
     del gdf["wikidata_id"]
 
+    gdf["osm_rel_id"] = np.where(gdf["ISO_A2"] == "CY",
+                                 307787, gdf["osm_rel_id"])
+    gdf["osm_rel_id"] = np.where(gdf["ISO_A2"] == "EH",
+                                 5441968, gdf["osm_rel_id"])
+
     gdf.to_file(exported_layer_file, index=False)
+
+
 
     # Manage US
 
