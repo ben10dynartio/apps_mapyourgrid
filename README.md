@@ -6,8 +6,10 @@ The data used in theses tools are extract by script in the following repo : http
 
 It contains the following tools :
 - `circuit_length/` : compute the length of power line and circuits
+- `common/` : Contains configuration (especially file paths) and utils tools
 - `crosscheck_data_source/` : Fetch sources from OSM Wiki and from awesome list and compare them
 - `gridgraph_webpage/` : prototyping
+- `graphics/` : prototyping data visualisation
 - `indicators_map/` : file used to rendeer the global map, see : https://apps.dynartio.com/mapyourgrid/gridindicator.html
 - `interconnectors/` : scripts for extracting international power grid connector
 - `merge_world/` : used to merge all tools output and produce the indicator map
