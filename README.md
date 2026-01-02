@@ -1,39 +1,44 @@
 # GridInspector
 
-GridInspector is a quality analysis set of tools for Power Grids data on OpenStreetMap. It has been created in the context of <a href="https://mapyourgrid.org" target="_blank">#MapYourGrid</a> project.
+GridInspector is a suite of quality analysis tools for power grid data in OpenStreetMap. It is developped by Dynartio as part of the <a href="https://mapyourgrid.org" target="_blank">#MapYourGrid</a> initiative.
 
-The data used in theses tools are extract by script in the following repo : https://github.com/ben10dynartio/osm-power-grid-map-analysis
+## Related repository (data extraction)
 
-It contains the following tools :
-- `circuit_length/` : compute the length of power line and circuits
-- `common/` : Contains configuration (especially file paths) and utils tools
-- `crosscheck_data_source/` : Fetch sources from OSM Wiki and from awesome list and compare them
-- `gridgraph_webpage/` : prototyping
-- `graphics/` : prototyping data visualisation
-- `indicators_map/` : file used to rendeer the global map, see : https://apps.dynartio.com/mapyourgrid/gridindicator.html
-- `interconnectors/` : scripts for extracting international power grid connector
-- `merge_world/` : used to merge all tools output and produce the indicator map
-- `ohsome_power_lines_length/` : fetch Ohsome to get historical power line length data (not maintened)
-- `osmwiki/` : tool to fetch data from Wikidata and OpenInfraMap
-- `quality_grid_stats/` : perform grid and connectivity analysis 
-- `show_errors_page/` : in developpement (rendeer collected errors during script execution)
-- `spatial_analysis/` : evaluate the coverage of substation based on population density
-- `voltage_operator_analysis/` : extract data about voltages and operator for each country
+The data processed by GridInspector is extracted using scripts from:  
+https://github.com/ben10dynartio/osm-power-grid-map-analysis
 
-# Download complementary data
+## Repository structure
+This repository contains the following tools :
+- `circuit_length/` : Compute power line and circuit lengths
+- `common/` : Shared configuration (notably file paths) and utility functions
+- `crosscheck_data_source/` : Fetch sources from the OSM Wiki and from MapYourGrid's <a href="https://github.com/open-energy-transition/Awesome-Electrical-Grid-Mapping/blob/main/README.md" target="_blank">Awesome Electrical Grid Mapping List</a> and compare them
+- `gridgraph_webpage/` : Prototyping (web)
+- `graphics/` : Prototyping (data visualisation)
+- `indicators_map/` : Generate the global indicator map (rendered here): https://apps.dynartio.com/mapyourgrid/gridindicator.html
+- `interconnectors/` : Extract international power grid interconnectors
+- `merge_world/` : Merge outputs from all tools and produce the indicator map dataset
+- `ohsome_power_lines_length/` : Fetch Ohsome to get historical power line length data (not maintened)
+- `osmwiki/` : Fetch data from Wikidata and [OpenInfraMap](https://openinframap.org/#2/26/12)
+- `quality_grid_stats/` : Perform grid topology and connectivity analysis 
+- `show_errors_page/` : In developpement (render collected errors during script execution)
+- `spatial_analysis/` : Evaluate substation coverageusing population density
+- `voltage_operator_analysis/` : Extract voltage and operator information for each country
 
-- You need to create `spatial_analysis/data_kontur` folder from following zip file : https://github.com/ben10dynartio/mygprocess/releases/download/v0.1/releasedata.zip
+## Download complementary data
+- Create the folder `spatial_analysis/data_kontur`
+- Populate it using this ZIP file: https://github.com/ben10dynartio/mygprocess/releases/download/v0.1/releasedata.zip
 
 ## Line/circuit length calculation details
-The line length calculation comes initially from an overpass script which fetches all lines (and metadata) of a country. 
-### Important details
-1) This does not consider lines "under construction".
-2) This takes the entire "way" of power lines, which means that interconnector line lengths can be overestimated if mapped well into another country. This can explain certain countries having a score well-above 100% for a specific voltage.
-3) Circuit tags are crucial for a valid comparison of actual line mapping coverage. Certain countries can have all lines fully mapped, but may lack circuit tags which can underestimate the actual coverage of lines mapped.
-4) If circuit tags are missing then circuit = 1
-5) When comparing official data and OSM extracted data of circuit lengths, check the certainty of the official source to see if it's circuits or lines on the wiki page.
+Line length calculation initially comes from an Overpass script that fetches all power lines (and metadata) for a country.
 
+## Important details
+1) Lines tagged as `construction:power=line` are **not** considered.
+2) Lengths are computed from the full geometry of each OSM `way`. As a result, interconnector lengths can be **overestimated** if a line is mapped extensively into a neighboring country. This can explain scores **above 100%** for a given voltage in some countries.
+3. `circuits=*` tags are critical to compare OSM coverage with official circuit statistics. Some countries may have power lines well mapped geometrically but lack circuit tags, which can **underestimate** the mapped circuit coverage.
+4. If `circuits=*` tags are missing, the tools assume: `circuits=1`.
+5. When comparing official sources with OSM-extracted circuit lengths, verify whether the official reference reports **line length** or **circuit length** (OSM Wiki sources may mix the two).
 
-# External data used in this repository :
-- Country Shape from : https://www.naturalearthdata.com/downloads/10m-cultural-vectors/
+## External data used in this repository :
+- Country Shape : https://www.naturalearthdata.com/downloads/10m-cultural-vectors/
 - Population density : https://data.humdata.org/dataset/kontur-population-dataset-3km
+- MapYourGrid's Global Transmission Lenght Index : https://docs.google.com/spreadsheets/d/1qmVIQ2_ynVVfbTWcMXJQWb4Sq0Dq-1fu8zgZ9J_0cZI
