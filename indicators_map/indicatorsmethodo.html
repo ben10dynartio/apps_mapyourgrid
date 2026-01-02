@@ -99,16 +99,16 @@ This tool was created by <a href="https://dynartio.com" target="_blank">Dynartio
       <h3 id="taux-croissance">Line connectivity</h3>
       <div class="indicator">
         <div class="meta">
-        A line is connected if it serves to link two substations. If it is connected on only one side, or not at all, it is not connected. Line connectivity is therefore the number of connected lines out of the total number.
+        A power line is considered **connected** if it links two power substations. If it is connected on only one end, or not at all, it is considered **not connected**. The line connectivity indicator is defined as the ratio of connected lines to the total number of lines.
         <ul>
-            <li>nb_power_line_cable_connected = Number of connected power line or cable according OSM Power Grid Map Analysis.</li>
-            <li>nb_power_line_cable = Number of power line or cable according OSM Power Grid Map Analysis.</li>
+            <li>nb_power_line_cable_connected = Number of connected power lines or cables computed by OSM Power Grid Map Analysis.</li>
+            <li>nb_power_line_cable = Number of power lines or cables computed by OSM Power Grid Map Analysis.</li>
           </ul>
         </div>
         <code class="formula">
           value(%) = 100 * nb_power_line_cable_connected / nb_power_line_cable
         </code>
-        <p class="small"><b>How to improve this score: </b>Connect lines to substation or to appropriated line_management nodes.</p>
+        <p class="small"><b>How to improve this score: </b>Connect power lines to substations at both ends. Make sure lines are connected to appropriate `line_management=*` nodes when relevant.</p>
       </div>
 
       <h3 id="taux-croissance">Grid overall connectivity (without circuits)</h3>
@@ -120,17 +120,17 @@ This tool was created by <a href="https://dynartio.com" target="_blank">Dynartio
 
       </div>
 
-      <h3 id="taux-croissance">Grid overall connectivity (with circuits)</h3>
+      <h3 id="taux-croissance">Overall grid connectivity (with circuit relations)</h3>
       <div class="indicator">
         <div class="meta">
-          Indicates whether the entire network of connected substations is connexe or not. The indicators reflects the number of substations connected in the different components of the graph. It is computed through OSM Power Grid Map Analysis. This indicator does take circuit relations into account.
+          Indicates whether the entire network of substations forms a single connected graph It reflects the number of substations are connected across the different components of the graph. It is computed using OSM Power Grid Map Analysis and takes circuit relations into account. A higher score indicates that a larger share of substations belongs to the main connected component of the network.
         </div>
-        <p class="small"><b>How to improve this score: </b>Connect subparts of the national grid together with power lines or power circuits.</p>
+        <p class="small"><b>How to improve this score: </b>Connect isolated parts of the national grid using power lines or power relation circuits.</p>
       </div>
 
-      <h3 id="taux-croissance">"Cables"-tag completeness on lines</h3>
+      <h3 id="taux-croissance">"Cables" tag completeness on lines</h3>
       <div class="indicator">
-        <div class="meta">Indicates the proportion of power lines for which the "cables"-tag has been completed.
+        <div class="meta">Indicates the proportion of power lines for which the `cables=*` tag is present.
           <ul>
             <li>nb_osm_power_line_cable = Number of items that are tagged "power=line" or "power=cable" in OpenStreetMap.</li>
             <li>nb_osm_power_line_cable_without_cables = Number of items that are tagged "power=line" or "power=cable" in OpenStreetMap and have no "cables"-tag.</li>
@@ -138,55 +138,55 @@ This tool was created by <a href="https://dynartio.com" target="_blank">Dynartio
         </div>
         <code class="formula">value(%) = 100 * nb_osm_power_line_cable_without_cables / nb_osm_power_line_cable
 </code>
-<p class="small"><b>How to improve this score: </b>Complete "cables" tag on power lines.</p>
+<p class="small"><b>How to improve this score: </b>Tag `cables=*` on power lines.</p>
       </div>
 
-      <h3 id="taux-croissance">"Circuits"-tag completeness on lines</h3>
+      <h3 id="taux-croissance">"Circuits" tag completeness on lines</h3>
       <div class="indicator">
-        <div class="meta">Indicates the proportion of power lines for which the "circuits"-tag has been completed.
+        <div class="meta">Indicates the proportion of power lines for which the `circuits=*` tag is present.
           <ul>
             <li>nb_osm_power_line_cable = Number of items that are tagged "power=line" or "power=cable" in OpenStreetMap.</li>
-            <li>nb_osm_power_line_cable_without_circuits = Number of items that are tagged "power=line" or "power=cable" in OpenStreetMap and have no "circuits"-tag.</li>
+            <li>nb_osm_power_line_cable_without_circuits = Number of items that are tagged "power=line" or "power=cable" in OpenStreetMap and have no `circuits=*` tag.</li>
           </ul>
         </div>
         <code class="formula">value(%) = 100 * nb_osm_power_line_cable_without_circuits / nb_osm_power_line_cable
 </code>
-<p class="small"><b>How to improve this score: </b>Complete "circuits" tag on power lines.</p>
+<p class="small"><b>How to improve this score: </b>Tag `circuits=*` on power lines.</p>
       </div>
 
-      <h3 id="taux-croissance">"Voltage"-tag completeness on lines</h3>
+      <h3 id="taux-croissance">"Voltage" tag completeness on lines</h3>
       <div class="indicator">
         <div class="meta">
-          Indicates the proportion of power line for which the "voltage"-tag has been completed.
+          Indicates the proportion of power lines for which the `voltage=*` tag is present.
           <ul>
-            <li>nb_osm_power_substations = Number of items that are tagged "power=substation" in OpenStreetMap.</li>
-            <li>nb_osm_power_substations_without_voltage = Number of items that are tagged "power=substation" in OpenStreetMap and have no "voltage"-tag.</li>
+            <li>nb_osm_power_line_cable = Number of items that are tagged "power=line" or "power=cable" in OpenStreetMap.</li>
+            <li>nb_osm_power_line_cable_without_voltage = Number of items that are tagged "power=line" or "power=cable" in OpenStreetMap and have no `voltage=*` tag.</li>
           </ul>
         </div>
-        <code class="formula">value(%) = 100 * nb_osm_power_substations_without_voltage / nb_osm_power_substations
+        <code class="formula">value(%) = 100 * nb_osm_power_line_cable_without_voltage / nb_osm_power_line_cable
 </code>
-<p class="small"><b>How to improve this score: </b>Complete "voltage" tag on power lines.</p>
+<p class="small"><b>How to improve this score: </b>Tag `voltage=*` on power lines.</p>
 
       </div>
 
       <h3 id="taux-croissance">"Voltage"-tag completeness on substations</h3>
       <div class="indicator">
         <div class="meta">
-          Indicates the proportion of power substations for which the "voltage"-tag has been completed.
+          Indicates the proportion of power substations for which the "voltage"-tag is present.
           <ul>
             <li>nb_osm_power_substations = Number of items that are tagged "power=substation" in OpenStreetMap.</li>
           </ul>
         </div>
         <code class="formula">value(%) = 100 * nb(OSM power=substation & voltage!='')/ nb_osm_power_substations)
 </code>
-<p class="small"><b>How to improve this score: </b>Complete "voltage" tag on power substations.</p>
+<p class="small"><b>How to improve this score: </b>Tag `voltage=*` on power substations.</p>
 
       </div>
 
-      <h3 id="taux-croissance">Connected power tower</h3>
+      <h3 id="taux-croissance">Connected power towers</h3>
       <div class="indicator">
         <div class="meta">
-          Indicates the proportion of power towers that are well connected to a power line or minor_line.
+          Indicates the proportion of power towers that are connected to a power=line or power=minor_line.
           <ul>
             <li>nb_oc1_t = number of Osmose-Class1 issues (i.e. Lone power tower or pole) where the concerned node is a power tower.</li>
             <li>nb_osm_power_tower = Number of nodes that are tagged "power=tower" in OpenStreetMap.</li>
@@ -195,29 +195,29 @@ This tool was created by <a href="https://dynartio.com" target="_blank">Dynartio
         <code class="formula">
           value(%) = 100 * (1 - nb_oc1_t / nb_osm_power_tower)
         </code>
-        <p class="small"><b>How to improve this score: </b>Connect power tower on power line. This is solving some of Osmose-Class1 issues (i.e. Lone power tower or pole).</p>
+        <p class="small"><b>How to improve this score: </b>Connect power tower on power lines. This solves some of the Osmose-Class1 issues (i.e. Lone power tower or pole).</p>
       </div>
 
       <h3 id="taux-croissance">Completed power lines</h3>
       <div class="indicator">
         <div class="meta">
-        A power line is not completed if one of its ends is not an other line, a portal, or an appropriated line_management node.
+        A power line is considered completed when both of its ends are connected to another power line, a power portal or a power insulator, or an appropriate line_management node.
           <ul>
             <li>nb_oc2 = number of Osmose-Class2 issues (i.e. Unfinished power transmission line)</li>
-            <li>nb_osm_power_line = Number of ways that are tagged "power=line" in OpenStreetMap.</li>
+            <li>nb_osm_power_line = Number of ways that are tagged with "power=line" in OpenStreetMap.</li>
           </ul>
         </div>
         <code class="formula">
           value(%) = 100 * (1 - nb_oc2 / 2*nb_osm_power_line)
         </code>
-        <p class="small"><b>How to improve this score: </b>Connect power line to an other line, to a portal, or to an appropriated line_management node. This is solving Osmose-Class2 issues (i.e. Unfinished power transmission line).</p>
+        <p class="small"><b>How to improve this score: </b>Connect the power line to another line, to a portal or insulator, or to an appropriated line_management node. This solves some of the Osmose-Class2 issues (i.e. Unfinished power transmission line).</p>
 
       </div>
 
       <h3 id="taux-croissance">Line-to-line voltage consistency</h3>
       <div class="indicator">
         <div class="meta">
-        Connected lines must have coherent voltage.
+        Segments of connected lines must have coherent voltages.
           <ul>
             <li>nb_oc3 = number of Osmose-Class3 issues (i.e. Connection between different voltages)</li>
           </ul>
@@ -225,15 +225,15 @@ This tool was created by <a href="https://dynartio.com" target="_blank">Dynartio
         <code class="formula">value(%) = 100 * (1 - nb_oc3 / nb(connection nodes) )
         </code>
         <p class="small">Connection nodes computed by grid analysis.</p>
-        <p class="small"><b>Warning: </b>The Osmose-Class3 issue is refering to line connections AND to minor_line connections. It is not possible yet to distinguish line and minor_line in the issue. Thus the indicator is not really consistent yet regarding the transmission grid.</p>
-        <p class="small"><b>How to improve this score: </b>Verify the consistency of line voltages on joining nodes. This is solving Osmose-Class3 issues (i.e. Connection between different voltages).</p>
+        <p class="small"><b>Warning: </b>The Osmose-Class3 issue is refering to line connections AND to minor_line connections. It is not possible yet to distinguish line and minor_line in the issue. Thus the indicator is not yet completely consistent regarding the transmission grid.</p>
+        <p class="small"><b>How to improve this score: </b>Check consistency of line voltages on joining nodes. This solves the Osmose-Class3 issues (i.e. Connection between different voltages).</p>
 
       </div>
 
       <h3 id="taux-croissance">Line-to-substation voltage consistency</h3>
       <div class="indicator">
 
-        <div class="meta">Line voltage should be corresponding to its linked substation voltage.<br>
+        <div class="meta">The voltage of a power line should match the voltage of the substations it is connected to.<br>
           <ul>
             <li>nb_oc7 = number of Osmose-Class7 issues (i.e. Unmatched voltage of line near of substation)</li>
             <li>nb_line_substation_connection = number of tuple (substation ; connected line) computed by OSM Power Grid Map Analysis.</li>
@@ -242,7 +242,7 @@ This tool was created by <a href="https://dynartio.com" target="_blank">Dynartio
         <code class="formula">
           value(%) = 100 * (1 - (nb_oc7 / nb_line_substation_connection))
       </code>
-      <p class="small"><b>How to improve this score: </b>Verify voltage between line and connected substation. This is solving Osmose-Class7 issues (i.e. Unmatched voltage of line near of substation).</p>
+      <p class="small"><b>How to improve this score: </b>Check the voltage between a power line and the substations it is connected to. This solves Osmose-Class7 issues (i.e. Unmatched voltage of line near of substation).</p>
 
       </div>
 
@@ -250,9 +250,9 @@ This tool was created by <a href="https://dynartio.com" target="_blank">Dynartio
 
       <div class="indicator">
         <div class="meta">
-         Represents the proportion of the surface area of densely populated areas that is covered by a substation.<br>
-          <ul><li>d = area of densely populated areas</li>
-          <li>c = area of densely populated areas not covered by substation (Hypothesis: coverage radius of a substation = 40 km)</li></ul>
+         Indicates the proportion of densely populated area surface that is covered by a substation.<br>
+          <ul><li>d = surface of densely populated areas</li>
+          <li>c = surface of densely populated areas not covered by a substation (Hypothesis: coverage radius of a substation = 40 km)</li></ul>
         </div>
         <code class="formula">
           value(%) = 100 * c / d
