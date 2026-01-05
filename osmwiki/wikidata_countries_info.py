@@ -265,3 +265,16 @@ if __name__ == "__main__":
 
     print("\n\n")
     print(wikistring)
+
+    # Show country list & dict
+    print("LIST_COUNTRY_CODES = ", end="")
+    print(list(df["codeiso2"]))
+    print()
+
+    world_dict = {}
+    for cnt in df["continent"].unique().tolist():
+        world_dict[cnt] = {r["codeiso2"]:r["name"] for r in df[df["continent"]==cnt].to_dict(orient='records')}
+
+    print("CONTINENTAL_COUNTRY_DICT = ", end="")
+    print(world_dict)
+

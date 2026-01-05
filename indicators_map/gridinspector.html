@@ -51,8 +51,14 @@ h1 {
   font-weight: bold;
   margin:0px;
   margin-left:13px;
+  margin-top:7px;
   color:var(--mapyourgrid-primary);
   font-family: 'Aldrich', sans-serif;
+}
+
+h1 span {
+  background: #f4f4f4;
+
 }
 
 h2 {
@@ -75,10 +81,6 @@ h3 {
      text-align: center;
   }
 
-.infobox p {
-    margin-left:15px;
-}
-
 
 .mini-website-icon {
   vertical-align: middle;
@@ -94,7 +96,8 @@ h3 {
 
 .card {
   flex: 1 1 200px; /* min width 200px, adjustable */
-  max-width: 125px;
+  /*width: 125px;*/
+  max-width: min(120px, 35%);
   border: 1px solid #ccc;
   border-radius: 10px;
   padding: 10px;
@@ -128,6 +131,7 @@ h3 {
   right: -400px; /* hidden by default */
   top: 0;
   width: var(--left-panel-width);
+  max-width: 30%;
   height: 100%;
   background: #f4f4f4;
   box-shadow: -2px 0 5px rgba(0,0,0,0.3);
@@ -177,15 +181,21 @@ h3 {
 
 .infobox {
   z-index: 10;
-  width: 410px;
+  width: 400px;
+  max-width:40%;
   height: auto;
   background: #f4f4f4;
   border-radius: 20px;
   display: block;
-  padding: 15px;
+  padding: 7px;
+  padding-left: 3px;
   font-size:1.1em;
   position: relative;
   margin: 10px;
+}
+
+.infobox p {
+    margin-left:15px;
 }
 
 /* TOGGLE BOUTON STYLE */
@@ -197,10 +207,10 @@ h3 {
   background: #ddd;
   border-radius: 20px;
   display: block;
-  padding: 5px;
+  padding: 15px;
   font-family: sans-serif;
   position: relative;
-  margin: 10px;
+  margin: 15px;
 }
 
 .toggle {
@@ -209,6 +219,7 @@ h3 {
   display: flex;
   align-items: center;
   padding: 4px;
+  padding-left: 15px;
   font-family: sans-serif;
 }
 
@@ -263,7 +274,7 @@ input:checked + .slider {
 <div id="map"></div>
 
 <div class="infobox">
-    <h1 style="font-variant-caps: small-caps;">GridInspector</h1>
+    <h1 style="font-variant-caps: small-caps;"><span>GridInspector</span></h1>
     <p style="font-variant-caps: small-caps;font-size: 1.3rem;margin-top:0px;margin-bottom:0px;"><b>OpenStreetMap QA for Power Grids</b></p>
     <p style="font-size: 1.1rem;margin-top:10px;">Select the health score to display:</p>
 
@@ -275,9 +286,9 @@ input:checked + .slider {
           <div>Coverage</div>
         </div>
       </label>
-      <div style="margin:15px;margin-top:15px;margin-bottom:0px;">
-          <div style="float:right;margin-top:0px;text-align:center;font-size:0.8em;"><i>Beta v0.1</i><br>
-          <a href="https://github.com/ben10dynartio/gridinspector/" target="_blank"><img src='logo-github.svg' width="35px" border=0></a>
+      <div style="margin:0px;margin-top:15px;margin-bottom:0px;margin-right:10px;">
+          <div style="float:right;margin-top:0px;text-align:center;font-size:0.8em;">
+          <a href="https://github.com/ben10dynartio/gridinspector/" target="_blank"><i>Beta v0.1</i><br><img src='logo-github.svg' width="35px" border=0></a>
           </div>
         <div style="font-size:0.8em;padding-top:1px;"><p style="margin-top:5px"><i>Click on a country to see all stats.<br>
         See also <a href="indicatorsmethodo.html" target="_blank">our methodology</a></i>.</p></div>
