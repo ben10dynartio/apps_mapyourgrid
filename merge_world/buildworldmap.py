@@ -32,7 +32,7 @@ coverage_stops = [
     (1.0, (0, 255, 0)),
 ]
 
-EXPORT_FILENAME = "worldmap_indicators" #without extension : geojson and json will be created
+EXPORT_FILENAME = "gridinspector_data" #without extension : geojson and json will be created
 
 def gradient_color(t: float, stops: list) -> str:
     """

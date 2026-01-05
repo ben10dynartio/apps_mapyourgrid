@@ -291,10 +291,9 @@ input:checked + .slider {
           <a href="https://github.com/ben10dynartio/gridinspector/" target="_blank"><i>Beta v0.1</i><br><img src='logo-github.svg' width="35px" border=0></a>
           </div>
         <div style="font-size:0.8em;padding-top:1px;"><p style="margin-top:5px"><i>Click on a country to see all stats.<br>
-        See also <a href="indicatorsmethodo.html" target="_blank">our methodology</a></i>.</p></div>
+        See also <a href="methodology.html" target="_blank">our methodology</a></i>.</p></div>
       </div>
 </div>
-
 
 
 <div id="mySidepanel" class="sidepanel">
@@ -330,7 +329,7 @@ input:checked + .slider {
       <canvas id='ring_quality_score' width='250' height='120'></canvas>
     </div>
     <div class='container' id='quality_score_div'></div><br>
-    <div style="text-align:center"><a href="indicatorsmethodo.html" target="_blank">See indicator computation methodology</a></div>
+    <div style="text-align:center"><a href="methodology.html" target="_blank">See indicator computation methodology</a></div>
 
     <div id="voltage_section">
       <h3 id="voltage_headsection">Comparison of circuit lengths with official data</h3>
@@ -360,7 +359,7 @@ input:checked + .slider {
     // Loading global json data
     let global_data = null;
     async function loadGlobalData() {
-      const response = await fetch("worldmap_indicators.json");
+      const response = await fetch("gridinspector_data.json");
       if (!response.ok) {
         throw new Error("Loading error ...");
       }
