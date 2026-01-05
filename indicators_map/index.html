@@ -198,6 +198,17 @@ h3 {
     margin-left:15px;
 }
 
+.infobox-icon {
+    padding-left:15px;
+    width:auto;
+}
+
+.infobox-icon a {
+    font-family: 'Aldrich', sans-serif;
+    text-decoration: none;
+    color:#02515a;
+}
+
 /* TOGGLE BOUTON STYLE */
 
 .togglebox {
@@ -286,13 +297,19 @@ input:checked + .slider {
           <div>Coverage</div>
         </div>
       </label>
-      <div style="margin:0px;margin-top:15px;margin-bottom:0px;margin-right:10px;">
-          <div style="float:right;margin-top:0px;text-align:center;font-size:0.8em;">
-          <a href="https://github.com/ben10dynartio/gridinspector/" target="_blank"><i>Beta v0.1</i><br><img src='logo-github.svg' width="35px" border=0></a>
+      <div style="margin:0px;margin-top:15px;margin-bottom:0px;margin-right:5px;">
+          <div style="float:right;margin-top:0px;text-align:center;font-size:0.7em;display:flex;">
+              <div class="infobox-icon">
+                    <a href="https://mapyourgrid.org" target="_blank">MapYourGrid<br><img src="https://mapyourgrid.org/images/logos/MapYourGrid-logo.png" height="30"></a>
+              </div>
+              <div class="infobox-icon">
+                  <a href="https://github.com/ben10dynartio/gridinspector/" target="_blank">Beta v0.1<br><img src='logo-github.svg' height="30" border=0></a>
+                </div>
           </div>
         <div style="font-size:0.8em;padding-top:1px;"><p style="margin-top:5px"><i>Click on a country to see all stats.<br>
-        See also <a href="methodology.html" target="_blank">our methodology</a></i>.</p></div>
+        See also <a href="methodology.html" target="_blank">our methodology</a>.</p></div>
       </div>
+    </div>
 </div>
 
 
