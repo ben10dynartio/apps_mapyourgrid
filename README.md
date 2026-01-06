@@ -14,7 +14,7 @@ This repository contains the following tools :
 - `crosscheck_data_source/` : Fetch sources from the OSM Wiki and from MapYourGrid's <a href="https://github.com/open-energy-transition/Awesome-Electrical-Grid-Mapping/blob/main/README.md" target="_blank">Awesome Electrical Grid Mapping List</a> and compare them
 - `gridgraph_webpage/` : Prototyping (web)
 - `graphics/` : Prototyping (data visualisation)
-- `indicators_map/` : Generate the global indicator map (rendered here): https://apps.dynartio.com/mapyourgrid/gridindicator.html
+- `indicators_map/` : Generate the global indicator map (rendered here: [https://apps.dynartio.com/mapyourgrid/gridindicator.html](https://mapyourgrid.dynartio.com/gridinspector/))
 - `interconnectors/` : Extract international power grid interconnectors
 - `merge_world/` : Merge outputs from all tools and produce the indicator map dataset
 - `ohsome_power_lines_length/` : Fetch Ohsome to get historical power line length data (not maintened)
