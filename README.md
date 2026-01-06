@@ -1,6 +1,6 @@
 # GridInspector
 
-GridInspector is a suite of quality analysis tools for power grid data in OpenStreetMap. It is developped by Dynartio as part of the <a href="https://mapyourgrid.org" target="_blank">#MapYourGrid</a> initiative.
+GridInspector is a suite of quality analysis tools for power grid data in OpenStreetMap. It is developped by <a href="https://dynartio.com" target="_blank">Dynartio</a> as part of the <a href="https://mapyourgrid.org" target="_blank">#MapYourGrid</a> initiative.
 
 ## Related repository (data extraction)
 
