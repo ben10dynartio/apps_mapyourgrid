@@ -96,14 +96,17 @@ h3 {
 
 .card {
   flex: 1 1 200px; /* min width 200px, adjustable */
-  /*width: 125px;*/
-  max-width: min(120px, 35%);
+  max-width: min(125px, 35%);
   border: 1px solid #ccc;
   border-radius: 10px;
   padding: 10px;
   padding-bottom: 0px;
   text-align: center;
   background: #f9f9f9;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
 }
 .card img {
   max-width: 100%;
@@ -112,18 +115,25 @@ h3 {
 }
 
 .card b {
-  display: block;
   font-size: 14px;
   line-height:1.05;
 }
 
 .card-title {
-  height: auto;
   margin-bottom: 8px;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .card-title i {
   font-size: 12px;
+
+}
+
+.card-canvasdiv {
+  width: 100%;
 }
 
 .sidepanel {
@@ -637,7 +647,7 @@ function buildQualityIndicatorDiv(feature_properties) {
     if (indicator in feature_properties) {
      let subtitle = "";
      if (osmose_health_indicators.includes(indicator)) {
-        subtitle = "based on <a href='https://osmose.openstreetmap.fr' target='_blank'>Osmose-QA</a>";
+        subtitle = "<br>based on <a href='https://osmose.openstreetmap.fr' target='_blank'>Osmose-QA</a>";
      }
       buildRingCard(quality_score_div, "ring_" + indicator, indicator_title[indicator], subtitle, feature_properties[indicator].toFixed(1));
     }
@@ -688,6 +698,8 @@ function buildRingCard(container_div, ring_id, ring_title, ring_subtitle, ring_v
     const divtitle = document.createElement('div');
     divtitle.className = 'card-title';
 
+    const divinnertitle = document.createElement('div');
+
     // Titre
     const title = document.createElement('b');
     //title.innerHTML = "<b>" + ring_title + "</b><i>" + ring_subtitle + "</i>";
@@ -698,16 +710,20 @@ function buildRingCard(container_div, ring_id, ring_title, ring_subtitle, ring_v
       subtitle.innerHTML = ring_subtitle;
     }
 
+    const canvasdiv = document.createElement('div');
+    canvasdiv.className = 'card-canvasdiv';
     // Image (ici un placeholder, tu peux remplacer l'URL)
     const canvas = document.createElement('canvas');
     canvas.id = ring_id;
     canvas.width = 75;
     canvas.height = 75;
 
-    divtitle.appendChild(title);
-    divtitle.appendChild(subtitle);
+    divinnertitle.appendChild(title);
+    divinnertitle.appendChild(subtitle);
+    divtitle.appendChild(divinnertitle);
     div.appendChild(divtitle);
-    div.appendChild(canvas);
+    canvasdiv.appendChild(canvas);
+    div.appendChild(canvasdiv);
     container_div.appendChild(div);
 
     drawRing(ring_id, ring_value, "XXS");
