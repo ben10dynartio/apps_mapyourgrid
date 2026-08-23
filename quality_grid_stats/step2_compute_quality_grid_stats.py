@@ -197,7 +197,7 @@ def main(country_code):
 
     key = "last_update"
     names[key] = "Last update"
-    indicators[key] = datetime.date.today().strftime("%y%m%d")
+    indicators[key] = datetime.date.today().strftime("%Y-%m-%d")
 
     """key = "stats_line_voltages"
     names[key] = "Lines voltages"
