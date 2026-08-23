@@ -143,7 +143,7 @@ health_score_cols = ['health_power_line_connectivity',
 other_cols = [
  'stats_nb_international_connections',
  'stats_nb_substations',
-    'coverage_population']
+    'coverage_population', 'last_update']
 
 select_columns = ["code_isoa2", "name", "flag_image", "osm_rel_id", "population", "area_km2", "gdp_bd", "power_line_total_length",
                   "wikidata_id",

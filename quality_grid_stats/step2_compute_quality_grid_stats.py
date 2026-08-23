@@ -14,6 +14,7 @@ import pandas as pd
 import networkx as nx
 import json
 from pathlib import Path
+import datetime
 
 
 DATA_FOLDER = configapps.INPUT_GEODATA_FOLDER_PATH
@@ -193,6 +194,10 @@ def main(country_code):
     key = "stats_nb_substations"
     names[key] = "Number of substations"
     indicators[key] = len([n for n in G.nodes if G.nodes[n]["grid_role"] == "substation"])
+
+    key = "last_update"
+    names[key] = "Last update"
+    indicators[key] = datetime.date.today().strftime("%y%m%d")
 
     """key = "stats_line_voltages"
     names[key] = "Lines voltages"
