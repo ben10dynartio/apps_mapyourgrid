@@ -349,7 +349,7 @@ input:checked + .slider {
     <div id="externalLinksLogoLine">
         <!-- AUTO GENERATED -->
     </div>
-    <p align="center" style="margin:0"><i>Data from OpenStreetMap & Wikidata</i></p>
+    <p align="center" style="margin:0"><i>Data from OpenStreetMap & Wikidata, last update <span id="country-property-last_update">$last_update</span></i></p>
 
     <h3>Quality Score</h3>
     <div style='text-align: center;width:100%;'>
@@ -552,7 +552,7 @@ function buildPanel(feature_properties) {
         circuit_length_kv_km = JSON.parse(value_circuit_length_kv_km);
     }
 //transmission_voltages_kv
-    const country_property_list = ["name", "code_isoa2", "population", "area_km2", "gdp_bd", "power_plant_count", "power_plant_output_mw", "stats_nb_substations", "stats_nb_international_connections", "transmission_voltages_kv", "osm_circuit_above_50kv_length_km", "osm_way_above_50kv_length_km"];
+    const country_property_list = ["name", "code_isoa2", "population", "area_km2", "gdp_bd", "power_plant_count", "power_plant_output_mw", "stats_nb_substations", "stats_nb_international_connections", "transmission_voltages_kv", "osm_circuit_above_50kv_length_km", "osm_way_above_50kv_length_km", "last_update"];
 
     for (const prop of country_property_list) {
         const myspan = document.getElementById("country-property-" + prop);
@@ -581,7 +581,7 @@ function buildPanel(feature_properties) {
         htmlcontent += "<a href='https://openinframap.org/stats/area/" + feature_properties.name + "' target='_blank' title='See on OpenInfraMap'><img src='logo_openinframap.png' width='50' class='mini-website-icon'></a>";
     }
      if (feature_properties.osm_rel_id !== undefined) {
-      htmlcontent += "<a href='https://www.openstreetmap.org/relation/" + feature_properties.osm_rel_id + "' target='_blank' title='See on OpenStreetMap'><img src='https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/Openstreetmap_logo.svg/80px-Openstreetmap_logo.svg.png' width='50' class='mini-website-icon'></a>";
+      htmlcontent += "<a href='https://www.openstreetmap.org/relation/" + feature_properties.osm_rel_id + "' target='_blank' title='See on OpenStreetMap'><img src='https://upload.wikimedia.org/wikipedia/commons/b/b0/Openstreetmap_logo.svg' width='50' class='mini-website-icon'></a>";
       htmlcontent += "</p>";
      }
 
