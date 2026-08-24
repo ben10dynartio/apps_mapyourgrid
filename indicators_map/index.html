@@ -559,7 +559,9 @@ function buildPanel(feature_properties) {
         if (feature_properties[prop] === null) {
             myspan.innerHTML = "-";
         } else {
-            if (prop == "transmission_voltages_kv") {
+            if ((prop == "last_update") && (feature_properties[prop] == "")) {
+              myspan.innerHTML = "undefined";
+            } else if (prop == "transmission_voltages_kv") {
                 myspan.innerHTML = feature_properties[prop].split(";").map(Number).filter(v => v >= 50).map(v => `${v}&nbsp;kV`).join(", ");
             } else {
               myspan.innerHTML = feature_properties[prop];
